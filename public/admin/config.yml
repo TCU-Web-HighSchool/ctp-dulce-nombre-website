@@ -1,0 +1,114 @@
+backend:
+  name: git-gateway
+  branch: main # Branch to update (optional; defaults to master)
+
+# Media files will be stored in the repo under public/uploads
+media_folder: "public/uploads"
+public_folder: "/uploads"
+
+# Uncomment if you want to use Netlify CMS locally
+# local_backend: true
+
+collections:
+  # ─── News / Blog Posts ───────────────────────────────────────────────
+  - name: "news"
+    label: "News & Announcements"
+    folder: "src/content/news"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - label: "Category"
+        name: "category"
+        widget: "select"
+        options: ["Events", "Academic", "Community", "Sports", "General"]
+      - { label: "Featured Image", name: "image", widget: "image", required: false }
+      - { label: "Summary", name: "summary", widget: "text" }
+      - { label: "Body", name: "body", widget: "markdown" }
+      - { label: "Draft", name: "draft", widget: "boolean", default: false }
+
+  # ─── Job Board ───────────────────────────────────────────────────────
+  - name: "jobs"
+    label: "Job Board"
+    folder: "src/content/jobs"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Job Title", name: "title", widget: "string" }
+      - { label: "Company", name: "company", widget: "string" }
+      - { label: "Location", name: "location", widget: "string" }
+      - label: "Type"
+        name: "type"
+        widget: "select"
+        options: ["Full-time", "Part-time", "Internship", "Contract"]
+      - label: "Technical Area"
+        name: "area"
+        widget: "select"
+        options:
+          - "Computing"
+          - "Electromechanics"
+          - "Secretarial"
+          - "Electronics"
+          - "Accounting"
+          - "Tourism"
+          - "General"
+      - { label: "Description", name: "body", widget: "markdown" }
+      - { label: "Application URL", name: "applyUrl", widget: "string", required: false }
+      - { label: "Posted Date", name: "date", widget: "datetime" }
+      - { label: "Expiry Date", name: "expiryDate", widget: "datetime", required: false }
+      - { label: "Active", name: "active", widget: "boolean", default: true }
+
+  # ─── Academic Programs ───────────────────────────────────────────────
+  - name: "programs"
+    label: "Academic Programs"
+    folder: "src/content/programs"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Program Name", name: "title", widget: "string" }
+      - { label: "Icon (Material Symbol)", name: "icon", widget: "string" }
+      - { label: "Short Description", name: "summary", widget: "text" }
+      - { label: "Full Description", name: "body", widget: "markdown" }
+      - { label: "Duration", name: "duration", widget: "string", default: "3 years" }
+      - { label: "Order", name: "order", widget: "number", default: 0 }
+      - { label: "Active", name: "active", widget: "boolean", default: true }
+
+  # ─── FAQ ─────────────────────────────────────────────────────────────
+  - name: "faq"
+    label: "FAQ"
+    folder: "src/content/faq"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Question", name: "question", widget: "string" }
+      - { label: "Answer", name: "answer", widget: "text" }
+      - { label: "Order", name: "order", widget: "number", default: 0 }
+      - { label: "Active", name: "active", widget: "boolean", default: true }
+
+  # ─── Site Settings (Single File) ─────────────────────────────────────
+  - name: "settings"
+    label: "Site Settings"
+    files:
+      - label: "General Settings"
+        name: "general"
+        file: "src/content/settings/general.json"
+        fields:
+          - { label: "School Name", name: "schoolName", widget: "string" }
+          - { label: "Tagline", name: "tagline", widget: "string" }
+          - { label: "Phone", name: "phone", widget: "string" }
+          - { label: "Email", name: "email", widget: "string" }
+          - { label: "Address", name: "address", widget: "text" }
+          - { label: "Facebook URL", name: "facebookUrl", widget: "string", required: false }
+          - { label: "Instagram URL", name: "instagramUrl", widget: "string", required: false }
+          - { label: "LinkedIn URL", name: "linkedinUrl", widget: "string", required: false }
+      - label: "Hero Section"
+        name: "hero"
+        file: "src/content/settings/hero.json"
+        fields:
+          - { label: "Headline", name: "headline", widget: "string" }
+          - { label: "Subheadline", name: "subheadline", widget: "text" }
+          - { label: "Badge Text", name: "badgeText", widget: "string" }
+          - { label: "CTA Primary Label", name: "ctaPrimaryLabel", widget: "string" }
+          - { label: "CTA Secondary Label", name: "ctaSecondaryLabel", widget: "string" }
+          - { label: "Hero Image", name: "heroImage", widget: "image", required: false }
