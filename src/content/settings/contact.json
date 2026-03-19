@@ -1,0 +1,31 @@
+{
+  "title": "Contáctenos y Ubicación",
+  "subtitle": "Estamos aquí para ayudarle. Comuníquese con la administración del CTP Dulce Nombre para consultas sobre admisiones, programas técnicos o alianzas institucionales.",
+  "officeHours": [
+    { "day": "Lunes — Viernes", "hours": "7:00 AM - 4:00 PM", "isClosed": false },
+    { "day": "Sábado", "hours": "Cerrado", "isClosed": true },
+    { "day": "Domingo", "hours": "Cerrado", "isClosed": true }
+  ],
+  "contactDetails": [
+    {
+      "icon": "call",
+      "label": "Teléfono",
+      "value": "+506 2551-0000",
+      "href": "tel:+50625510000"
+    },
+    {
+      "icon": "mail",
+      "label": "Correo Electrónico",
+      "value": "info@ctpdulcenombre.ed.cr",
+      "href": "mailto:info@ctpdulcenombre.ed.cr"
+    },
+    {
+      "icon": "public",
+      "label": "Redes Sociales",
+      "value": "Página de Facebook",
+      "href": "https://facebook.com"
+    }
+  ],
+  "mapImage": "https://lh3.googleusercontent.com/aida-public/AB6AXuA3cgVnl9P74kYpMh2i1L-ibPoetlXfoZFbui0K1oS6iDcXqpVmVGlU91fwtQiM0FkwmrigNtNr97AGBdfEFrB4Pe-8pLYFqPfCaQqKgTxlG0gz_QxrRAT8GXZ75oDSWtm4JIWVmyRxf96e4XSttE07tdl1FXRXHHYqS9fGJ5Sd424_iezTyTHO5jQ7DYelhPg5ZHRLKlehIDN8OUcysAVmPQQg0NUQe_lTGyNVjBhojR9j8vMINt8D9e4TxraPlbwpCJI6D64vnA",
+  "address": "Dulce Nombre, Cartago, Costa Rica.\n500m al sur del Estadio Municipal."
+}

@@ -1,114 +1,499 @@
 backend:
   name: git-gateway
-  branch: main # Branch to update (optional; defaults to master)
+  branch: main
 
-# Media files will be stored in the repo under public/uploads
+# Archivos multimedia se guardan en public/uploads
 media_folder: "public/uploads"
 public_folder: "/uploads"
 
-# Uncomment if you want to use Netlify CMS locally
+# Descomenta para usar el CMS en local
 # local_backend: true
 
+# ════════════════════════════════════════════════════════════════════
+#  INSTRUCCIONES PARA EL ADMINISTRADOR
+#  ─────────────────────────────────────
+#  1. Cada sección del sitio web se puede editar desde aquí.
+#  2. Las colecciones marcadas con 📝 permiten CREAR nuevos elementos
+#     (noticias, ofertas de empleo, preguntas frecuentes, etc.)
+#  3. Las colecciones bajo "⚙️ Configuración del Sitio" editan las
+#     páginas existentes (Inicio, Académico, Contacto, etc.)
+#  4. Las imágenes se pueden subir directamente desde el editor.
+#  5. Los cambios se publican automáticamente tras guardar.
+# ════════════════════════════════════════════════════════════════════
+
 collections:
-  # ─── News / Blog Posts ───────────────────────────────────────────────
-  - name: "news"
-    label: "News & Announcements"
+  # ─── 📝 Noticias y Anuncios ──────────────────────────────────────
+  - name: "noticias"
+    label: "📰 Noticias y Anuncios"
+    label_singular: "Noticia"
+    description: "Publica noticias, anuncios y avisos importantes del colegio. Aparecen en la página de Noticias."
     folder: "src/content/news"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Publish Date", name: "date", widget: "datetime" }
-      - label: "Category"
+      - { label: "Título de la noticia", name: "title", widget: "string", hint: "Ejemplo: Matrícula 2026 ya está abierta" }
+      - { label: "Fecha de publicación", name: "date", widget: "datetime" }
+      - label: "Categoría"
         name: "category"
         widget: "select"
-        options: ["Events", "Academic", "Community", "Sports", "General"]
-      - { label: "Featured Image", name: "image", widget: "image", required: false }
-      - { label: "Summary", name: "summary", widget: "text" }
-      - { label: "Body", name: "body", widget: "markdown" }
-      - { label: "Draft", name: "draft", widget: "boolean", default: false }
+        hint: "Selecciona la categoría que mejor describe esta noticia"
+        options:
+          - { label: "Académico", value: "Académico" }
+          - { label: "Deportes", value: "Deportes" }
+          - { label: "Cultural", value: "Cultural" }
+          - { label: "General", value: "General" }
+      - { label: "Imagen destacada", name: "image", widget: "image", required: false, hint: "Imagen principal que aparece en la tarjeta de la noticia" }
+      - { label: "Resumen", name: "summary", widget: "text", hint: "Texto corto que aparece bajo el título (2-3 líneas)" }
+      - { label: "Contenido completo", name: "body", widget: "markdown" }
+      - { label: "Marcar como nuevo", name: "isNew", widget: "boolean", default: true, hint: "Muestra la etiqueta 'Nuevo' en la tarjeta" }
+      - { label: "Es aviso importante", name: "isImportant", widget: "boolean", default: false, hint: "Aviso destacado con borde punteado (sin imagen)" }
+      - { label: "Borrador", name: "draft", widget: "boolean", default: false, hint: "No se muestra en el sitio hasta desmarcar" }
 
-  # ─── Job Board ───────────────────────────────────────────────────────
-  - name: "jobs"
-    label: "Job Board"
+  # ─── 📝 Bolsa de Empleo ──────────────────────────────────────────
+  - name: "empleos"
+    label: "💼 Bolsa de Empleo"
+    label_singular: "Oferta de Empleo"
+    description: "Agrega ofertas laborales para egresados y estudiantes. Aparecen en la Bolsa de Empleo."
     folder: "src/content/jobs"
     create: true
     slug: "{{slug}}"
     fields:
-      - { label: "Job Title", name: "title", widget: "string" }
-      - { label: "Company", name: "company", widget: "string" }
-      - { label: "Location", name: "location", widget: "string" }
-      - label: "Type"
+      - { label: "Puesto / Cargo", name: "title", widget: "string", hint: "Ejemplo: Desarrollador(a) Frontend Junior" }
+      - { label: "Empresa", name: "company", widget: "string" }
+      - { label: "Ubicación", name: "location", widget: "string", hint: "Ejemplo: San José, CR o Remoto" }
+      - label: "Tipo de contrato"
         name: "type"
         widget: "select"
-        options: ["Full-time", "Part-time", "Internship", "Contract"]
-      - label: "Technical Area"
+        options:
+          - { label: "Tiempo completo", value: "Tiempo completo" }
+          - { label: "Medio tiempo", value: "Medio tiempo" }
+          - { label: "Pasantía", value: "Pasantía" }
+          - { label: "Contrato temporal", value: "Contrato" }
+      - label: "Área técnica"
         name: "area"
         widget: "select"
+        hint: "Especialidad técnica relacionada con el puesto"
         options:
-          - "Computing"
-          - "Electromechanics"
-          - "Secretarial"
-          - "Electronics"
-          - "Accounting"
-          - "Tourism"
+          - "Informática"
+          - "Electromecánica"
+          - "Secretariado"
+          - "Electrónica"
+          - "Contabilidad"
+          - "Turismo"
           - "General"
-      - { label: "Description", name: "body", widget: "markdown" }
-      - { label: "Application URL", name: "applyUrl", widget: "string", required: false }
-      - { label: "Posted Date", name: "date", widget: "datetime" }
-      - { label: "Expiry Date", name: "expiryDate", widget: "datetime", required: false }
-      - { label: "Active", name: "active", widget: "boolean", default: true }
+      - { label: "Descripción del puesto", name: "description", widget: "text", hint: "Descripción corta (aparece en la tarjeta)" }
+      - label: "Etiquetas / Habilidades"
+        name: "tags"
+        widget: "list"
+        hint: "Palabras clave como: React, JavaScript, Excel, etc."
+        field: { label: "Etiqueta", name: "tag", widget: "string" }
+      - { label: "Logo de la empresa", name: "logo", widget: "image", required: false }
+      - { label: "URL para aplicar", name: "applyUrl", widget: "string", required: false, hint: "Enlace externo para enviar solicitud" }
+      - { label: "Fecha de publicación", name: "date", widget: "datetime" }
+      - { label: "Fecha de expiración", name: "expiryDate", widget: "datetime", required: false }
+      - { label: "Activa", name: "active", widget: "boolean", default: true, hint: "Desmarca para ocultar la oferta" }
 
-  # ─── Academic Programs ───────────────────────────────────────────────
-  - name: "programs"
-    label: "Academic Programs"
-    folder: "src/content/programs"
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - { label: "Program Name", name: "title", widget: "string" }
-      - { label: "Icon (Material Symbol)", name: "icon", widget: "string" }
-      - { label: "Short Description", name: "summary", widget: "text" }
-      - { label: "Full Description", name: "body", widget: "markdown" }
-      - { label: "Duration", name: "duration", widget: "string", default: "3 years" }
-      - { label: "Order", name: "order", widget: "number", default: 0 }
-      - { label: "Active", name: "active", widget: "boolean", default: true }
-
-  # ─── FAQ ─────────────────────────────────────────────────────────────
+  # ─── 📝 Preguntas Frecuentes ─────────────────────────────────────
   - name: "faq"
-    label: "FAQ"
+    label: "❓ Preguntas Frecuentes"
+    label_singular: "Pregunta"
+    description: "Administra las preguntas y respuestas que aparecen en la página de FAQ."
     folder: "src/content/faq"
     create: true
     slug: "{{slug}}"
     fields:
-      - { label: "Question", name: "question", widget: "string" }
-      - { label: "Answer", name: "answer", widget: "text" }
-      - { label: "Order", name: "order", widget: "number", default: 0 }
-      - { label: "Active", name: "active", widget: "boolean", default: true }
+      - { label: "Pregunta", name: "question", widget: "string", hint: "Ejemplo: ¿Cuáles son los requisitos de admisión?" }
+      - { label: "Respuesta", name: "answer", widget: "text", hint: "Respuesta clara y concisa" }
+      - label: "Categoría"
+        name: "category"
+        widget: "select"
+        options:
+          - { label: "Matrícula", value: "Matrícula" }
+          - { label: "Académico", value: "Académico" }
+          - { label: "Administrativo", value: "Administrativo" }
+      - { label: "Orden", name: "order", widget: "number", default: 0, hint: "Número menor aparece primero" }
+      - { label: "Visible", name: "active", widget: "boolean", default: true }
 
-  # ─── Site Settings (Single File) ─────────────────────────────────────
-  - name: "settings"
-    label: "Site Settings"
+  # ─── 📝 Programas Académicos ─────────────────────────────────────
+  - name: "programas"
+    label: "🎓 Programas Académicos"
+    label_singular: "Programa"
+    description: "Especialidades técnicas del colegio. Aparecen en la página Académico."
+    folder: "src/content/programs"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Nombre del programa", name: "title", widget: "string", hint: "Ejemplo: Desarrollo de Software" }
+      - { label: "Ícono (Material Symbol)", name: "icon", widget: "string", hint: "Nombre del ícono de Material Symbols, ej: terminal, memory, calculate" }
+      - { label: "Descripción corta", name: "summary", widget: "text", hint: "Resumen de 1-2 oraciones del programa" }
+      - { label: "Descripción completa", name: "body", widget: "markdown" }
+      - { label: "Duración", name: "duration", widget: "string", default: "Programa de 3 Años" }
+      - { label: "Orden de aparición", name: "order", widget: "number", default: 0 }
+      - { label: "Activo", name: "active", widget: "boolean", default: true }
+
+  # ═══════════════════════════════════════════════════════════════════
+  #  ⚙️ CONFIGURACIÓN DE PÁGINAS DEL SITIO
+  # ═══════════════════════════════════════════════════════════════════
+  - name: "configuracion"
+    label: "⚙️ Configuración del Sitio"
+    description: "Edita los textos, imágenes y contenido de cada página del sitio web."
     files:
-      - label: "General Settings"
+      # ─── General ──────────────────────────────────────────────────
+      - label: "🏫 Datos Generales del Colegio"
         name: "general"
         file: "src/content/settings/general.json"
+        description: "Nombre, contacto y redes sociales del colegio"
         fields:
-          - { label: "School Name", name: "schoolName", widget: "string" }
-          - { label: "Tagline", name: "tagline", widget: "string" }
-          - { label: "Phone", name: "phone", widget: "string" }
-          - { label: "Email", name: "email", widget: "string" }
-          - { label: "Address", name: "address", widget: "text" }
+          - { label: "Nombre del colegio", name: "schoolName", widget: "string" }
+          - { label: "Eslogan", name: "tagline", widget: "string", hint: "Frase corta que aparece debajo del nombre" }
+          - { label: "Teléfono", name: "phone", widget: "string" }
+          - { label: "Correo electrónico", name: "email", widget: "string" }
+          - { label: "Dirección", name: "address", widget: "text" }
           - { label: "Facebook URL", name: "facebookUrl", widget: "string", required: false }
           - { label: "Instagram URL", name: "instagramUrl", widget: "string", required: false }
           - { label: "LinkedIn URL", name: "linkedinUrl", widget: "string", required: false }
-      - label: "Hero Section"
-        name: "hero"
-        file: "src/content/settings/hero.json"
+
+      # ─── Página de Inicio ─────────────────────────────────────────
+      - label: "🏠 Página de Inicio"
+        name: "home"
+        file: "src/content/settings/home.json"
+        description: "Hero, estadísticas y tarjetas de acceso rápido"
         fields:
-          - { label: "Headline", name: "headline", widget: "string" }
-          - { label: "Subheadline", name: "subheadline", widget: "text" }
-          - { label: "Badge Text", name: "badgeText", widget: "string" }
-          - { label: "CTA Primary Label", name: "ctaPrimaryLabel", widget: "string" }
-          - { label: "CTA Secondary Label", name: "ctaSecondaryLabel", widget: "string" }
-          - { label: "Hero Image", name: "heroImage", widget: "image", required: false }
+          - { label: "Etiqueta del hero (badge)", name: "heroBadge", widget: "string", hint: "Ejemplo: Admisiones Abiertas 2024-2025" }
+          - { label: "Título principal", name: "heroTitle", widget: "string", hint: "Usa **texto** para resaltar en azul. Ejemplo: Formando **Profesionales** para el Futuro." }
+          - { label: "Descripción del hero", name: "heroDescription", widget: "text" }
+          - { label: "Texto del botón", name: "heroCtaLabel", widget: "string" }
+          - { label: "Enlace del botón", name: "heroCtaLink", widget: "string", hint: "Ruta interna. Ejemplo: /academic" }
+          - { label: "Imagen del hero", name: "heroImage", widget: "image" }
+          - { label: "Número destacado (badge)", name: "heroBadgeValue", widget: "string", hint: "Ejemplo: 25+" }
+          - { label: "Texto del badge", name: "heroBadgeLabel", widget: "string", hint: "Ejemplo: Años de Excelencia" }
+          - label: "Estadísticas"
+            name: "stats"
+            widget: "list"
+            hint: "Las 4 cifras que aparecen debajo del hero"
+            max: 4
+            fields:
+              - { label: "Valor", name: "value", widget: "string", hint: "Ejemplo: 1500+" }
+              - { label: "Etiqueta", name: "label", widget: "string", hint: "Ejemplo: Egresados" }
+          - { label: "Título de Acceso Rápido", name: "quickAccessTitle", widget: "string" }
+          - label: "Tarjetas de Acceso Rápido"
+            name: "quickAccessCards"
+            widget: "list"
+            hint: "Las 3 tarjetas de acceso rápido debajo de las estadísticas"
+            max: 3
+            fields:
+              - { label: "Imagen", name: "img", widget: "image" }
+              - { label: "Texto alternativo", name: "alt", widget: "string" }
+              - { label: "Ícono (Material Symbol)", name: "icon", widget: "string", hint: "Ejemplo: how_to_reg, precision_manufacturing" }
+              - { label: "Título", name: "title", widget: "string" }
+              - { label: "Descripción", name: "desc", widget: "text" }
+              - { label: "Texto del enlace", name: "link", widget: "string" }
+              - { label: "Ruta del enlace", name: "to", widget: "string", hint: "Ejemplo: /admissions, /academic, /about" }
+
+      # ─── Página Acerca de ─────────────────────────────────────────
+      - label: "ℹ️ Página Acerca del Colegio"
+        name: "about"
+        file: "src/content/settings/about.json"
+        description: "Historia, misión, visión, instalaciones y servicios"
+        fields:
+          - { label: "Imagen del hero", name: "heroImage", widget: "image" }
+          - { label: "Título del hero", name: "heroTitle", widget: "string" }
+          - { label: "Subtítulo del hero", name: "heroSubtitle", widget: "text" }
+          - { label: "Badge del hero", name: "heroBadge", widget: "string", hint: "Ejemplo: Desde 1974" }
+          - label: "Línea de Tiempo"
+            name: "timeline"
+            widget: "list"
+            hint: "Eventos históricos importantes del colegio"
+            fields:
+              - { label: "Año", name: "year", widget: "string" }
+              - { label: "Título del evento", name: "title", widget: "string" }
+              - { label: "Descripción", name: "description", widget: "text" }
+              - { label: "Destacado", name: "isHighlighted", widget: "boolean", default: false, hint: "Resalta este evento con color primario" }
+          - label: "Misión"
+            name: "mission"
+            widget: "object"
+            fields:
+              - { label: "Ícono", name: "icon", widget: "string", hint: "Material Symbol, ej: flag" }
+              - { label: "Título", name: "title", widget: "string" }
+              - { label: "Descripción", name: "description", widget: "text" }
+          - label: "Visión"
+            name: "vision"
+            widget: "object"
+            fields:
+              - { label: "Ícono", name: "icon", widget: "string", hint: "Material Symbol, ej: visibility" }
+              - { label: "Título", name: "title", widget: "string" }
+              - { label: "Descripción", name: "description", widget: "text" }
+          - label: "Instalaciones"
+            name: "facilities"
+            widget: "list"
+            hint: "Fotos y descripción de los espacios del colegio"
+            fields:
+              - { label: "Nombre", name: "name", widget: "string" }
+              - { label: "Descripción", name: "description", widget: "text" }
+              - { label: "Foto", name: "image", widget: "image" }
+          - label: "Servicios Estudiantiles"
+            name: "services"
+            widget: "list"
+            hint: "Servicios como transporte, biblioteca, etc."
+            fields:
+              - { label: "Ícono", name: "icon", widget: "string" }
+              - { label: "Título", name: "title", widget: "string" }
+              - { label: "Descripción", name: "description", widget: "text" }
+              - label: "Características"
+                name: "features"
+                widget: "list"
+                field: { label: "Característica", name: "feature", widget: "string" }
+          - { label: "Título del Himno", name: "anthemTitle", widget: "string" }
+          - label: "Estrofas del Himno"
+            name: "anthemVerses"
+            widget: "list"
+            hint: "Cada estrofa del himno institucional"
+            field: { label: "Estrofa", name: "verse", widget: "text" }
+          - label: "Imágenes Históricas"
+            name: "historyImages"
+            widget: "list"
+            hint: "Fotos antiguas o históricas del colegio"
+            field: { label: "Imagen", name: "image", widget: "image" }
+
+      # ─── Página Académico ─────────────────────────────────────────
+      - label: "📚 Página Académico"
+        name: "academic"
+        file: "src/content/settings/academic.json"
+        description: "Especialidades, calendario, becas y contenido de la página Académico"
+        fields:
+          - { label: "Título de la página", name: "pageTitle", widget: "string" }
+          - { label: "Subtítulo de la página", name: "pageSubtitle", widget: "text" }
+          - label: "Pestañas de navegación"
+            name: "tabs"
+            widget: "list"
+            hint: "Nombres de las pestañas (ej: Colegio Diurno, Colegio Nocturno)"
+            field: { label: "Pestaña", name: "tab", widget: "string" }
+          - label: "Especialidades Técnicas"
+            name: "specialties"
+            widget: "list"
+            hint: "Las carreras técnicas que ofrece el colegio"
+            fields:
+              - { label: "Nombre", name: "title", widget: "string" }
+              - { label: "Ícono (Material Symbol)", name: "icon", widget: "string", hint: "Ejemplo: terminal, memory, calculate" }
+              - { label: "Descripción corta", name: "summary", widget: "text" }
+              - { label: "Duración", name: "duration", widget: "string", default: "Programa de 3 Años" }
+              - { label: "Orden", name: "order", widget: "number", default: 0 }
+              - { label: "Activo", name: "active", widget: "boolean", default: true }
+          - { label: "Título del Calendario", name: "calendarTitle", widget: "string" }
+          - { label: "Subtítulo del Calendario", name: "calendarSubtitle", widget: "string" }
+          - { label: "Mes mostrado", name: "calendarMonth", widget: "string", hint: "Ejemplo: Febrero 2025" }
+          - label: "Eventos del Calendario"
+            name: "calendarEvents"
+            widget: "list"
+            hint: "Eventos que se marcan en el calendario"
+            fields:
+              - { label: "Día del mes", name: "day", widget: "number" }
+              - { label: "Nombre del evento", name: "label", widget: "string" }
+              - label: "Color"
+                name: "color"
+                widget: "select"
+                options:
+                  - { label: "Azul (Institucional)", value: "primary" }
+                  - { label: "Naranja (Exámenes)", value: "orange" }
+                  - { label: "Rojo (Feriados)", value: "red" }
+                  - { label: "Verde (Matrícula)", value: "green" }
+          - { label: "Título de Becas", name: "scholarshipTitle", widget: "string" }
+          - { label: "Descripción de Becas", name: "scholarshipDescription", widget: "text" }
+          - label: "Beneficios de Becas"
+            name: "scholarshipBenefits"
+            widget: "list"
+            field: { label: "Beneficio", name: "benefit", widget: "string" }
+          - { label: "Imagen del sidebar", name: "sidebarImage", widget: "image" }
+          - { label: "Pie de foto del sidebar", name: "sidebarImageCaption", widget: "string" }
+          - label: "Leyenda del Calendario"
+            name: "eventLegend"
+            widget: "list"
+            hint: "Colores y sus significados en el calendario"
+            fields:
+              - label: "Color"
+                name: "color"
+                widget: "select"
+                options:
+                  - { label: "Azul (Institucional)", value: "primary" }
+                  - { label: "Naranja (Exámenes)", value: "orange" }
+                  - { label: "Rojo (Feriados)", value: "red" }
+                  - { label: "Verde (Matrícula)", value: "green" }
+              - { label: "Descripción", name: "label", widget: "string" }
+
+      # ─── Página de Admisiones ─────────────────────────────────────
+      - label: "📋 Página de Admisiones"
+        name: "admissions"
+        file: "src/content/settings/admissions.json"
+        description: "Proceso de matrícula, documentos y formulario de consulta"
+        fields:
+          - { label: "Imagen del hero", name: "heroImage", widget: "image" }
+          - { label: "Título del hero", name: "heroTitle", widget: "string" }
+          - { label: "Subtítulo del hero", name: "heroSubtitle", widget: "text" }
+          - { label: "Badge del hero", name: "heroBadge", widget: "string", hint: "Ejemplo: Matrícula 2025-2026" }
+          - label: "Pasos del proceso de matrícula"
+            name: "steps"
+            widget: "list"
+            hint: "Los 4 pasos del proceso de inscripción"
+            fields:
+              - { label: "Ícono", name: "icon", widget: "string", hint: "Material Symbol, ej: app_registration" }
+              - { label: "Título del paso", name: "title", widget: "string" }
+              - { label: "Descripción", name: "description", widget: "text" }
+          - label: "Categorías de Documentos"
+            name: "documents"
+            widget: "list"
+            hint: "Documentos requeridos agrupados por categoría"
+            fields:
+              - { label: "Nombre de la categoría", name: "category", widget: "string", hint: "Ejemplo: Identidad y Personal" }
+              - label: "Documentos"
+                name: "items"
+                widget: "list"
+                fields:
+                  - { label: "Nombre del documento", name: "label", widget: "string" }
+                  - { label: "Marcado como completado", name: "isChecked", widget: "boolean", default: false }
+          - label: "Opciones de Especialidad"
+            name: "specialtyOptions"
+            widget: "list"
+            hint: "Especialidades disponibles en el formulario de consulta"
+            field: { label: "Especialidad", name: "specialty", widget: "string" }
+
+      # ─── Página de Noticias ───────────────────────────────────────
+      - label: "📰 Página de Noticias (Config)"
+        name: "news_settings"
+        file: "src/content/settings/news.json"
+        description: "Configuración y contenido de la página de Noticias"
+        fields:
+          - { label: "Título de la página", name: "pageTitle", widget: "string" }
+          - label: "Categorías del filtro"
+            name: "filterCategories"
+            widget: "list"
+            hint: "Botones de filtro que aparecen arriba de las noticias"
+            fields:
+              - { label: "Nombre", name: "label", widget: "string" }
+              - { label: "Ícono (Material Symbol)", name: "icon", widget: "string" }
+          - label: "Archivo por años"
+            name: "archiveYears"
+            widget: "list"
+            hint: "Años que aparecen en la barra lateral de archivo"
+            fields:
+              - { label: "Año", name: "year", widget: "string" }
+              - label: "Meses"
+                name: "months"
+                widget: "list"
+                required: false
+                field: { label: "Mes", name: "month", widget: "string" }
+          - label: "Noticias"
+            name: "news"
+            widget: "list"
+            hint: "Noticias que se muestran en la página"
+            fields:
+              - { label: "ID (número único)", name: "id", widget: "number" }
+              - label: "Categoría"
+                name: "category"
+                widget: "select"
+                options: ["Académico", "Deportes", "Cultural", "General"]
+              - { label: "Marcar como nuevo", name: "isNew", widget: "boolean", default: false }
+              - { label: "Es aviso importante", name: "isImportant", widget: "boolean", default: false, hint: "Aviso con borde punteado, sin imagen" }
+              - { label: "Fecha", name: "date", widget: "string", hint: "Ejemplo: 24 oct, 2024" }
+              - { label: "Título", name: "title", widget: "string" }
+              - { label: "Descripción", name: "desc", widget: "text" }
+              - { label: "Imagen", name: "img", widget: "image", required: false, hint: "No se usa para avisos importantes" }
+          - { label: "Título de suscripción", name: "subscribeTitle", widget: "string" }
+          - { label: "Descripción de suscripción", name: "subscribeDescription", widget: "text" }
+
+      # ─── Página de Bolsa de Empleo ────────────────────────────────
+      - label: "💼 Página de Bolsa de Empleo (Config)"
+        name: "jobboard"
+        file: "src/content/settings/jobboard.json"
+        description: "Configuración y ofertas de la Bolsa de Empleo"
+        fields:
+          - { label: "Título de la página", name: "pageTitle", widget: "string" }
+          - { label: "Subtítulo de la página", name: "pageSubtitle", widget: "text" }
+          - { label: "Placeholder del buscador", name: "searchPlaceholder", widget: "string" }
+          - label: "Áreas de filtro"
+            name: "areas"
+            widget: "list"
+            hint: "Botones de filtro por área técnica"
+            field: { label: "Área", name: "area", widget: "string" }
+          - label: "Ofertas de empleo"
+            name: "jobs"
+            widget: "list"
+            hint: "Ofertas laborales que se muestran en la bolsa"
+            fields:
+              - { label: "ID (número único)", name: "id", widget: "number" }
+              - { label: "Puesto", name: "title", widget: "string" }
+              - { label: "Empresa", name: "company", widget: "string" }
+              - { label: "Ubicación", name: "location", widget: "string" }
+              - label: "Tipo"
+                name: "type"
+                widget: "select"
+                options: ["Tiempo completo", "Medio tiempo", "Pasantía", "Contrato"]
+              - label: "Área técnica"
+                name: "area"
+                widget: "select"
+                options: ["Informática", "Electromecánica", "Secretariado", "Electrónica", "Contabilidad", "Turismo", "General"]
+              - { label: "Descripción", name: "description", widget: "text" }
+              - label: "Etiquetas"
+                name: "tags"
+                widget: "list"
+                field: { label: "Etiqueta", name: "tag", widget: "string" }
+              - { label: "Logo empresa", name: "logo", widget: "image", required: false }
+              - { label: "Fecha", name: "date", widget: "string" }
+              - { label: "Activa", name: "active", widget: "boolean", default: true }
+          - { label: "Título CTA empresas", name: "employerCtaTitle", widget: "string" }
+          - { label: "Descripción CTA empresas", name: "employerCtaDescription", widget: "text" }
+          - { label: "Botón CTA empresas", name: "employerCtaButton", widget: "string" }
+
+      # ─── Página de FAQ ────────────────────────────────────────────
+      - label: "❓ Página de Preguntas Frecuentes (Config)"
+        name: "faq_settings"
+        file: "src/content/settings/faq.json"
+        description: "Configuración y preguntas de la página de FAQ"
+        fields:
+          - { label: "Título principal", name: "heroTitle", widget: "string" }
+          - { label: "Subtítulo", name: "heroSubtitle", widget: "text" }
+          - { label: "Placeholder del buscador", name: "searchPlaceholder", widget: "string" }
+          - label: "Categorías"
+            name: "categories"
+            widget: "list"
+            hint: "Nombres de las categorías de filtro (la primera debe ser 'Todos')"
+            field: { label: "Categoría", name: "category", widget: "string" }
+          - label: "Preguntas y Respuestas"
+            name: "faqs"
+            widget: "list"
+            hint: "Las preguntas frecuentes del colegio"
+            fields:
+              - { label: "Pregunta", name: "q", widget: "string" }
+              - { label: "Respuesta", name: "a", widget: "text" }
+              - label: "Categoría"
+                name: "category"
+                widget: "select"
+                options: ["Matrícula", "Académico", "Administrativo"]
+          - { label: "Título del CTA de contacto", name: "contactCtaTitle", widget: "string" }
+          - { label: "Descripción del CTA", name: "contactCtaDescription", widget: "text" }
+          - { label: "Texto del botón de contacto", name: "contactCtaButton", widget: "string" }
+
+      # ─── Página de Contacto ───────────────────────────────────────
+      - label: "📍 Página de Contacto"
+        name: "contact"
+        file: "src/content/settings/contact.json"
+        description: "Información de contacto, horarios y ubicación"
+        fields:
+          - { label: "Título", name: "title", widget: "string" }
+          - { label: "Subtítulo", name: "subtitle", widget: "text" }
+          - label: "Horario de atención"
+            name: "officeHours"
+            widget: "list"
+            fields:
+              - { label: "Día", name: "day", widget: "string", hint: "Ejemplo: Lunes — Viernes" }
+              - { label: "Horario", name: "hours", widget: "string", hint: "Ejemplo: 7:00 AM - 4:00 PM" }
+              - { label: "Cerrado", name: "isClosed", widget: "boolean", default: false }
+          - label: "Datos de Contacto"
+            name: "contactDetails"
+            widget: "list"
+            fields:
+              - { label: "Ícono", name: "icon", widget: "string", hint: "Material Symbol: call, mail, public" }
+              - { label: "Etiqueta", name: "label", widget: "string" }
+              - { label: "Valor", name: "value", widget: "string" }
+              - { label: "Enlace (href)", name: "href", widget: "string", required: false, hint: "Ejemplo: tel:+50625510000" }
+          - { label: "Imagen del mapa", name: "mapImage", widget: "image" }
+          - { label: "Dirección completa", name: "address", widget: "text" }

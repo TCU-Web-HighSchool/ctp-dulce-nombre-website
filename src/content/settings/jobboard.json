@@ -1,0 +1,84 @@
+{
+  "pageTitle": "Bolsa de Empleo",
+  "pageSubtitle": "Oportunidades para egresados y estudiantes activos. Conéctate con empresas que buscan talento técnico.",
+  "searchPlaceholder": "Buscar por puesto, empresa...",
+  "areas": [
+    "Todas",
+    "Informática",
+    "Electromecánica",
+    "Secretariado",
+    "Electrónica",
+    "Contabilidad",
+    "Turismo"
+  ],
+  "jobs": [
+    {
+      "id": 1,
+      "title": "Desarrollador(a) Frontend Junior",
+      "company": "TechCR Solutions",
+      "location": "San José, CR",
+      "type": "Tiempo completo",
+      "area": "Informática",
+      "description": "Buscamos un desarrollador junior con conocimientos en HTML, CSS, JavaScript y React para unirse a nuestro equipo de desarrollo web.",
+      "tags": ["React", "JavaScript", "CSS"],
+      "logo": "https://lh3.googleusercontent.com/aida-public/AB6AXuBjPZfbS0nOqKZQsxQOPCBk3erCYtk8bglVX-pLLJ9eVnMqG4JkXfK8J-HDQCl-6GaZKwWqjFGH0fUb6f9yqRMjkX4SnGSjsEhJWxKrJqcT3bNr94xXHn1AxXr4g3ey5fSNlCISmwj2OhVTGkfpKYQMxN5sCh2eW9A4LVzIPEiR5HHlYoSbI4jJZaYVpCcn6HxF4xRvQ3bZR3WmFCvwvhqlCwG",
+      "date": "Hace 2 días",
+      "active": true
+    },
+    {
+      "id": 2,
+      "title": "Técnico(a) Industrial",
+      "company": "Grupo PROSA",
+      "location": "Cartago, CR",
+      "type": "Tiempo completo",
+      "area": "Electromecánica",
+      "description": "Oportunidad para técnicos con experiencia en mantenimiento industrial, sistemas eléctricos y maquinaria pesada.",
+      "tags": ["Mantenimiento", "PLC", "Industrial"],
+      "logo": "https://lh3.googleusercontent.com/aida-public/AB6AXuDjz5jYB1hZmJsHZmV83iOdxuPEYBQMzqA7GV7Xv2hGkT4RVH3Aop0YfHDG5_h2hQ39LLFEqXzxQHHdVrOwnFVPiYkQoQ0JfqXL-JcT6Mx-VzR55JuBGzJfAPPCFH_W7dPVjQD1VBfJKw",
+      "date": "Hace 3 días",
+      "active": true
+    },
+    {
+      "id": 3,
+      "title": "Asistente Administrativo(a)",
+      "company": "Banco Nacional",
+      "location": "Remoto",
+      "type": "Medio tiempo",
+      "area": "Secretariado",
+      "description": "Se necesita asistente con excelente manejo de herramientas ofimáticas, comunicación efectiva y atención al detalle.",
+      "tags": ["Office", "Gestión", "Remoto"],
+      "logo": "https://lh3.googleusercontent.com/aida-public/AB6AXuC_TMhvDLCB3IbL38x_nCMdF8HJq6bwLMwqCq2V6g3fGhGkWvGd7qBnBBSqV4ZRV8K-V-HiNxF3cQCxKqfGIhR-CLuKbU9t9QXEi8kkT-WJv3o8B_FjfBM",
+      "date": "Hace 5 días",
+      "active": true
+    },
+    {
+      "id": 4,
+      "title": "Técnico(a) en Electrónica",
+      "company": "Intel Costa Rica",
+      "location": "Belén, CR",
+      "type": "Tiempo completo",
+      "area": "Electrónica",
+      "description": "Únete a nuestro equipo de ingeniería. Buscamos técnicos en electrónica con conocimientos en circuitos y testing.",
+      "tags": ["Electrónica", "Testing", "Circuitos"],
+      "logo": "https://lh3.googleusercontent.com/aida-public/AB6AXuBsL2qAx_OGD-kzXBEiPw_N-3f0R7kRHWpkQvSfCg3e1Ox7fqhKb7AjfkQZgjA4H_zp0NG6BBcKGFLhE6jXYL",
+      "date": "Hace 1 semana",
+      "active": true
+    },
+    {
+      "id": 5,
+      "title": "Auxiliar Contable",
+      "company": "Deloitte CR",
+      "location": "San José, CR",
+      "type": "Pasantía",
+      "area": "Contabilidad",
+      "description": "Pasantía remunerada para estudiantes o egresados de contabilidad. Apoyo en análisis financiero y auditoría.",
+      "tags": ["Contabilidad", "Auditoría", "Pasantía"],
+      "logo": "https://lh3.googleusercontent.com/aida-public/AB6AXuAPx0FWZJZ-TJl6B-Vp2N9VY3oG_Qjh0L2wGx6GkfWvT4t8RhV3A5AHh0pAx",
+      "date": "Hace 1 semana",
+      "active": true
+    }
+  ],
+  "employerCtaTitle": "¿Eres empresa?",
+  "employerCtaDescription": "Publica tu oferta laboral y conecta con el talento técnico de nuestros egresados.",
+  "employerCtaButton": "Publicar Oferta"
+}

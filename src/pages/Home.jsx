@@ -1,41 +1,19 @@
 import { Link } from "react-router-dom";
+import homeData from "../content/settings/home.json";
 
-const stats = [
-  { value: "1500+", label: "Egresados" },
-  { value: "80+", label: "Docentes Certificados" },
-  { value: "12", label: "Programas Técnicos" },
-  { value: "95%", label: "Colocación Laboral" },
-];
-
-const quickAccessCards = [
-  {
-    img: "https://lh3.googleusercontent.com/aida-public/AB6AXuDIniZC3ENFkhpVS1uoFBVPqDIgORyP9V1ZW0KTGjrej9YGnoX5FWUSInht6QuBiQd_juM9BuIXQQv8t-xXNnJ0LRnOoddCni8EM-pI9kUa3ysaYU2nvaXTUI7kyYEklh4sPyFDqRyi59uMqSGoKjhC4PNceA3E73ds9JQnd4FiqAM5CBi5SNE68Ea3QOAqufK7Usv7ZMbjfNiXrSRp04rUnzAUKLcEG70fbBBWiiCgrHzD8_MlY4bZwZQ8EWuqAGI6ZoKmcnr34A",
-    alt: "Proceso de matrícula",
-    icon: "how_to_reg",
-    title: "Matrícula",
-    desc: "¿Listo para unirte a nuestra comunidad? Consulta las fechas de matrícula, documentación requerida y horarios de pruebas para nuevos estudiantes.",
-    link: "Guía de Matrícula",
-    to: "/admissions",
-  },
-  {
-    img: "https://lh3.googleusercontent.com/aida-public/AB6AXuDlYbzxbz-EDea4o2m0rKFzxWaCoeAEGFES2FYv-tyey6bCVLy5v3DWSVTmXAPRnojO7nOaY_xGdAxrYQz0-J3TaphjjMwoUriQESIiVLblFNDCJUVQE5BDgFJfUWLR7c4HJ0Lx-CbScs_iXcxWYOleqQKKi_XAbiZIryZsEvN011Q8uYwsrCFnHpLkSwnr02nkj-bhPyBOE_CnEbY6pKRto0xgWysprdmQmYvX3YvEpbo0rhbL1zm32mxkOEapRCFoHyWidxXw-Q",
-    alt: "Especialidades Técnicas",
-    icon: "precision_manufacturing",
-    title: "Especialidades Técnicas",
-    desc: "Explora nuestras 12 carreras técnicas: Informática, Electromecánica, Secretariado, Electrónica y más. Encuentra tu vocación.",
-    link: "Ver Programas",
-    to: "/academic",
-  },
-  {
-    img: "https://lh3.googleusercontent.com/aida-public/AB6AXuAOFp8zsfA-1Q-6gZqGjqHzxRTYqKqBbbz9cZ4X1CrT13YQw8JElYxwCDJu5bY9_9wwxfpByroRNQ_ZyNncHuwc-YOBKHZ0nIJ_QqJRMDVTyCpp0YEx9e6MOtiqBzKPF6q6NNyOUR_vAVHDuIC4NK9uxKHsfllidxCllvzquyUzBnhc5hVXjCgDjJ9oSuP31FvWucR5Xmkf6letiOAwU2_dRJ5ma3iahHfNc-OQMHwxnb-VLfWtDXVTE51soL7UD95555_u37NRAQ",
-    alt: "Servicios Estudiantiles",
-    icon: "support_agent",
-    title: "Servicios Estudiantiles",
-    desc: "Desde becas y comedor estudiantil hasta orientación psicológica y apoyo académico, estamos aquí para ti.",
-    link: "Centro de Apoyo",
-    to: "/about",
-  },
-];
+const {
+  heroBadge,
+  heroTitle,
+  heroDescription,
+  heroCtaLabel,
+  heroCtaLink,
+  heroImage,
+  heroBadgeValue,
+  heroBadgeLabel,
+  stats,
+  quickAccessTitle,
+  quickAccessCards,
+} = homeData;
 
 export default function Home() {
   return (
@@ -49,54 +27,52 @@ export default function Home() {
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
                 </span>
-                Admisiones Abiertas 2024-2025
+                {heroBadge}
               </div>
-              <h1 className="text-5xl lg:text-7xl font-black text-slate-900 dark:text-white leading-tight tracking-tight">
-                Formando <span className="text-primary">Profesionales</span>{" "}
-                para el Futuro.
+              <h1 className="text-5xl lg:text-7xl font-black text-slate-900 leading-tight tracking-tight">
+                {heroTitle.split("**").map((part, i) =>
+                  i % 2 === 1 ? (
+                    <span key={i} className="text-primary">
+                      {part}
+                    </span>
+                  ) : (
+                    <span key={i}>{part}</span>
+                  ),
+                )}
               </h1>
-              <p className="text-lg text-slate-600 dark:text-slate-400 max-w-lg leading-relaxed">
-                Excelencia en educación técnica por más de 25 años. Brindamos a
-                nuestros estudiantes las herramientas, habilidades y
-                certificaciones necesarias para triunfar en la economía global
-                moderna.
+              <p className="text-lg text-slate-600 max-w-lg leading-relaxed">
+                {heroDescription}
               </p>
               <div className="flex flex-wrap gap-4">
                 <Link
-                  to="/academic"
+                  to={heroCtaLink}
                   className="px-8 py-4 bg-primary text-white rounded-xl font-bold text-lg hover:scale-[1.02] transition-transform shadow-xl shadow-primary/25"
                 >
-                  Explorar Programas
-                </Link>
-                <Link
-                  to="/about"
-                  className="px-8 py-4 bg-white dark:bg-slate-800 text-slate-900 dark:text-white border border-slate-200 dark:border-slate-700 rounded-xl font-bold text-lg hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors"
-                >
-                  Recorrido Virtual
+                  {heroCtaLabel}
                 </Link>
               </div>
             </div>
 
             <div className="relative group">
               <div className="absolute -inset-4 bg-primary/5 rounded-4xl blur-2xl group-hover:bg-primary/10 transition-colors"></div>
-              <div className="relative rounded-4xl overflow-hidden aspect-4/3 shadow-2xl border border-slate-200 dark:border-slate-800">
+              <div className="relative rounded-4xl overflow-hidden aspect-4/3 shadow-2xl border border-slate-200">
                 <img
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuCr2ivAuJIfPgI8j4GY9VAt3PE6NstYTNjUJobenWKG8i3A0MogHhq9UNG4EBvCbbp5Q4-WSaByKLypjvRlxRMnQYGzboZKxLqExuEJw81sI09ESCiOE_IRWLCXbMHVjhdz_nmuB9zMNlcehCaktQi3-CruVevTIaKRU8SoqbmnSSkV_rKQ0ukrowKfRGqMn79IOUr8uhKumPFed0VCD8v3crQRpjBudbEFQxL-iRIBTUsmLv5E34RZdc6l1RKk9iboyDtsCczljg"
+                  src={heroImage}
                   alt="Students in a technical laboratory"
                   className="w-full h-full object-cover"
                 />
-                <div className="absolute top-6 right-6 bg-white dark:bg-slate-900 p-4 rounded-2xl shadow-2xl flex items-center gap-4 border border-slate-100 dark:border-slate-700">
+                <div className="absolute top-6 right-6 bg-white p-4 rounded-2xl shadow-2xl flex items-center gap-4 border border-slate-100">
                   <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary">
                     <span className="material-symbols-outlined text-3xl">
                       verified
                     </span>
                   </div>
                   <div>
-                    <p className="text-2xl font-black text-slate-900 dark:text-white leading-none">
-                      25+
+                    <p className="text-2xl font-black text-slate-900 leading-none">
+                      {heroBadgeValue}
                     </p>
                     <p className="text-[10px] font-bold text-slate-500 uppercase tracking-tighter">
-                      Años de Excelencia
+                      {heroBadgeLabel}
                     </p>
                   </div>
                 </div>
@@ -106,16 +82,14 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="py-12 bg-white dark:bg-slate-900 border-y border-slate-100 dark:border-slate-800">
+      <section className="py-12 bg-white border-y border-slate-100">
         <div className="max-w-340 mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-4">
             {stats.map((stat, i) => (
               <div
                 key={stat.label}
                 className={`flex flex-col items-center md:items-start p-4 ${
-                  i > 0
-                    ? "md:border-l border-slate-100 dark:border-slate-800"
-                    : ""
+                  i > 0 ? "md:border-l border-slate-100" : ""
                 }`}
               >
                 <span className="text-4xl font-black text-primary mb-1 tracking-tighter">
@@ -130,11 +104,11 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="py-24 bg-slate-50 dark:bg-background-dark">
+      <section className="py-24 bg-slate-50">
         <div className="max-w-340 mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-16">
-            <h2 className="text-3xl font-bold text-slate-900 dark:text-white tracking-tight">
-              Acceso Rápido
+            <h2 className="text-3xl font-bold text-slate-900 tracking-tight">
+              {quickAccessTitle}
             </h2>
             <div className="h-1 w-20 bg-primary mt-4 rounded-full"></div>
           </div>
@@ -142,7 +116,7 @@ export default function Home() {
             {quickAccessCards.map((card) => (
               <div
                 key={card.title}
-                className="group bg-white dark:bg-slate-900 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all border border-slate-100 dark:border-slate-800 flex flex-col h-full"
+                className="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all border border-slate-100 flex flex-col h-full"
               >
                 <div className="aspect-video overflow-hidden">
                   <img
@@ -157,10 +131,10 @@ export default function Home() {
                       {card.icon}
                     </span>
                   </div>
-                  <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-3">
+                  <h3 className="text-xl font-bold text-slate-900 mb-3">
                     {card.title}
                   </h3>
-                  <p className="text-slate-600 dark:text-slate-400 mb-6 leading-relaxed">
+                  <p className="text-slate-600 mb-6 leading-relaxed">
                     {card.desc}
                   </p>
                   <Link
@@ -179,7 +153,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="py-20 px-4">
+      {/* <section className="py-20 px-4">
         <div className="max-w-5xl mx-auto bg-primary rounded-4xl p-8 md:p-16 relative overflow-hidden text-center shadow-2xl">
           <div className="absolute top-0 right-0 -mr-20 -mt-20 w-64 h-64 bg-white/10 rounded-full blur-3xl"></div>
           <div className="absolute bottom-0 left-0 -ml-20 -mb-20 w-64 h-64 bg-white/10 rounded-full blur-3xl"></div>
@@ -195,14 +169,14 @@ export default function Home() {
             <input
               type="email"
               placeholder="Tu correo electrónico"
-              className="flex-1 px-6 py-4 rounded-xl border-none focus:ring-2 focus:ring-white/50 text-slate-900 outline-none"
+              className="flex-1 px-6 py-4 rounded-xl focus:ring-2 focus:ring-white/50 text-white border-2 border-white"
             />
             <button className="px-8 py-4 bg-slate-900 text-white font-bold rounded-xl hover:bg-slate-800 transition-colors">
               Suscribirse
             </button>
           </div>
         </div>
-      </section>
+      </section> */}
     </>
   );
 }

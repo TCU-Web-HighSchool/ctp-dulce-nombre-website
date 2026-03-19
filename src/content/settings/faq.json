@@ -1,0 +1,56 @@
+{
+  "heroTitle": "¿Cómo podemos ayudarte?",
+  "heroSubtitle": "Encuentra respuestas a las preguntas más comunes sobre matrícula, programas y servicios del CTP Dulce Nombre.",
+  "searchPlaceholder": "Buscar preguntas...",
+  "categories": ["Todos", "Matrícula", "Académico", "Administrativo"],
+  "faqs": [
+    {
+      "q": "¿Cuáles son los requisitos de admisión?",
+      "a": "Los estudiantes deben haber completado la escuela primaria (6° grado), presentar notas oficiales, certificado de nacimiento y aprobar la prueba de admisión.",
+      "category": "Matrícula"
+    },
+    {
+      "q": "¿Cuándo abre el período de matrícula?",
+      "a": "El período de matrícula ordinaria se abre en noviembre de cada año para el siguiente curso lectivo. Material de preparación e información adicional está disponible en la oficina del colegio.",
+      "category": "Matrícula"
+    },
+    {
+      "q": "¿Hay matrícula extraordinaria?",
+      "a": "Sí, existe un período extraordinario en enero y febrero sujeto a disponibilidad de cupos en cada especialidad.",
+      "category": "Matrícula"
+    },
+    {
+      "q": "¿Cuánto duran los programas técnicos?",
+      "a": "La mayoría de nuestros programas técnicos tienen una duración de 3 años (secundaria), combinando materias académicas generales con formación técnica especializada.",
+      "category": "Académico"
+    },
+    {
+      "q": "¿Los egresados pueden ingresar a la universidad?",
+      "a": "Absolutamente. Nuestros egresados obtienen un diploma de bachillerato técnico que cumple todos los requisitos para el ingreso universitario en Costa Rica.",
+      "category": "Académico"
+    },
+    {
+      "q": "¿Cuál es el horario del colegio?",
+      "a": "Las clases se imparten de lunes a viernes. Las lecciones de la mañana son de 7:00 a.m. a 12:30 p.m., y las de la tarde de 1:00 p.m. a 5:30 p.m., según el programa.",
+      "category": "Académico"
+    },
+    {
+      "q": "¿Hay becas disponibles?",
+      "a": "Sí, ofrecemos varios programas de becas en asociación con el Ministerio de Educación y fundaciones privadas. Contáctese con la oficina de servicios estudiantiles para más información.",
+      "category": "Administrativo"
+    },
+    {
+      "q": "¿Cómo contacto la oficina de admisiones?",
+      "a": "Puede escribirnos a info@ctpdulcenombre.ed.cr o llamar al +506 2551-0000 en horario hábil (lunes a viernes, 8:00 a.m. – 4:00 p.m.).",
+      "category": "Administrativo"
+    },
+    {
+      "q": "¿El colegio ofrece servicio de transporte?",
+      "a": "Sí, contamos con rutas de autobús estudiantil que cubren las principales comunidades del área. Consúltenos para tarifas y horarios.",
+      "category": "Administrativo"
+    }
+  ],
+  "contactCtaTitle": "¿No encontraste lo que buscabas?",
+  "contactCtaDescription": "Nuestro equipo está listo para responder cualquier pregunta adicional.",
+  "contactCtaButton": "Contáctanos"
+}

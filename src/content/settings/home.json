@@ -1,0 +1,46 @@
+{
+  "heroBadge": "Admisiones Abiertas 2024-2025",
+  "heroTitle": "Formando **Profesionales** para el Futuro.",
+  "heroDescription": "Excelencia en educación técnica por más de 25 años. Brindamos a nuestros estudiantes las herramientas, habilidades y certificaciones necesarias para triunfar en la economía global moderna.",
+  "heroCtaLabel": "Explorar Programas",
+  "heroCtaLink": "/academic",
+  "heroImage": "https://lh3.googleusercontent.com/aida-public/AB6AXuCr2ivAuJIfPgI8j4GY9VAt3PE6NstYTNjUJobenWKG8i3A0MogHhq9UNG4EBvCbbp5Q4-WSaByKLypjvRlxRMnQYGzboZKxLqExuEJw81sI09ESCiOE_IRWLCXbMHVjhdz_nmuB9zMNlcehCaktQi3-CruVevTIaKRU8SoqbmnSSkV_rKQ0ukrowKfRGqMn79IOUr8uhKumPFed0VCD8v3crQRpjBudbEFQxL-iRIBTUsmLv5E34RZdc6l1RKk9iboyDtsCczljg",
+  "heroBadgeValue": "25+",
+  "heroBadgeLabel": "Años de Excelencia",
+  "stats": [
+    { "value": "1500+", "label": "Egresados" },
+    { "value": "80+", "label": "Docentes Certificados" },
+    { "value": "12", "label": "Programas Técnicos" },
+    { "value": "95%", "label": "Colocación Laboral" }
+  ],
+  "quickAccessTitle": "Acceso Rápido",
+  "quickAccessCards": [
+    {
+      "img": "https://lh3.googleusercontent.com/aida-public/AB6AXuDIniZC3ENFkhpVS1uoFBVPqDIgORyP9V1ZW0KTGjrej9YGnoX5FWUSInht6QuBiQd_juM9BuIXQQv8t-xXNnJ0LRnOoddCni8EM-pI9kUa3ysaYU2nvaXTUI7kyYEklh4sPyFDqRyi59uMqSGoKjhC4PNceA3E73ds9JQnd4FiqAM5CBi5SNE68Ea3QOAqufK7Usv7ZMbjfNiXrSRp04rUnzAUKLcEG70fbBBWiiCgrHzD8_MlY4bZwZQ8EWuqAGI6ZoKmcnr34A",
+      "alt": "Proceso de matrícula",
+      "icon": "how_to_reg",
+      "title": "Matrícula",
+      "desc": "¿Listo para unirte a nuestra comunidad? Consulta las fechas de matrícula, documentación requerida y horarios de pruebas para nuevos estudiantes.",
+      "link": "Guía de Matrícula",
+      "to": "/admissions"
+    },
+    {
+      "img": "https://lh3.googleusercontent.com/aida-public/AB6AXuDlYbzxbz-EDea4o2m0rKFzxWaCoeAEGFES2FYv-tyey6bCVLy5v3DWSVTmXAPRnojO7nOaY_xGdAxrYQz0-J3TaphjjMwoUriQESIiVLblFNDCJUVQE5BDgFJfUWLR7c4HJ0Lx-CbScs_iXcxWYOleqQKKi_XAbiZIryZsEvN011Q8uYwsrCFnHpLkSwnr02nkj-bhPyBOE_CnEbY6pKRto0xgWysprdmQmYvX3YvEpbo0rhbL1zm32mxkOEapRCFoHyWidxXw-Q",
+      "alt": "Especialidades Técnicas",
+      "icon": "precision_manufacturing",
+      "title": "Especialidades Técnicas",
+      "desc": "Explora nuestras 12 carreras técnicas: Informática, Electromecánica, Secretariado, Electrónica y más. Encuentra tu vocación.",
+      "link": "Ver Programas",
+      "to": "/academic"
+    },
+    {
+      "img": "https://lh3.googleusercontent.com/aida-public/AB6AXuAOFp8zsfA-1Q-6gZqGjqHzxRTYqKqBbbz9cZ4X1CrT13YQw8JElYxwCDJu5bY9_9wwxfpByroRNQ_ZyNncHuwc-YOBKHZ0nIJ_QqJRMDVTyCpp0YEx9e6MOtiqBzKPF6q6NNyOUR_vAVHDuIC4NK9uxKHsfllidxCllvzquyUzBnhc5hVXjCgDjJ9oSuP31FvWucR5Xmkf6letiOAwU2_dRJ5ma3iahHfNc-OQMHwxnb-VLfWtDXVTE51soL7UD95555_u37NRAQ",
+      "alt": "Servicios Estudiantiles",
+      "icon": "support_agent",
+      "title": "Servicios Estudiantiles",
+      "desc": "Desde becas y comedor estudiantil hasta orientación psicológica y apoyo académico, estamos aquí para ti.",
+      "link": "Centro de Apoyo",
+      "to": "/about"
+    }
+  ]
+}

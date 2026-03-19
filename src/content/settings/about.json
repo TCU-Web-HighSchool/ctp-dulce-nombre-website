@@ -1,0 +1,85 @@
+{
+  "heroImage": "https://lh3.googleusercontent.com/aida-public/AB6AXuCJQ-0WpNvguUOmn9DLWt4VSM-S1Fdv40X3qfpmh4R0B4vLOgV3KYJ7oW6RLpC2etxdlECZs3JHWKwTRP9CQURQ0kUDBzgLgpxp3ZdbdVdQ8MkLGuCt3CCetn632lhuuouCnO2UmNYqAIdEBL-_dTDtgQISyiJ-XzGDJmB7m47p2BXavoN_cLzWvKVv7SA7Xw_FEAUikkQBbBv6DjZblxUzivRANzwNWELaR8P0_cQV4JAOvCqmPr_-yxUveXpc0iZGDRlEMj4l5g",
+  "heroTitle": "Historia y Excelencia en Educación Técnica",
+  "heroSubtitle": "Pioneros del crecimiento técnico y formando el futuro de profesionales industriales en Dulce Nombre.",
+  "heroBadge": "Desde 1974",
+  "timeline": [
+    {
+      "year": "1974",
+      "title": "Era Fundacional",
+      "description": "Establecido con tres especialidades técnicas para atender las crecientes necesidades industriales de la región. El campus inicial contaba con solo dos talleres.",
+      "isHighlighted": true
+    },
+    {
+      "year": "1990s",
+      "title": "Expansión y Modernización",
+      "description": "Los años 90 vieron la construcción de nuestro complejo deportivo principal y la integración de los primeros laboratorios de cómputo, avanzando hacia un currículo digital.",
+      "isHighlighted": false
+    },
+    {
+      "year": "Hoy",
+      "title": "Excelencia Técnica Actual",
+      "description": "Hoy, el CTP Dulce Nombre alberga más de 12 programas técnicos especializados y mantiene alianzas con líderes tecnológicos globales.",
+      "isHighlighted": false
+    }
+  ],
+  "mission": {
+    "icon": "flag",
+    "title": "Nuestra Misión",
+    "description": "Brindar educación técnica y académica integral y de alta calidad, fomentando valores éticos, innovación y liderazgo en nuestros estudiantes para empoderarlos como ciudadanos competitivos en el mercado global y agentes de cambio social."
+  },
+  "vision": {
+    "icon": "visibility",
+    "title": "Nuestra Visión",
+    "description": "Ser la institución líder en educación técnica en Costa Rica, reconocida por nuestra excelencia académica, instalaciones de vanguardia y el desarrollo humano integral de nuestros graduados, adaptándonos constantemente a la evolución tecnológica."
+  },
+  "facilities": [
+    {
+      "name": "Laboratorios de Electrónica",
+      "description": "Herramientas de diagnóstico y microcontroladores de última generación.",
+      "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuCGxd7Fm0LZ-p8O5VJ7lkMPtu5XS2TRJGljwPmiA41TNSwHpOxw7YNOw04IHFiaivvQCJkbRu9U38mA9lSOVWfeJH6-T9PbRd_abY-e9LNDEogWGSy0U25FmBAbRQCdjeGt8zxLEUn4Pu3gjzNlkyuh55cR2LxjXT8ehzDnBiEDPnyq-A446F1ZECVC9Gy79HyK1DhByWU-izXNXxiv486dagoP9JignqFTfSbsJPG-A3SUflERzdpEKmV5iuMG4Jn8PYj7Hyn14g"
+    },
+    {
+      "name": "Gimnasio Multiusos",
+      "description": "Instalaciones de baloncesto, voleibol y fútbol sala.",
+      "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuBhg1ITGQvWwdMg8nGLg05jfpvVVbaDXT4lCdWuqYeQjPZ8tGkq8W8gsYOnAuRcF4XiXDd4LtjMi9gaggxna4N8GcL8xsOBd1VfGU64dTmBXC-NCSeJmZDWwqpYIazjgc56VxonCdLtQcJLQNkKUzY4Aiexskpv-_PVbAcpW5FPCKwYJVExxWAq9-NbMFKxYnf8EDxqz0gSxaSpBP8tGVdt_njxj9saHuCzBwjuHz8J1TBaDUhb3zmHORn54KVKjbhhB4JrYrxPew"
+    },
+    {
+      "name": "Estudio CAD y Diseño",
+      "description": "Estaciones de trabajo de alto rendimiento para modelado 3D.",
+      "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuDPWi-H1YSEEA0yNtSceGEVjiZJcrOQSljOkXWacPJ7fmQls8eNHsuBA76G8WntTAQlNHO5CTrObGaNNyVHrYlYeWINUoA7UGHbnlhJ24Tayas4RwbM6_CLoDFyijQFE5-55cfdyDSFBDx_TRCM1z4wxpIk8BXOx2HApzj1ONbcw0HvRBgur8omERnE4ZgtNQHFXqWwqFLdexg_aupOYLkNPhcigDg53dWNI5Z_iPqiq3z0xTNjv4Lc3ImrxH_x3CwSctqt9qgRXA"
+    }
+  ],
+  "services": [
+    {
+      "icon": "directions_bus",
+      "title": "Transporte Estudiantil",
+      "description": "Ofrecemos servicios de transporte seguros y confiables cubriendo Dulce Nombre, Paraíso, centro de Cartago y alrededores. Nuestra flota es moderna y cumple estrictamente con todos los protocolos de seguridad.",
+      "features": [
+        "Ruta matutina a partir de las 6:30 AM",
+        "Salida por la tarde a las 4:30 PM",
+        "Rastreo GPS para padres"
+      ]
+    },
+    {
+      "icon": "local_library",
+      "title": "Biblioteca Institucional",
+      "description": "Nuestra biblioteca es un centro de investigación y aprendizaje, con más de 5,000 volúmenes físicos y acceso a amplias bases de datos digitales para especialidades técnicas.",
+      "features": [
+        "Zonas de estudio silencioso y salas grupales",
+        "Sistema de préstamo digital",
+        "Colecciones por especialidad"
+      ]
+    }
+  ],
+  "anthemTitle": "Himno de Nuestra Institución",
+  "anthemVerses": [
+    "Coro\n¡Oh colegio, de luz y esperanza,\nque en tus aulas forjas el saber!\nCon orgullo y noble pujanza,\nal futuro queremos vencer.",
+    "I\nEn el valle de Dulce Nombre,\nse levanta un templo de honor,\ndonde crece la técnica y el hombre,\ncon trabajo, estudio y valor.",
+    "II\nLas herramientas son manos amigas,\nel ingenio es nuestra gran fe,\ncosechando por fin las espigas,\nde un mañana que brilla de pie."
+  ],
+  "historyImages": [
+    "https://lh3.googleusercontent.com/aida-public/AB6AXuBOaGqINw5ThnlsX1sprx7dw2OZexeArsHEzh4KHLogyCWYzGurQh3Lk1ZY6LeZdYaFDOA0hD6LVLMvN-Jr2YZhFIg3mvVtcLQ3bOoMxLaWlhqloo3xSKsExRilEvu2QfJYqoQxq83fgOH7pze9MT_qjngu9rXIG5LmppDBwnsrkulRzoyzgrp5-WgdRzxPB_r1OBKrccVN7-LHwHvYpuI2JnhyaDfpuUigleKueQUNbSwKC5dTgHZy4aISoCGoku_hlin62z6hvg",
+    "https://lh3.googleusercontent.com/aida-public/AB6AXuDhoEB1I4wgfdpuHCYuLWNDiQUZZ72xjhuicAw8Ru6u0RalfL55jAqPWIxeZ1s6LfJ_5JF63vuilaEIXNddiS9mnnaKK1kjuul3gtT_1Opq8WxIFN8v1mjGuqeuPZ7VWnlaoY4daPMVzBSlK637la-dzPh-BpHQ5I-GUbrahxg6cSyVml0sg2kXR2tvGuww8QEgXbMLLHB4QtoxWsD1-HhpPRN3hR9gWCrO5nMKxNgmN-0g1tmTWyZEBeir5FyLIbw2MNnwhI5j-g"
+  ]
+}

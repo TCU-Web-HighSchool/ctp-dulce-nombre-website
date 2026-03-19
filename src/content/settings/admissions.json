@@ -1,0 +1,52 @@
+{
+  "heroImage": "https://lh3.googleusercontent.com/aida-public/AB6AXuCXk350GUW_-QUi5Q2QjEyjojdLaoD0guDcwa9616qUyRg_HOP_PQUfo3WlmgvGvgLjLuXfRPObwNd0AfTjsE6vmKJ4g0aud_t4hvVOgZLF7oADD_XmLAJh91cGF6MrFkGxyyK0iDG9KSgd9szilSo-aGE-OhvUz_uZY_kNYRc02X7vRq--BpjZiY2IFn5I0Pg9KhaMqKFynXMYL81U3FBm8sYjqNDjeWBdmrHGYZFPmwdYFfhItth0Ihv0v2FAflJgYtSKAQFEVw",
+  "heroTitle": "Forja Tu Futuro en Tecnología",
+  "heroSubtitle": "Únete a la institución técnica líder de Costa Rica. Nuestro proceso de admisión está diseñado para identificar pasión, talento y compromiso con la excelencia.",
+  "heroBadge": "Matrícula 2025-2026",
+  "steps": [
+    {
+      "icon": "app_registration",
+      "title": "Solicitud en Línea",
+      "description": "Envía tus datos personales e historial académico a través de nuestro portal."
+    },
+    {
+      "icon": "edit_note",
+      "title": "Examen de Admisión",
+      "description": "Evaluación presencial de razonamiento lógico y competencias básicas."
+    },
+    {
+      "icon": "assignment_turned_in",
+      "title": "Revisión de Resultados",
+      "description": "Consulta tu estado de admisión a través de nuestro panel en línea."
+    },
+    {
+      "icon": "verified_user",
+      "title": "Matrícula Final",
+      "description": "Entrega documentos físicos y completa el pago de inscripción."
+    }
+  ],
+  "documents": [
+    {
+      "category": "Identidad y Personal",
+      "items": [
+        { "label": "Copia certificada de la cédula de identidad (TIM)", "isChecked": true },
+        { "label": "Dos fotos recientes tamaño pasaporte", "isChecked": true },
+        { "label": "Certificado de nacimiento (Registro Nacional)", "isChecked": false }
+      ]
+    },
+    {
+      "category": "Expediente Académico",
+      "items": [
+        { "label": "Certificado de conclusión de 6° grado", "isChecked": false },
+        { "label": "Informe de conducta de la escuela anterior", "isChecked": false }
+      ]
+    }
+  ],
+  "specialtyOptions": [
+    "Desarrollo de Software",
+    "Electrónica",
+    "Contabilidad Ejecutiva",
+    "Turismo y Hospitalidad",
+    "Ingeniería de Redes"
+  ]
+}

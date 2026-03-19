@@ -1,71 +1,263 @@
-const programs = [
-  {
-    name: "Informática",
-    icon: "computer",
-    desc: "Desarrollo de software, redes y soporte informático.",
-  },
-  {
-    name: "Electromecánica",
-    icon: "settings",
-    desc: "Sistemas eléctricos, motores y maquinaria industrial.",
-  },
-  {
-    name: "Secretariado",
-    icon: "description",
-    desc: "Gestión administrativa y comunicación empresarial.",
-  },
-  {
-    name: "Electrónica",
-    icon: "memory",
-    desc: "Circuitos electrónicos, sistemas embebidos y automatización.",
-  },
-  {
-    name: "Contabilidad",
-    icon: "calculate",
-    desc: "Contabilidad financiera, tributación y auditoría.",
-  },
-  {
-    name: "Turismo",
-    icon: "travel_explore",
-    desc: "Hospitalidad, gestión de viajes y servicio al cliente.",
-  },
+import { useState } from "react";
+import academicData from "../content/settings/academic.json";
+
+const {
+  pageTitle,
+  pageSubtitle,
+  tabs,
+  specialties,
+  calendarTitle,
+  calendarSubtitle,
+  calendarMonth,
+  calendarEvents,
+  scholarshipTitle,
+  scholarshipDescription,
+  scholarshipBenefits,
+  sidebarImage,
+  sidebarImageCaption,
+  eventLegend,
+} = academicData;
+
+const calendarDays = [
+  { day: 28, isOtherMonth: true },
+  { day: 29, isOtherMonth: true },
+  { day: 30, isOtherMonth: true },
+  { day: 31, isOtherMonth: true },
+  { day: 1 },
+  { day: 2 },
+  { day: 3 },
+  { day: 4 },
+  { day: 5, event: "Inicio de Clases" },
+  { day: 6 },
+  { day: 7 },
+  { day: 8 },
+  { day: 9 },
+  { day: 10 },
+  { day: 11 },
+  { day: 12 },
+  { day: 13 },
+  { day: 14 },
+  { day: 15, hasDot: true },
+  { day: 16 },
+  { day: 17 },
 ];
 
 export default function Academic() {
+  const [activeTab, setActiveTab] = useState(2);
+
   return (
-    <section className="max-w-340 mx-auto px-4 sm:px-6 lg:px-8 py-24">
-      <div className="mb-12">
-        <h1 className="text-4xl font-black text-slate-900 dark:text-white tracking-tight mb-4">
-          Programas Académicos
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      {/* Breadcrumbs */}
+      <nav className="flex items-center gap-2 text-sm text-slate-500 mb-6">
+        <a className="hover:text-primary transition-colors" href="/">
+          Inicio
+        </a>
+        <span className="material-symbols-outlined text-[16px]">
+          chevron_right
+        </span>
+        <span className="text-slate-900 font-medium">Programas Académicos</span>
+      </nav>
+
+      {/* Hero Title */}
+      <div className="mb-10">
+        <h1 className="text-4xl md:text-5xl font-black text-slate-900 tracking-tight mb-4">
+          {pageTitle}
         </h1>
-        <div className="h-1 w-20 bg-primary rounded-full mb-6"></div>
-        <p className="text-lg text-slate-600 dark:text-slate-400 max-w-2xl">
-          Ofrecemos 12 especialidades técnicas diseñadas para preparar a los
-          estudiantes ante las exigencias del mercado laboral moderno. Cada
-          programa combina teoría con práctica aplicada.
-        </p>
+        <p className="text-lg text-slate-600 max-w-3xl">{pageSubtitle}</p>
       </div>
 
-      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-        {programs.map((program) => (
-          <div
-            key={program.name}
-            className="bg-white dark:bg-slate-900 rounded-2xl p-8 border border-slate-100 dark:border-slate-800 shadow-sm hover:shadow-xl transition-all group"
-          >
-            <div className="bg-primary/10 text-primary p-3 rounded-xl w-fit mb-5 group-hover:bg-primary group-hover:text-white transition-all">
-              <span className="material-symbols-outlined text-2xl">
-                {program.icon}
+      {/* Tabbed Interface */}
+      <div className="mb-12">
+        <div className="border-b border-slate-200">
+          <nav className="flex gap-8 overflow-x-auto pb-px">
+            {tabs.map((tab, index) => (
+              <button
+                key={tab}
+                onClick={() => setActiveTab(index)}
+                className={`py-4 text-sm font-bold whitespace-nowrap transition-all border-b-2 ${
+                  activeTab === index
+                    ? "border-primary text-primary"
+                    : "border-transparent text-slate-500 hover:text-slate-700"
+                }`}
+              >
+                {tab}
+              </button>
+            ))}
+          </nav>
+        </div>
+
+        {/* Specialties Grid */}
+        <section className="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {specialties
+            .filter((s) => s.active)
+            .map((program) => (
+              <div
+                key={program.title}
+                className="bg-white border border-slate-200 rounded-xl p-6 hover:shadow-lg transition-all group"
+              >
+                <div className="size-12 bg-primary/10 rounded-lg flex items-center justify-center text-primary mb-4 group-hover:bg-primary group-hover:text-white transition-colors">
+                  <span className="material-symbols-outlined">
+                    {program.icon}
+                  </span>
+                </div>
+                <h3 className="text-xl font-bold text-slate-900 mb-2">
+                  {program.title}
+                </h3>
+                <p className="text-slate-600 text-sm mb-6 leading-relaxed">
+                  {program.summary}
+                </p>
+                <div className="flex items-center justify-between mt-auto">
+                  <span className="text-xs font-bold uppercase tracking-wider text-slate-400">
+                    {program.duration}
+                  </span>
+                  <button className="text-primary text-sm font-bold flex items-center gap-1 hover:underline">
+                    Ver Plan
+                    <span className="material-symbols-outlined text-[18px]">
+                      arrow_forward
+                    </span>
+                  </button>
+                </div>
+              </div>
+            ))}
+        </section>
+      </div>
+
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        {/* Calendar Section */}
+        <div className="lg:col-span-2">
+          <div className="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm">
+            <div className="p-6 border-b border-slate-200 flex items-center justify-between">
+              <div>
+                <h2 className="text-2xl font-bold text-slate-900">
+                  {calendarTitle}
+                </h2>
+                <p className="text-slate-500 text-sm">{calendarSubtitle}</p>
+              </div>
+              <div className="flex gap-2">
+                <button className="p-2 rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition-all">
+                  <span className="material-symbols-outlined">
+                    chevron_left
+                  </span>
+                </button>
+                <button className="p-2 rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition-all">
+                  <span className="material-symbols-outlined">
+                    chevron_right
+                  </span>
+                </button>
+              </div>
+            </div>
+            <div className="p-6">
+              <div className="flex items-center justify-between mb-6">
+                <h3 className="text-lg font-bold">{calendarMonth}</h3>
+                <button className="text-primary text-sm font-bold hover:underline">
+                  Imprimir PDF
+                </button>
+              </div>
+              <div className="grid grid-cols-7 gap-px bg-slate-100 border border-slate-100 rounded-lg overflow-hidden">
+                {["Dom", "Lun", "Mar", "Mié", "Jue", "Vie", "Sáb"].map(
+                  (day) => (
+                    <div
+                      key={day}
+                      className="bg-slate-50 py-2 text-center text-xs font-black text-slate-400 uppercase"
+                    >
+                      {day}
+                    </div>
+                  ),
+                )}
+                {calendarDays.map((d, i) => (
+                  <div
+                    key={i}
+                    className={`h-24 p-2 font-medium ${
+                      d.event ? "bg-primary/5 font-bold" : "bg-white"
+                    } ${d.isOtherMonth ? "text-slate-300" : ""}`}
+                  >
+                    {d.day}
+                    {d.event && (
+                      <div className="mt-1">
+                        <span className="text-[10px] bg-primary text-white px-1.5 py-0.5 rounded leading-none block">
+                          {d.event}
+                        </span>
+                      </div>
+                    )}
+                    {d.hasDot && (
+                      <div className="absolute bottom-2 left-2 flex gap-1">
+                        <div className="size-1.5 rounded-full bg-orange-500" />
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Sidebar */}
+        <div className="flex flex-col gap-6">
+          {/* Scholarship Card */}
+          <div className="bg-primary/5 border border-primary/20 rounded-xl p-6 relative overflow-hidden">
+            <div className="absolute top-0 right-0 p-4 opacity-10">
+              <span className="material-symbols-outlined text-[80px] text-primary">
+                payments
               </span>
             </div>
-            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">
-              {program.name}
+            <h3 className="text-xl font-bold text-slate-900 mb-3">
+              {scholarshipTitle}
             </h3>
-            <p className="text-slate-500 dark:text-slate-400 text-sm">
-              {program.desc}
+            <p className="text-slate-600 text-sm mb-6 leading-relaxed">
+              {scholarshipDescription}
             </p>
+            <ul className="space-y-3 mb-8">
+              {scholarshipBenefits.map((benefit) => (
+                <li
+                  key={benefit}
+                  className="flex items-center gap-2 text-sm text-slate-700"
+                >
+                  <span className="material-symbols-outlined text-primary text-[20px]">
+                    check_circle
+                  </span>
+                  {benefit}
+                </li>
+              ))}
+            </ul>
+            <button className="w-full bg-primary text-white py-3 rounded-lg text-sm font-bold hover:bg-primary/90 transition-all">
+              Solicitar Ayuda
+            </button>
           </div>
-        ))}
+
+          {/* Event Legend */}
+          <div className="bg-white border border-slate-200 rounded-xl p-6">
+            <h4 className="text-sm font-bold text-slate-900 uppercase tracking-wider mb-4">
+              Leyenda
+            </h4>
+            <div className="space-y-4">
+              {eventLegend.map((item) => (
+                <div key={item.label} className="flex items-center gap-3">
+                  <div
+                    className={`size-3 rounded-full ${item.color === "primary" ? "bg-primary" : item.color === "orange" ? "bg-orange-500" : item.color === "red" ? "bg-red-500" : "bg-emerald-500"}`}
+                  />
+                  <span className="text-sm text-slate-600 font-medium">
+                    {item.label}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Featured Image */}
+          <div className="rounded-xl overflow-hidden h-48 relative group">
+            <img
+              alt={sidebarImageCaption}
+              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              src={sidebarImage}
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-4">
+              <p className="text-white text-sm font-bold">
+                {sidebarImageCaption}
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
-    </section>
+    </div>
   );
 }
