@@ -1,11 +1,30 @@
 import { useState } from "react";
 import newsData from "../content/settings/news.json";
 
+const _newsModules = import.meta.glob("../content/news/*.json", {
+  eager: true,
+  import: "default",
+});
+const news = Object.entries(_newsModules)
+  .sort((a, b) => b[0].localeCompare(a[0]))
+  .map(([, d]) => d);
+
+const fmtDate = (d) => {
+  try {
+    return new Date(d).toLocaleDateString("es-CR", {
+      day: "numeric",
+      month: "short",
+      year: "numeric",
+    });
+  } catch {
+    return d;
+  }
+};
+
 const {
   pageTitle,
   filterCategories,
   archiveYears,
-  news,
   subscribeTitle,
   subscribeDescription,
 } = newsData;
@@ -145,7 +164,7 @@ export default function News() {
             {filtered.map((item) =>
               item.isImportant ? (
                 <article
-                  key={item.id}
+                  key={item.title}
                   className="flex flex-col bg-slate-50 border-2 border-dashed border-slate-200 rounded-xl p-6 hover:border-primary/50 transition-all group"
                 >
                   <div className="flex items-center gap-2 mb-4">
@@ -161,7 +180,7 @@ export default function News() {
                       <span className="material-symbols-outlined text-sm">
                         schedule
                       </span>
-                      {item.date}
+                      {fmtDate(item.date)}
                     </div>
                     <h3 className="text-xl font-bold leading-tight text-slate-900 group-hover:text-primary transition-colors">
                       {item.title}
@@ -179,7 +198,7 @@ export default function News() {
                 </article>
               ) : (
                 <article
-                  key={item.id}
+                  key={item.title}
                   className="flex flex-col bg-white border border-slate-200 rounded-xl overflow-hidden hover:shadow-lg hover:border-primary/30 transition-all group"
                 >
                   <div className="relative h-48 w-full bg-slate-100 overflow-hidden">
@@ -209,7 +228,7 @@ export default function News() {
                       <span className="material-symbols-outlined text-sm">
                         schedule
                       </span>
-                      {item.date}
+                      {fmtDate(item.date)}
                     </div>
                     <h3 className="text-xl font-bold leading-tight text-slate-900 group-hover:text-primary transition-colors">
                       {item.title}

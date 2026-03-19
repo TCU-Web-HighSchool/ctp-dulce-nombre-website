@@ -1,12 +1,29 @@
 import { useState } from "react";
 import jobData from "../content/settings/jobboard.json";
 
+const _jobModules = import.meta.glob("../content/jobs/*.json", {
+  eager: true,
+  import: "default",
+});
+const jobs = Object.values(_jobModules).filter((j) => j.active !== false);
+
+const fmtDate = (d) => {
+  try {
+    return new Date(d).toLocaleDateString("es-CR", {
+      day: "numeric",
+      month: "short",
+      year: "numeric",
+    });
+  } catch {
+    return d;
+  }
+};
+
 const {
   pageTitle,
   pageSubtitle,
   searchPlaceholder,
   areas,
-  jobs,
   employerCtaTitle,
   employerCtaDescription,
   employerCtaButton,
@@ -87,7 +104,7 @@ export default function JobBoard() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {filtered.map((job) => (
               <div
-                key={job.id}
+                key={job.title}
                 className="bg-white border border-slate-200 rounded-xl p-6 hover:shadow-lg transition-all flex flex-col"
               >
                 <div className="flex items-start gap-4 mb-4">
@@ -148,7 +165,9 @@ export default function JobBoard() {
                       {job.location}
                     </span>
                   </div>
-                  <span className="text-xs text-slate-400">{job.date}</span>
+                  <span className="text-xs text-slate-400">
+                    {fmtDate(job.date)}
+                  </span>
                 </div>
               </div>
             ))}

@@ -30,6 +30,8 @@ collections:
     folder: "src/content/news"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    extension: "json"
+    format: "json"
     fields:
       - { label: "Título de la noticia", name: "title", widget: "string", hint: "Ejemplo: Matrícula 2026 ya está abierta" }
       - { label: "Fecha de publicación", name: "date", widget: "datetime" }
@@ -42,9 +44,8 @@ collections:
           - { label: "Deportes", value: "Deportes" }
           - { label: "Cultural", value: "Cultural" }
           - { label: "General", value: "General" }
-      - { label: "Imagen destacada", name: "image", widget: "image", required: false, hint: "Imagen principal que aparece en la tarjeta de la noticia" }
-      - { label: "Resumen", name: "summary", widget: "text", hint: "Texto corto que aparece bajo el título (2-3 líneas)" }
-      - { label: "Contenido completo", name: "body", widget: "markdown" }
+      - { label: "Imagen destacada", name: "img", widget: "image", required: false, hint: "Imagen principal que aparece en la tarjeta de la noticia" }
+      - { label: "Resumen", name: "desc", widget: "text", hint: "Texto corto que aparece bajo el título (2-3 líneas)" }
       - { label: "Marcar como nuevo", name: "isNew", widget: "boolean", default: true, hint: "Muestra la etiqueta 'Nuevo' en la tarjeta" }
       - { label: "Es aviso importante", name: "isImportant", widget: "boolean", default: false, hint: "Aviso destacado con borde punteado (sin imagen)" }
       - { label: "Borrador", name: "draft", widget: "boolean", default: false, hint: "No se muestra en el sitio hasta desmarcar" }
@@ -57,6 +58,8 @@ collections:
     folder: "src/content/jobs"
     create: true
     slug: "{{slug}}"
+    extension: "json"
+    format: "json"
     fields:
       - { label: "Puesto / Cargo", name: "title", widget: "string", hint: "Ejemplo: Desarrollador(a) Frontend Junior" }
       - { label: "Empresa", name: "company", widget: "string" }
@@ -101,9 +104,11 @@ collections:
     folder: "src/content/faq"
     create: true
     slug: "{{slug}}"
+    extension: "json"
+    format: "json"
     fields:
-      - { label: "Pregunta", name: "question", widget: "string", hint: "Ejemplo: ¿Cuáles son los requisitos de admisión?" }
-      - { label: "Respuesta", name: "answer", widget: "text", hint: "Respuesta clara y concisa" }
+      - { label: "Pregunta", name: "q", widget: "string", hint: "¿Cuáles son los requisitos de admisión?" }
+      - { label: "Respuesta", name: "a", widget: "text", hint: "Respuesta clara y concisa" }
       - label: "Categoría"
         name: "category"
         widget: "select"
@@ -122,6 +127,8 @@ collections:
     folder: "src/content/programs"
     create: true
     slug: "{{slug}}"
+    extension: "json"
+    format: "json"
     fields:
       - { label: "Nombre del programa", name: "title", widget: "string", hint: "Ejemplo: Desarrollo de Software" }
       - { label: "Ícono (Material Symbol)", name: "icon", widget: "string", hint: "Nombre del ícono de Material Symbols, ej: terminal, memory, calculate" }
@@ -268,17 +275,6 @@ collections:
             widget: "list"
             hint: "Nombres de las pestañas (ej: Colegio Diurno, Colegio Nocturno)"
             field: { label: "Pestaña", name: "tab", widget: "string" }
-          - label: "Especialidades Técnicas"
-            name: "specialties"
-            widget: "list"
-            hint: "Las carreras técnicas que ofrece el colegio"
-            fields:
-              - { label: "Nombre", name: "title", widget: "string" }
-              - { label: "Ícono (Material Symbol)", name: "icon", widget: "string", hint: "Ejemplo: terminal, memory, calculate" }
-              - { label: "Descripción corta", name: "summary", widget: "text" }
-              - { label: "Duración", name: "duration", widget: "string", default: "Programa de 3 Años" }
-              - { label: "Orden", name: "order", widget: "number", default: 0 }
-              - { label: "Activo", name: "active", widget: "boolean", default: true }
           - { label: "Título del Calendario", name: "calendarTitle", widget: "string" }
           - { label: "Subtítulo del Calendario", name: "calendarSubtitle", widget: "string" }
           - { label: "Mes mostrado", name: "calendarMonth", widget: "string", hint: "Ejemplo: Febrero 2025" }
@@ -381,22 +377,6 @@ collections:
                 widget: "list"
                 required: false
                 field: { label: "Mes", name: "month", widget: "string" }
-          - label: "Noticias"
-            name: "news"
-            widget: "list"
-            hint: "Noticias que se muestran en la página"
-            fields:
-              - { label: "ID (número único)", name: "id", widget: "number" }
-              - label: "Categoría"
-                name: "category"
-                widget: "select"
-                options: ["Académico", "Deportes", "Cultural", "General"]
-              - { label: "Marcar como nuevo", name: "isNew", widget: "boolean", default: false }
-              - { label: "Es aviso importante", name: "isImportant", widget: "boolean", default: false, hint: "Aviso con borde punteado, sin imagen" }
-              - { label: "Fecha", name: "date", widget: "string", hint: "Ejemplo: 24 oct, 2024" }
-              - { label: "Título", name: "title", widget: "string" }
-              - { label: "Descripción", name: "desc", widget: "text" }
-              - { label: "Imagen", name: "img", widget: "image", required: false, hint: "No se usa para avisos importantes" }
           - { label: "Título de suscripción", name: "subscribeTitle", widget: "string" }
           - { label: "Descripción de suscripción", name: "subscribeDescription", widget: "text" }
 
@@ -414,31 +394,6 @@ collections:
             widget: "list"
             hint: "Botones de filtro por área técnica"
             field: { label: "Área", name: "area", widget: "string" }
-          - label: "Ofertas de empleo"
-            name: "jobs"
-            widget: "list"
-            hint: "Ofertas laborales que se muestran en la bolsa"
-            fields:
-              - { label: "ID (número único)", name: "id", widget: "number" }
-              - { label: "Puesto", name: "title", widget: "string" }
-              - { label: "Empresa", name: "company", widget: "string" }
-              - { label: "Ubicación", name: "location", widget: "string" }
-              - label: "Tipo"
-                name: "type"
-                widget: "select"
-                options: ["Tiempo completo", "Medio tiempo", "Pasantía", "Contrato"]
-              - label: "Área técnica"
-                name: "area"
-                widget: "select"
-                options: ["Informática", "Electromecánica", "Secretariado", "Electrónica", "Contabilidad", "Turismo", "General"]
-              - { label: "Descripción", name: "description", widget: "text" }
-              - label: "Etiquetas"
-                name: "tags"
-                widget: "list"
-                field: { label: "Etiqueta", name: "tag", widget: "string" }
-              - { label: "Logo empresa", name: "logo", widget: "image", required: false }
-              - { label: "Fecha", name: "date", widget: "string" }
-              - { label: "Activa", name: "active", widget: "boolean", default: true }
           - { label: "Título CTA empresas", name: "employerCtaTitle", widget: "string" }
           - { label: "Descripción CTA empresas", name: "employerCtaDescription", widget: "text" }
           - { label: "Botón CTA empresas", name: "employerCtaButton", widget: "string" }
@@ -457,17 +412,6 @@ collections:
             widget: "list"
             hint: "Nombres de las categorías de filtro (la primera debe ser 'Todos')"
             field: { label: "Categoría", name: "category", widget: "string" }
-          - label: "Preguntas y Respuestas"
-            name: "faqs"
-            widget: "list"
-            hint: "Las preguntas frecuentes del colegio"
-            fields:
-              - { label: "Pregunta", name: "q", widget: "string" }
-              - { label: "Respuesta", name: "a", widget: "text" }
-              - label: "Categoría"
-                name: "category"
-                widget: "select"
-                options: ["Matrícula", "Académico", "Administrativo"]
           - { label: "Título del CTA de contacto", name: "contactCtaTitle", widget: "string" }
           - { label: "Descripción del CTA", name: "contactCtaDescription", widget: "text" }
           - { label: "Texto del botón de contacto", name: "contactCtaButton", widget: "string" }

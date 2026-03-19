@@ -1,15 +1,21 @@
 import { useState } from "react";
 import academicData from "../content/settings/academic.json";
 
+const _progModules = import.meta.glob("../content/programs/*.json", {
+  eager: true,
+  import: "default",
+});
+const specialties = Object.values(_progModules)
+  .sort((a, b) => (a.order || 0) - (b.order || 0))
+  .filter((p) => p.active !== false);
+
 const {
   pageTitle,
   pageSubtitle,
   tabs,
-  specialties,
   calendarTitle,
   calendarSubtitle,
   calendarMonth,
-  calendarEvents,
   scholarshipTitle,
   scholarshipDescription,
   scholarshipBenefits,

@@ -2,12 +2,19 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import faqData from "../content/settings/faq.json";
 
+const _faqModules = import.meta.glob("../content/faq/*.json", {
+  eager: true,
+  import: "default",
+});
+const faqs = Object.values(_faqModules)
+  .sort((a, b) => (a.order || 0) - (b.order || 0))
+  .filter((f) => f.active !== false);
+
 const {
   heroTitle,
   heroSubtitle,
   searchPlaceholder,
   categories,
-  faqs,
   contactCtaTitle,
   contactCtaDescription,
   contactCtaButton,

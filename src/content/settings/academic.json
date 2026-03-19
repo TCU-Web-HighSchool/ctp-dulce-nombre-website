@@ -1,63 +1,25 @@
 {
   "pageTitle": "Programas Académicos y Calendario",
   "pageSubtitle": "Explora nuestras opciones educativas, especialidades técnicas y fechas institucionales diseñadas para tu éxito.",
-  "tabs": ["Colegio Diurno", "Colegio Nocturno", "Especialidades Técnicas"],
-  "specialties": [
-    {
-      "title": "Contabilidad y Auditoría",
-      "icon": "calculate",
-      "summary": "Domina los principios financieros, cumplimiento tributario y técnicas modernas de auditoría con software estándar de la industria.",
-      "duration": "Programa de 3 Años",
-      "order": 1,
-      "active": true
-    },
-    {
-      "title": "Desarrollo de Software",
-      "icon": "terminal",
-      "summary": "Aprende lógica de programación, desarrollo web y aplicaciones móviles. Enfocado en tecnologías full-stack modernas.",
-      "duration": "Programa de 3 Años",
-      "order": 2,
-      "active": true
-    },
-    {
-      "title": "Electromecánica",
-      "icon": "precision_manufacturing",
-      "summary": "Formación práctica en sistemas mecánicos, cableado eléctrico y mantenimiento de automatización industrial.",
-      "duration": "Programa de 3 Años",
-      "order": 3,
-      "active": true
-    },
-    {
-      "title": "Electrónica",
-      "icon": "memory",
-      "summary": "Circuitos electrónicos, sistemas embebidos y automatización. Diagnóstico y reparación de equipos tecnológicos.",
-      "duration": "Programa de 3 Años",
-      "order": 4,
-      "active": true
-    },
-    {
-      "title": "Secretariado Ejecutivo",
-      "icon": "description",
-      "summary": "Gestión administrativa, comunicación empresarial, atención al cliente y manejo avanzado de herramientas ofimáticas.",
-      "duration": "Programa de 3 Años",
-      "order": 5,
-      "active": true
-    },
-    {
-      "title": "Turismo y Hospitalidad",
-      "icon": "travel_explore",
-      "summary": "Hospitalidad, gestión de viajes, servicio al cliente y planificación de eventos turísticos sostenibles.",
-      "duration": "Programa de 3 Años",
-      "order": 6,
-      "active": true
-    }
+  "tabs": [
+    "Colegio Diurno",
+    "Colegio Nocturno",
+    "Especialidades Técnicas"
   ],
   "calendarTitle": "Calendario Académico 2025",
   "calendarSubtitle": "Próximos eventos y fechas importantes",
   "calendarMonth": "Febrero 2025",
   "calendarEvents": [
-    { "day": 5, "label": "Inicio de Clases", "color": "primary" },
-    { "day": 15, "label": "Examen Parcial", "color": "orange" }
+    {
+      "day": 5,
+      "label": "Inicio de Clases",
+      "color": "primary"
+    },
+    {
+      "day": 15,
+      "label": "Examen Parcial",
+      "color": "orange"
+    }
   ],
   "scholarshipTitle": "Becas y Ayudas",
   "scholarshipDescription": "Programas de asistencia financiera incluyendo \"Becas Avancemos\", subsidios de comedor y transporte estudiantil.",
@@ -68,9 +30,21 @@
   "sidebarImage": "https://lh3.googleusercontent.com/aida-public/AB6AXuDr_j1b2dydqZBPULGSKjUWYy9z-fJd2p8WZCiOiUXzs3KkDOqtU2pjerjBG6HR4kxFWl0mNnIS6z8TidyalXIt7GelOJj5a3GKBU5MIeKhydr8ZZ12SigCYxXPsId8em_kXklv4Ww6I4B5WdcLwx77_luIC0YtE-eILvEcdGDaBJ11C04bdBlgbfWXAlfk3Hb5_cYi7DEF99Cab7PSaPF9ZV2VW8YynfLE4-dayn7rgKlJtOKPgq8iQBm7WU1xZF69mryj3DvFPQ",
   "sidebarImageCaption": "Innovación en cada aula",
   "eventLegend": [
-    { "color": "primary", "label": "Eventos Institucionales" },
-    { "color": "orange", "label": "Exámenes Académicos" },
-    { "color": "red", "label": "Feriados / Receso" },
-    { "color": "green", "label": "Períodos de Matrícula" }
+    {
+      "color": "primary",
+      "label": "Eventos Institucionales"
+    },
+    {
+      "color": "orange",
+      "label": "Exámenes Académicos"
+    },
+    {
+      "color": "red",
+      "label": "Feriados / Receso"
+    },
+    {
+      "color": "green",
+      "label": "Períodos de Matrícula"
+    }
   ]
 }
