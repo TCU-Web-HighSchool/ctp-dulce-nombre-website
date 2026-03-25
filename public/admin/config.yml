@@ -9,22 +9,10 @@ public_folder: "/uploads"
 # Descomenta para usar el CMS en local
 # local_backend: true
 
-# ════════════════════════════════════════════════════════════════════
-#  INSTRUCCIONES PARA EL ADMINISTRADOR
-#  ─────────────────────────────────────
-#  1. Cada sección del sitio web se puede editar desde aquí.
-#  2. Las colecciones marcadas con 📝 permiten CREAR nuevos elementos
-#     (noticias, ofertas de empleo, preguntas frecuentes, etc.)
-#  3. Las colecciones bajo "⚙️ Configuración del Sitio" editan las
-#     páginas existentes (Inicio, Académico, Contacto, etc.)
-#  4. Las imágenes se pueden subir directamente desde el editor.
-#  5. Los cambios se publican automáticamente tras guardar.
-# ════════════════════════════════════════════════════════════════════
-
 collections:
-  # ─── 📝 Noticias y Anuncios ──────────────────────────────────────
+  # --- Noticias y Anuncios ---
   - name: "noticias"
-    label: "📰 Noticias y Anuncios"
+    label: "Noticias y Anuncios"
     label_singular: "Noticia"
     description: "Publica noticias, anuncios y avisos importantes del colegio. Aparecen en la página de Noticias."
     folder: "src/content/news"
@@ -50,9 +38,9 @@ collections:
       - { label: "Es aviso importante", name: "isImportant", widget: "boolean", default: false, hint: "Aviso destacado con borde punteado (sin imagen)" }
       - { label: "Borrador", name: "draft", widget: "boolean", default: false, hint: "No se muestra en el sitio hasta desmarcar" }
 
-  # ─── 📝 Bolsa de Empleo ──────────────────────────────────────────
+  # --- Bolsa de Empleo ---
   - name: "empleos"
-    label: "💼 Bolsa de Empleo"
+    label: "Bolsa de Empleo"
     label_singular: "Oferta de Empleo"
     description: "Agrega ofertas laborales para egresados y estudiantes. Aparecen en la Bolsa de Empleo."
     folder: "src/content/jobs"
@@ -96,9 +84,9 @@ collections:
       - { label: "Fecha de expiración", name: "expiryDate", widget: "datetime", required: false }
       - { label: "Activa", name: "active", widget: "boolean", default: true, hint: "Desmarca para ocultar la oferta" }
 
-  # ─── 📝 Preguntas Frecuentes ─────────────────────────────────────
+  # --- Preguntas Frecuentes ---
   - name: "faq"
-    label: "❓ Preguntas Frecuentes"
+    label: "Preguntas Frecuentes"
     label_singular: "Pregunta"
     description: "Administra las preguntas y respuestas que aparecen en la página de FAQ."
     folder: "src/content/faq"
@@ -119,9 +107,9 @@ collections:
       - { label: "Orden", name: "order", widget: "number", default: 0, hint: "Número menor aparece primero" }
       - { label: "Visible", name: "active", widget: "boolean", default: true }
 
-  # ─── 📝 Programas Académicos ─────────────────────────────────────
+  # --- Programas Académicos ---
   - name: "programas"
-    label: "🎓 Programas Académicos"
+    label: "Programas Académicos"
     label_singular: "Programa"
     description: "Especialidades técnicas del colegio. Aparecen en la página Académico."
     folder: "src/content/programs"
@@ -138,15 +126,13 @@ collections:
       - { label: "Orden de aparición", name: "order", widget: "number", default: 0 }
       - { label: "Activo", name: "active", widget: "boolean", default: true }
 
-  # ═══════════════════════════════════════════════════════════════════
-  #  ⚙️ CONFIGURACIÓN DE PÁGINAS DEL SITIO
-  # ═══════════════════════════════════════════════════════════════════
+  # --- Configuración del Sitio ---
   - name: "configuracion"
-    label: "⚙️ Configuración del Sitio"
+    label: "Configuración del Sitio"
     description: "Edita los textos, imágenes y contenido de cada página del sitio web."
     files:
-      # ─── General ──────────────────────────────────────────────────
-      - label: "🏫 Datos Generales del Colegio"
+      # General
+      - label: "Datos Generales del Colegio"
         name: "general"
         file: "src/content/settings/general.json"
         description: "Nombre, contacto y redes sociales del colegio"
@@ -160,8 +146,8 @@ collections:
           - { label: "Instagram URL", name: "instagramUrl", widget: "string", required: false }
           - { label: "LinkedIn URL", name: "linkedinUrl", widget: "string", required: false }
 
-      # ─── Página de Inicio ─────────────────────────────────────────
-      - label: "🏠 Página de Inicio"
+      # Página de Inicio
+      - label: "Página de Inicio"
         name: "home"
         file: "src/content/settings/home.json"
         description: "Hero, estadísticas y tarjetas de acceso rápido"
@@ -197,8 +183,8 @@ collections:
               - { label: "Texto del enlace", name: "link", widget: "string" }
               - { label: "Ruta del enlace", name: "to", widget: "string", hint: "Ejemplo: /admissions, /academic, /about" }
 
-      # ─── Página Acerca de ─────────────────────────────────────────
-      - label: "ℹ️ Página Acerca del Colegio"
+      # Página Acerca de
+      - label: "Página Acerca del Colegio"
         name: "about"
         file: "src/content/settings/about.json"
         description: "Historia, misión, visión, instalaciones y servicios"
@@ -262,8 +248,8 @@ collections:
             hint: "Fotos antiguas o históricas del colegio"
             field: { label: "Imagen", name: "image", widget: "image" }
 
-      # ─── Página Académico ─────────────────────────────────────────
-      - label: "📚 Página Académico"
+      # Página Académico
+      - label: "Página Académico"
         name: "academic"
         file: "src/content/settings/academic.json"
         description: "Especialidades, calendario, becas y contenido de la página Académico"
@@ -277,14 +263,14 @@ collections:
             field: { label: "Pestaña", name: "tab", widget: "string" }
           - { label: "Título del Calendario", name: "calendarTitle", widget: "string" }
           - { label: "Subtítulo del Calendario", name: "calendarSubtitle", widget: "string" }
-          - { label: "Mes mostrado", name: "calendarMonth", widget: "string", hint: "Ejemplo: Febrero 2025" }
           - label: "Eventos del Calendario"
             name: "calendarEvents"
             widget: "list"
-            hint: "Eventos que se marcan en el calendario"
+            hint: "Eventos que se muestran en el calendario académico"
             fields:
-              - { label: "Día del mes", name: "day", widget: "number" }
-              - { label: "Nombre del evento", name: "label", widget: "string" }
+              - { label: "Título del evento", name: "title", widget: "string" }
+              - { label: "Fecha de inicio", name: "start", widget: "datetime", date_format: "YYYY-MM-DD", time_format: false }
+              - { label: "Fecha de fin", name: "end", widget: "datetime", date_format: "YYYY-MM-DD", time_format: false, required: false }
               - label: "Color"
                 name: "color"
                 widget: "select"
@@ -316,8 +302,8 @@ collections:
                   - { label: "Verde (Matrícula)", value: "green" }
               - { label: "Descripción", name: "label", widget: "string" }
 
-      # ─── Página de Admisiones ─────────────────────────────────────
-      - label: "📋 Página de Admisiones"
+      # Página de Admisiones
+      - label: "Página de Admisiones"
         name: "admissions"
         file: "src/content/settings/admissions.json"
         description: "Proceso de matrícula, documentos y formulario de consulta"
@@ -352,8 +338,8 @@ collections:
             hint: "Especialidades disponibles en el formulario de consulta"
             field: { label: "Especialidad", name: "specialty", widget: "string" }
 
-      # ─── Página de Noticias ───────────────────────────────────────
-      - label: "📰 Página de Noticias (Config)"
+      # Página de Noticias
+      - label: "Página de Noticias (Config)"
         name: "news_settings"
         file: "src/content/settings/news.json"
         description: "Configuración y contenido de la página de Noticias"
@@ -380,8 +366,8 @@ collections:
           - { label: "Título de suscripción", name: "subscribeTitle", widget: "string" }
           - { label: "Descripción de suscripción", name: "subscribeDescription", widget: "text" }
 
-      # ─── Página de Bolsa de Empleo ────────────────────────────────
-      - label: "💼 Página de Bolsa de Empleo (Config)"
+      # Página de Bolsa de Empleo
+      - label: "Página de Bolsa de Empleo (Config)"
         name: "jobboard"
         file: "src/content/settings/jobboard.json"
         description: "Configuración y ofertas de la Bolsa de Empleo"
@@ -398,8 +384,8 @@ collections:
           - { label: "Descripción CTA empresas", name: "employerCtaDescription", widget: "text" }
           - { label: "Botón CTA empresas", name: "employerCtaButton", widget: "string" }
 
-      # ─── Página de FAQ ────────────────────────────────────────────
-      - label: "❓ Página de Preguntas Frecuentes (Config)"
+      # Página de FAQ
+      - label: "Página de Preguntas Frecuentes (Config)"
         name: "faq_settings"
         file: "src/content/settings/faq.json"
         description: "Configuración y preguntas de la página de FAQ"
@@ -416,8 +402,8 @@ collections:
           - { label: "Descripción del CTA", name: "contactCtaDescription", widget: "text" }
           - { label: "Texto del botón de contacto", name: "contactCtaButton", widget: "string" }
 
-      # ─── Página de Contacto ───────────────────────────────────────
-      - label: "📍 Página de Contacto"
+      # Página de Contacto
+      - label: "Página de Contacto"
         name: "contact"
         file: "src/content/settings/contact.json"
         description: "Información de contacto, horarios y ubicación"
@@ -439,5 +425,4 @@ collections:
               - { label: "Etiqueta", name: "label", widget: "string" }
               - { label: "Valor", name: "value", widget: "string" }
               - { label: "Enlace (href)", name: "href", widget: "string", required: false, hint: "Ejemplo: tel:+50625510000" }
-          - { label: "Imagen del mapa", name: "mapImage", widget: "image" }
           - { label: "Dirección completa", name: "address", widget: "text" }

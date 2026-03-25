@@ -1,4 +1,7 @@
 import { Link } from "react-router-dom";
+import SchoolMap from "../SchoolMap";
+
+const GOOGLE_MAPS_URL = "https://maps.app.goo.gl/8yUFTcDsv4zaPd7x8";
 
 const quickLinks = [
   { label: "Sobre el Colegio", to: "/about" },
@@ -52,9 +55,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="text-slate-900 font-bold mb-6">
-              Enlaces Rápidos
-            </h4>
+            <h4 className="text-slate-900 font-bold mb-6">Enlaces Rápidos</h4>
             <ul className="space-y-4">
               {quickLinks.map((link) => (
                 <li key={link.to}>
@@ -70,9 +71,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="text-slate-900 font-bold mb-6">
-              Contáctenos
-            </h4>
+            <h4 className="text-slate-900 font-bold mb-6">Contáctenos</h4>
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
                 <span className="material-symbols-outlined text-primary text-xl">
@@ -88,9 +87,7 @@ export default function Footer() {
                 <span className="material-symbols-outlined text-primary text-xl">
                   call
                 </span>
-                <span className="text-slate-500 text-sm">
-                  +506 2551-0000
-                </span>
+                <span className="text-slate-500 text-sm">+506 2551-0000</span>
               </li>
               <li className="flex items-center gap-3">
                 <span className="material-symbols-outlined text-primary text-xl">
@@ -104,18 +101,17 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="text-slate-900 font-bold mb-6">
-              Ubicación
-            </h4>
-            <div className="rounded-xl overflow-hidden h-32 w-full border border-slate-200">
-              <img
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAF3QbuuXbF6_06ELGkFiX8odJnbOkij-UfFDYPoFBNW2W_7LcK3HbpLNEO0AeTm_a1WIZt2zotUS74H9ZQKE_C304n7wZXZTm9Y6fHp7saxLNQQKOXJWkPXG8tuSWc2U-pS833jdi-Tl48hNPYnGcrxmWJytCOdeZzuzkO1bR78rQPBfvsX42rWdMmz2qeE9zQBqwTbQMrQcpVAUfbkwSXrMtcO2wyL1eEaTp-WzgEpDVf7CC9LGsIqnFb_EbB87jD_sG35_m9Tg"
-                alt="Map - Dulce Nombre, Cartago"
-                className="w-full h-full object-cover"
-              />
-            </div>
+            <h4 className="text-slate-900 font-bold mb-6">Ubicación</h4>
             <a
-              href="https://maps.google.com/?q=Dulce+Nombre+Cartago+Costa+Rica"
+              href={GOOGLE_MAPS_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block rounded-xl overflow-hidden h-32 w-full border border-slate-200 cursor-pointer"
+            >
+              <SchoolMap interactive={false} zoom={14} popupText={null} />
+            </a>
+            <a
+              href={GOOGLE_MAPS_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="text-xs text-primary hover:underline mt-2 inline-block"
