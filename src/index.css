@@ -23,3 +23,16 @@ body {
     "GRAD" 0,
     "opsz" 24;
 }
+
+/* FullCalendar: allow event titles to wrap instead of truncating */
+.fc-daygrid-event .fc-event-main,
+.fc-daygrid-event .fc-event-title-container,
+.fc-daygrid-event .fc-event-title {
+  overflow: visible !important;
+  white-space: normal !important;
+  text-overflow: unset !important;
+}
+
+.fc-daygrid-event {
+  height: auto !important;
+}

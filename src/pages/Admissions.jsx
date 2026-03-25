@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import admissionsData from "../content/settings/admissions.json";
+import { sendEmail } from "../lib/sendEmail";
+import { admissionsEmailHtml } from "../emails/templates";
 
 export default function Admissions() {
   const { steps, documents, specialtyOptions } = admissionsData;
@@ -12,13 +14,29 @@ export default function Admissions() {
     message: "",
   });
   const [sent, setSent] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState("");
 
   const handleChange = (e) =>
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setSent(true);
+    setSending(true);
+    setError("");
+    try {
+      await sendEmail({
+        html: admissionsEmailHtml(form),
+        subject: `Consulta de Admisiones — ${form.name}`,
+        replyTo: form.email,
+        fromName: form.name,
+      });
+      setSent(true);
+    } catch {
+      setError("No se pudo enviar la consulta. Por favor intentá de nuevo.");
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
@@ -221,11 +239,15 @@ export default function Admissions() {
                     placeholder="¿En qué podemos ayudarte?"
                   />
                 </div>
+                {error && (
+                  <p className="text-sm text-red-600 font-medium">{error}</p>
+                )}
                 <button
                   type="submit"
-                  className="w-full py-3 bg-primary text-white font-bold rounded-lg hover:bg-blue-700 transition-colors"
+                  disabled={sending}
+                  className="w-full py-3 bg-primary text-white font-bold rounded-lg hover:bg-blue-700 transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
                 >
-                  Enviar Consulta
+                  {sending ? "Enviando..." : "Enviar Consulta"}
                 </button>
               </form>
             )}

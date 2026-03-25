@@ -1,4 +1,6 @@
 import { useState } from "react";
+import FullCalendar from "@fullcalendar/react";
+import dayGridPlugin from "@fullcalendar/daygrid";
 import academicData from "../content/settings/academic.json";
 
 const _progModules = import.meta.glob("../content/programs/*.json", {
@@ -9,13 +11,27 @@ const specialties = Object.values(_progModules)
   .sort((a, b) => (a.order || 0) - (b.order || 0))
   .filter((p) => p.active !== false);
 
+const COLOR_MAP = {
+  primary: "#135bec",
+  orange: "#f97316",
+  red: "#ef4444",
+  green: "#22c55e",
+};
+
+const calendarEvents = (academicData.calendarEvents || []).map((evt) => ({
+  title: evt.title,
+  start: evt.start,
+  end: evt.end || undefined,
+  backgroundColor: COLOR_MAP[evt.color] || COLOR_MAP.primary,
+  borderColor: COLOR_MAP[evt.color] || COLOR_MAP.primary,
+}));
+
 const {
   pageTitle,
   pageSubtitle,
   tabs,
   calendarTitle,
   calendarSubtitle,
-  calendarMonth,
   scholarshipTitle,
   scholarshipDescription,
   scholarshipBenefits,
@@ -23,30 +39,6 @@ const {
   sidebarImageCaption,
   eventLegend,
 } = academicData;
-
-const calendarDays = [
-  { day: 28, isOtherMonth: true },
-  { day: 29, isOtherMonth: true },
-  { day: 30, isOtherMonth: true },
-  { day: 31, isOtherMonth: true },
-  { day: 1 },
-  { day: 2 },
-  { day: 3 },
-  { day: 4 },
-  { day: 5, event: "Inicio de Clases" },
-  { day: 6 },
-  { day: 7 },
-  { day: 8 },
-  { day: 9 },
-  { day: 10 },
-  { day: 11 },
-  { day: 12 },
-  { day: 13 },
-  { day: 14 },
-  { day: 15, hasDot: true },
-  { day: 16 },
-  { day: 17 },
-];
 
 export default function Academic() {
   const [activeTab, setActiveTab] = useState(2);
@@ -132,67 +124,38 @@ export default function Academic() {
         {/* Calendar Section */}
         <div className="lg:col-span-2">
           <div className="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm">
-            <div className="p-6 border-b border-slate-200 flex items-center justify-between">
-              <div>
-                <h2 className="text-2xl font-bold text-slate-900">
-                  {calendarTitle}
-                </h2>
-                <p className="text-slate-500 text-sm">{calendarSubtitle}</p>
-              </div>
-              <div className="flex gap-2">
-                <button className="p-2 rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition-all">
-                  <span className="material-symbols-outlined">
-                    chevron_left
-                  </span>
-                </button>
-                <button className="p-2 rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition-all">
-                  <span className="material-symbols-outlined">
-                    chevron_right
-                  </span>
-                </button>
-              </div>
+            <div className="p-6 border-b border-slate-200">
+              <h2 className="text-2xl font-bold text-slate-900">
+                {calendarTitle}
+              </h2>
+              <p className="text-slate-500 text-sm">{calendarSubtitle}</p>
             </div>
-            <div className="p-6">
-              <div className="flex items-center justify-between mb-6">
-                <h3 className="text-lg font-bold">{calendarMonth}</h3>
-                <button className="text-primary text-sm font-bold hover:underline">
-                  Imprimir PDF
-                </button>
-              </div>
-              <div className="grid grid-cols-7 gap-px bg-slate-100 border border-slate-100 rounded-lg overflow-hidden">
-                {["Dom", "Lun", "Mar", "Mié", "Jue", "Vie", "Sáb"].map(
-                  (day) => (
-                    <div
-                      key={day}
-                      className="bg-slate-50 py-2 text-center text-xs font-black text-slate-400 uppercase"
-                    >
-                      {day}
-                    </div>
-                  ),
-                )}
-                {calendarDays.map((d, i) => (
+            <div className="p-6 [&_.fc]:border-0 [&_.fc-toolbar-title]:text-lg [&_.fc-toolbar-title]:font-bold [&_.fc-button-primary]:bg-slate-100 [&_.fc-button-primary]:text-slate-600 [&_.fc-button-primary]:border-0 [&_.fc-button-primary]:shadow-none [&_.fc-button-primary:hover]:bg-slate-200 [&_.fc-button-primary:not(:disabled).fc-button-active]:bg-primary [&_.fc-button-primary:not(:disabled).fc-button-active]:text-white [&_.fc-day-today]:bg-primary/5 [&_.fc-col-header-cell]:py-2 [&_.fc-col-header-cell]:text-xs [&_.fc-col-header-cell]:font-black [&_.fc-col-header-cell]:uppercase [&_.fc-col-header-cell]:text-slate-400 [&_.fc-col-header-cell]:bg-slate-50 [&_th]:border-slate-100 [&_td]:border-slate-100 [&_.fc-scrollgrid]:border-slate-100 [&_.fc-daygrid-day]:min-h-[6rem]">
+              <FullCalendar
+                plugins={[dayGridPlugin]}
+                initialView="dayGridMonth"
+                initialDate="2026-01-01"
+                events={calendarEvents}
+                locale="es"
+                headerToolbar={{
+                  left: "prev,next today",
+                  center: "title",
+                  right: "",
+                }}
+                buttonText={{
+                  today: "Hoy",
+                }}
+                height="auto"
+                dayMaxEvents={3}
+                eventContent={(arg) => (
                   <div
-                    key={i}
-                    className={`h-24 p-2 font-medium ${
-                      d.event ? "bg-primary/5 font-bold" : "bg-white"
-                    } ${d.isOtherMonth ? "text-slate-300" : ""}`}
+                    className="text-white text-[11px] font-semibold px-1.5 py-0.5 rounded leading-tight w-full"
+                    style={{ backgroundColor: arg.event.backgroundColor }}
                   >
-                    {d.day}
-                    {d.event && (
-                      <div className="mt-1">
-                        <span className="text-[10px] bg-primary text-white px-1.5 py-0.5 rounded leading-none block">
-                          {d.event}
-                        </span>
-                      </div>
-                    )}
-                    {d.hasDot && (
-                      <div className="absolute bottom-2 left-2 flex gap-1">
-                        <div className="size-1.5 rounded-full bg-orange-500" />
-                      </div>
-                    )}
+                    {arg.event.title}
                   </div>
-                ))}
-              </div>
+                )}
+              />
             </div>
           </div>
         </div>
@@ -256,7 +219,7 @@ export default function Academic() {
               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               src={sidebarImage}
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-4">
+            <div className="absolute inset-0 bg-linear-to-t from-black/80 to-transparent flex items-end p-4">
               <p className="text-white text-sm font-bold">
                 {sidebarImageCaption}
               </p>

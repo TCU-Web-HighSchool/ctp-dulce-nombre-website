@@ -6,19 +6,52 @@
     "Colegio Nocturno",
     "Especialidades Técnicas"
   ],
-  "calendarTitle": "Calendario Académico 2025",
+  "calendarTitle": "Calendario Académico 2026",
   "calendarSubtitle": "Próximos eventos y fechas importantes",
-  "calendarMonth": "Febrero 2025",
   "calendarEvents": [
     {
-      "day": 5,
-      "label": "Inicio de Clases",
+      "title": "Inicio de Clases",
+      "start": "2026-02-04",
       "color": "primary"
     },
     {
-      "day": 15,
-      "label": "Examen Parcial",
+      "title": "Día del Estudiante",
+      "start": "2026-04-10",
+      "color": "primary"
+    },
+    {
+      "title": "Semana Santa",
+      "start": "2026-03-30",
+      "end": "2026-04-04",
+      "color": "red"
+    },
+    {
+      "title": "Exámenes Finales I Periodo",
+      "start": "2026-06-15",
+      "end": "2026-06-19",
       "color": "orange"
+    },
+    {
+      "title": "Matrícula II Semestre",
+      "start": "2026-07-06",
+      "end": "2026-07-10",
+      "color": "green"
+    },
+    {
+      "title": "Inicio II Semestre",
+      "start": "2026-07-13",
+      "color": "primary"
+    },
+    {
+      "title": "Exámenes Finales II Periodo",
+      "start": "2026-11-16",
+      "end": "2026-11-20",
+      "color": "orange"
+    },
+    {
+      "title": "Cierre del Año Lectivo",
+      "start": "2026-11-27",
+      "color": "primary"
     }
   ],
   "scholarshipTitle": "Becas y Ayudas",

@@ -1,5 +1,10 @@
 import { useState } from "react";
+import SchoolMap from "../components/SchoolMap";
 import contactData from "../content/settings/contact.json";
+import { sendEmail } from "../lib/sendEmail";
+import { contactEmailHtml } from "../emails/templates";
+
+const GOOGLE_MAPS_URL = "https://maps.app.goo.gl/8yUFTcDsv4zaPd7x8";
 
 export default function Contact() {
   const { officeHours, contactDetails } = contactData;
@@ -10,13 +15,29 @@ export default function Contact() {
     message: "",
   });
   const [sent, setSent] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState("");
 
   const handleChange = (e) =>
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setSent(true);
+    setSending(true);
+    setError("");
+    try {
+      await sendEmail({
+        html: contactEmailHtml(form),
+        subject: form.subject || `Mensaje de ${form.name}`,
+        replyTo: form.email,
+        fromName: form.name,
+      });
+      setSent(true);
+    } catch {
+      setError("No se pudo enviar el mensaje. Por favor intentá de nuevo.");
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
@@ -116,11 +137,15 @@ export default function Contact() {
                     placeholder="¿En qué podemos ayudarte?"
                   />
                 </div>
+                {error && (
+                  <p className="text-sm text-red-600 font-medium">{error}</p>
+                )}
                 <button
                   type="submit"
-                  className="w-full py-3 bg-primary text-white font-bold rounded-lg hover:bg-blue-700 transition-colors"
+                  disabled={sending}
+                  className="w-full py-3 bg-primary text-white font-bold rounded-lg hover:bg-blue-700 transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
                 >
-                  Enviar Mensaje
+                  {sending ? "Enviando..." : "Enviar Mensaje"}
                 </button>
               </form>
             )}
@@ -140,7 +165,7 @@ export default function Contact() {
                       <td
                         className={`py-3 text-sm text-right ${
                           entry.isClosed
-                            ? "text-red-500 font-semibold"
+                            ? "text-slate-400 font-semibold"
                             : "text-slate-600"
                         }`}
                       >
@@ -157,24 +182,21 @@ export default function Contact() {
           <div className="lg:col-span-2 space-y-6">
             {/* Map Card */}
             <div className="bg-white border border-slate-200 rounded-xl overflow-hidden">
-              <div className="relative h-56">
-                <img
-                  src={contactData.mapImage}
-                  alt="Ubicación del CTP Dulce Nombre"
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="bg-primary text-white p-3 rounded-full shadow-lg">
-                    <span className="material-symbols-outlined">
-                      location_on
-                    </span>
-                  </div>
-                </div>
+              <div className="relative h-56 z-5">
+                <SchoolMap interactive={false} zoom={16} />
               </div>
               <div className="p-4 text-center">
-                <p className="text-sm text-slate-600 font-medium">
+                <p className="text-sm text-slate-600 font-medium mb-2">
                   {contactData.address}
                 </p>
+                <a
+                  href={GOOGLE_MAPS_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-xs text-primary hover:underline font-semibold"
+                >
+                  Abrir en Google Maps
+                </a>
               </div>
             </div>
 
@@ -196,6 +218,7 @@ export default function Contact() {
                   {detail.href ? (
                     <a
                       href={detail.href}
+                      target="_blank"
                       className="text-sm font-semibold text-slate-900 hover:text-primary transition-colors"
                     >
                       {detail.value}
