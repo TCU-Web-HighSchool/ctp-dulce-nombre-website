@@ -1,19 +1,11 @@
 {
-  "heroBadge": "Admisiones Abiertas 2024-2025",
-  "heroTitle": "Formando **Profesionales** para el Futuro.",
+  "heroImage": "/uploads/colegio-foto-principal.png",
   "heroDescription": "Excelencia en educación técnica por más de 25 años. Brindamos a nuestros estudiantes las herramientas, habilidades y certificaciones necesarias para triunfar en la economía global moderna.",
-  "heroCtaLabel": "Explorar Programas",
-  "heroCtaLink": "/academic",
-  "heroImage": "https://lh3.googleusercontent.com/aida-public/AB6AXuCr2ivAuJIfPgI8j4GY9VAt3PE6NstYTNjUJobenWKG8i3A0MogHhq9UNG4EBvCbbp5Q4-WSaByKLypjvRlxRMnQYGzboZKxLqExuEJw81sI09ESCiOE_IRWLCXbMHVjhdz_nmuB9zMNlcehCaktQi3-CruVevTIaKRU8SoqbmnSSkV_rKQ0ukrowKfRGqMn79IOUr8uhKumPFed0VCD8v3crQRpjBudbEFQxL-iRIBTUsmLv5E34RZdc6l1RKk9iboyDtsCczljg",
-  "heroBadgeValue": "25+",
-  "heroBadgeLabel": "Años de Excelencia",
-  "stats": [
-    { "value": "1500+", "label": "Egresados" },
-    { "value": "80+", "label": "Docentes Certificados" },
-    { "value": "12", "label": "Programas Técnicos" },
-    { "value": "95%", "label": "Colocación Laboral" }
-  ],
   "quickAccessTitle": "Acceso Rápido",
+  "heroBadgeValue": "25+",
+  "heroBadge": "Admisiones Abiertas 2024-2025",
+  "heroBadgeLabel": "Años de Excelencia",
+  "heroCtaLink": "/academic",
   "quickAccessCards": [
     {
       "img": "https://lh3.googleusercontent.com/aida-public/AB6AXuDIniZC3ENFkhpVS1uoFBVPqDIgORyP9V1ZW0KTGjrej9YGnoX5FWUSInht6QuBiQd_juM9BuIXQQv8t-xXNnJ0LRnOoddCni8EM-pI9kUa3ysaYU2nvaXTUI7kyYEklh4sPyFDqRyi59uMqSGoKjhC4PNceA3E73ds9JQnd4FiqAM5CBi5SNE68Ea3QOAqufK7Usv7ZMbjfNiXrSRp04rUnzAUKLcEG70fbBBWiiCgrHzD8_MlY4bZwZQ8EWuqAGI6ZoKmcnr34A",
@@ -41,6 +33,26 @@
       "desc": "Desde becas y comedor estudiantil hasta orientación psicológica y apoyo académico, estamos aquí para ti.",
       "link": "Centro de Apoyo",
       "to": "/about"
+    }
+  ],
+  "heroCtaLabel": "Explorar Programas",
+  "heroTitle": "Formando **Profesionales** para el Futuro.",
+  "stats": [
+    {
+      "value": "1500+",
+      "label": "Egresados"
+    },
+    {
+      "value": "80+",
+      "label": "Docentes Certificados"
+    },
+    {
+      "value": "12",
+      "label": "Programas Técnicos"
+    },
+    {
+      "value": "95%",
+      "label": "Colocación Laboral"
     }
   ]
 }
