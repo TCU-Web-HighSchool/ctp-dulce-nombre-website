@@ -12,7 +12,7 @@ const specialties = Object.values(_progModules)
   .filter((p) => p.active !== false);
 
 const COLOR_MAP = {
-  primary: "#135bec",
+  primary: "#3a6b93",
   orange: "#f97316",
   red: "#ef4444",
   green: "#22c55e",

@@ -1,5 +1,5 @@
 const C = {
-  primary: "#135bec",
+  primary: "#3a6b93",
   white: "#ffffff",
   bg: "#f0f4ff",
   bgLight: "#f8fafc",

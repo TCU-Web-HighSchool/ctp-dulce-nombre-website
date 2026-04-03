@@ -22,17 +22,17 @@ export default function Home() {
         <div className="max-w-340 mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-8">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-bold uppercase tracking-wider">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#3a6b93]/10 border border-[#3a6b93]/20 text-[#3a6b93] text-xs font-bold uppercase tracking-wider">
                 <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#3a6b93] opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-[#3a6b93]"></span>
                 </span>
                 {heroBadge}
               </div>
               <h1 className="text-5xl lg:text-7xl font-black text-slate-900 leading-tight tracking-tight">
                 {heroTitle.split("**").map((part, i) =>
                   i % 2 === 1 ? (
-                    <span key={i} className="text-primary">
+                    <span key={i} className="text-[#3a6b93]">
                       {part}
                     </span>
                   ) : (
@@ -46,7 +46,7 @@ export default function Home() {
               <div className="flex flex-wrap gap-4">
                 <Link
                   to={heroCtaLink}
-                  className="px-8 py-4 bg-primary text-white rounded-xl font-bold text-lg hover:scale-[1.02] transition-transform shadow-xl shadow-primary/25"
+                  className="px-8 py-4 bg-[#3a6b93] text-white rounded-xl font-bold text-lg hover:scale-[1.02] transition-transform shadow-xl "
                 >
                   {heroCtaLabel}
                 </Link>
@@ -54,7 +54,7 @@ export default function Home() {
             </div>
 
             <div className="relative group">
-              <div className="absolute -inset-4 bg-primary/5 rounded-4xl blur-2xl group-hover:bg-primary/10 transition-colors"></div>
+              <div className="absolute -inset-4 bg-[#3a6b93]/5 rounded-4xl blur-2xl group-hover:bg-[#3a6b93]/10 transition-colors"></div>
               <div className="relative rounded-4xl overflow-hidden aspect-4/3 shadow-2xl border border-slate-200">
                 <img
                   src={heroImage}
@@ -62,7 +62,7 @@ export default function Home() {
                   className="w-full h-full object-cover"
                 />
                 <div className="absolute top-6 right-6 bg-white p-4 rounded-2xl shadow-2xl flex items-center gap-4 border border-slate-100">
-                  <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary">
+                  <div className="w-12 h-12 bg-[#3a6b93]/10 rounded-full flex items-center justify-center text-[#3a6b93]">
                     <span className="material-symbols-outlined text-3xl">
                       verified
                     </span>
@@ -92,7 +92,7 @@ export default function Home() {
                   i > 0 ? "md:border-l border-slate-100" : ""
                 }`}
               >
-                <span className="text-4xl font-black text-primary mb-1 tracking-tighter">
+                <span className="text-4xl font-black text-[#3a6b93] mb-1 tracking-tighter">
                   {stat.value}
                 </span>
                 <span className="text-sm font-semibold text-slate-500 uppercase tracking-wide">
@@ -110,7 +110,7 @@ export default function Home() {
             <h2 className="text-3xl font-bold text-slate-900 tracking-tight">
               {quickAccessTitle}
             </h2>
-            <div className="h-1 w-20 bg-primary mt-4 rounded-full"></div>
+            <div className="h-1 w-20 bg-[#3a6b93] mt-4 rounded-full"></div>
           </div>
           <div className="grid md:grid-cols-3 gap-8">
             {quickAccessCards.map((card) => (
@@ -126,7 +126,7 @@ export default function Home() {
                   />
                 </div>
                 <div className="p-8 flex flex-col grow">
-                  <div className="bg-primary/10 text-primary p-3 rounded-xl w-fit mb-6">
+                  <div className="bg-[#3a6b93]/10 text-[#3a6b93] p-3 rounded-xl w-fit mb-6">
                     <span className="material-symbols-outlined text-2xl">
                       {card.icon}
                     </span>
@@ -139,7 +139,7 @@ export default function Home() {
                   </p>
                   <Link
                     to={card.to}
-                    className="mt-auto flex items-center gap-2 text-primary font-bold text-sm hover:underline"
+                    className="mt-auto flex items-center gap-2 text-[#3a6b93] font-bold text-sm hover:underline"
                   >
                     {card.link}{" "}
                     <span className="material-symbols-outlined text-sm">
