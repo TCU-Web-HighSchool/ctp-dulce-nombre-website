@@ -188,7 +188,7 @@ export default function Academic() {
                 </li>
               ))}
             </ul>
-            <button className="w-full bg-primary text-white py-3 rounded-lg text-sm font-bold hover:bg-primary/90 transition-all">
+            <button className="w-full bg-primary text-white py-3 rounded-lg text-sm font-bold hover:bg-primary-dark transition-all">
               Solicitar Ayuda
             </button>
           </div>

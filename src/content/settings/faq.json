@@ -4,9 +4,12 @@
   "searchPlaceholder": "Buscar preguntas...",
   "categories": [
     "Todos",
-    "Matrícula",
-    "Académico",
-    "Administrativo"
+    "Admisión",
+    "Horarios y calendario",
+    "Servicios",
+    "Especialidades",
+    "Contacto",
+    "Otras"
   ],
   "contactCtaTitle": "¿No encontraste lo que buscabas?",
   "contactCtaDescription": "Nuestro equipo está listo para responder cualquier pregunta adicional.",

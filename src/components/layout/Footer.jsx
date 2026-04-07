@@ -38,7 +38,7 @@ export default function Footer() {
               <a
                 href={facebookHref}
                 aria-label="Facebook"
-                className="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-slate-600 hover:bg-primary hover:text-white transition-all"
+                className="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-slate-600 hover:bg-primary-dark hover:text-white transition-all"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"

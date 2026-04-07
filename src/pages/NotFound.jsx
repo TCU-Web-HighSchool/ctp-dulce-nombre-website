@@ -6,9 +6,7 @@ export default function NotFound() {
       <div className="bg-primary/10 text-primary p-6 rounded-full mb-6">
         <span className="material-symbols-outlined text-6xl">search_off</span>
       </div>
-      <h1 className="text-6xl font-black text-slate-900 mb-4">
-        404
-      </h1>
+      <h1 className="text-6xl font-black text-slate-900 mb-4">404</h1>
       <p className="text-xl font-semibold text-slate-700 mb-2">
         Página no encontrada
       </p>
@@ -17,7 +15,7 @@ export default function NotFound() {
       </p>
       <Link
         to="/"
-        className="flex items-center gap-2 px-8 py-3 bg-primary text-white font-bold rounded-xl hover:bg-blue-700 transition-colors"
+        className="flex items-center gap-2 px-8 py-3 bg-primary text-white font-bold rounded-xl hover:bg-primary-dark transition-colors"
       >
         <span className="material-symbols-outlined text-lg">home</span>
         Volver al Inicio
