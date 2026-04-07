@@ -1,7 +1,4 @@
-import { useState, useRef } from "react";
 import aboutData from "../content/settings/about.json";
-import { sendEmail } from "../lib/sendEmail";
-import { workWithUsEmailHtml } from "../emails/templates";
 
 export default function About() {
   const {
@@ -18,83 +15,6 @@ export default function About() {
     anthemVerses,
     historyImages,
   } = aboutData;
-
-  const [workForm, setWorkForm] = useState({
-    name: "",
-    email: "",
-    specialization: "Instrucción Técnica",
-  });
-  const [workSent, setWorkSent] = useState(false);
-  const [workSending, setWorkSending] = useState(false);
-  const [workError, setWorkError] = useState("");
-  const [cvFile, setCvFile] = useState(null);
-  const [isDragging, setIsDragging] = useState(false);
-  const fileInputRef = useRef(null);
-
-  const handleWorkChange = (e) =>
-    setWorkForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
-
-  const validateAndSetFile = (file) => {
-    if (file.type !== "application/pdf") {
-      setWorkError("Solo se aceptan archivos PDF.");
-      return;
-    }
-    if (file.size > 5 * 1024 * 1024) {
-      setWorkError("El archivo no puede superar 5MB.");
-      return;
-    }
-    setWorkError("");
-    setCvFile(file);
-  };
-
-  const handleFileInput = (e) => {
-    if (e.target.files[0]) validateAndSetFile(e.target.files[0]);
-  };
-
-  const handleDragOver = (e) => {
-    e.preventDefault();
-    setIsDragging(true);
-  };
-
-  const handleDragLeave = () => setIsDragging(false);
-
-  const handleDrop = (e) => {
-    e.preventDefault();
-    setIsDragging(false);
-    if (e.dataTransfer.files[0]) validateAndSetFile(e.dataTransfer.files[0]);
-  };
-
-  const removeFile = (e) => {
-    e.stopPropagation();
-    setCvFile(null);
-    if (fileInputRef.current) fileInputRef.current.value = "";
-  };
-
-  const formatFileSize = (bytes) => {
-    if (bytes < 1024 * 1024) return (bytes / 1024).toFixed(1) + " KB";
-    return (bytes / (1024 * 1024)).toFixed(1) + " MB";
-  };
-
-  const handleWorkSubmit = async (e) => {
-    e.preventDefault();
-    setWorkSending(true);
-    setWorkError("");
-    try {
-      await sendEmail({
-        html: workWithUsEmailHtml({ ...workForm, cvFileName: cvFile?.name }),
-        subject: `Solicitud de Empleo — ${workForm.name}`,
-        replyTo: workForm.email,
-        fromName: workForm.name,
-      });
-      setWorkSent(true);
-    } catch {
-      setWorkError(
-        "No se pudo enviar la solicitud. Por favor intentá de nuevo.",
-      );
-    } finally {
-      setWorkSending(false);
-    }
-  };
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-24">
@@ -242,10 +162,6 @@ export default function About() {
             </p>
           ))}
         </div>
-        <button className="inline-flex items-center gap-2 text-primary font-bold hover:underline">
-          <span className="material-symbols-outlined">play_circle</span>
-          Escuchar Himno
-        </button>
       </section>
 
       {/* Work With Us */}
@@ -282,154 +198,26 @@ export default function About() {
               </div>
             </div>
           </div>
-          <div className="lg:col-span-3 p-10">
-            {workSent ? (
-              <div className="flex flex-col items-center justify-center bg-green-50 rounded-xl p-12 border border-green-200 text-center gap-4 h-full">
-                <span className="material-symbols-outlined text-5xl text-green-500">
-                  check_circle
-                </span>
-                <p className="text-xl font-bold text-slate-900">
-                  ¡Solicitud enviada!
-                </p>
-                <p className="text-slate-500 text-sm">
-                  Revisaremos tu perfil y nos pondremos en contacto pronto.
-                </p>
-              </div>
-            ) : (
-              <form
-                className="grid grid-cols-1 md:grid-cols-2 gap-6"
-                data-netlify="true"
-                name="work-with-us"
-                onSubmit={handleWorkSubmit}
-              >
-                <input type="hidden" name="form-name" value="work-with-us" />
-                <div className="space-y-1">
-                  <label className="text-sm font-bold text-slate-700">
-                    Nombre Completo
-                  </label>
-                  <input
-                    className="w-full bg-slate-50 border border-slate-200 rounded-lg focus:ring-primary focus:border-primary p-2"
-                    placeholder="Juan Pérez"
-                    type="text"
-                    name="name"
-                    required
-                    value={workForm.name}
-                    onChange={handleWorkChange}
-                  />
-                </div>
-                <div className="space-y-1">
-                  <label className="text-sm font-bold text-slate-700">
-                    Correo Electrónico
-                  </label>
-                  <input
-                    className="w-full bg-slate-50 border border-slate-200 rounded-lg focus:ring-primary focus:border-primary p-2"
-                    placeholder="juan@ejemplo.com"
-                    type="email"
-                    name="email"
-                    required
-                    value={workForm.email}
-                    onChange={handleWorkChange}
-                  />
-                </div>
-                <div className="space-y-1 md:col-span-2">
-                  <label className="text-sm font-bold text-slate-700">
-                    Especialización
-                  </label>
-                  <select
-                    className="w-full bg-slate-50 border border-slate-200 rounded-lg focus:ring-primary focus:border-primary p-2"
-                    name="specialization"
-                    value={workForm.specialization}
-                    onChange={handleWorkChange}
-                  >
-                    <option>Instrucción Técnica</option>
-                    <option>Docente Académico</option>
-                    <option>Personal Administrativo</option>
-                    <option>Consejería y Apoyo</option>
-                  </select>
-                </div>
-                <div className="md:col-span-2 space-y-2">
-                  <label className="text-sm font-bold text-slate-700">
-                    Subir CV (PDF)
-                  </label>
-                  <input
-                    ref={fileInputRef}
-                    type="file"
-                    accept=".pdf,application/pdf"
-                    className="hidden"
-                    onChange={handleFileInput}
-                  />
-                  {cvFile ? (
-                    <div className="flex items-center gap-3 p-4 bg-green-50 border border-green-200 rounded-xl">
-                      <span className="material-symbols-outlined text-green-500 text-3xl">
-                        description
-                      </span>
-                      <div className="flex-1 min-w-0">
-                        <p className="text-sm font-semibold text-slate-800 truncate">
-                          {cvFile.name}
-                        </p>
-                        <p className="text-xs text-slate-500">
-                          {formatFileSize(cvFile.size)}
-                        </p>
-                      </div>
-                      <button
-                        type="button"
-                        onClick={removeFile}
-                        className="text-slate-400 hover:text-red-500 transition-colors"
-                      >
-                        <span className="material-symbols-outlined text-xl">
-                          close
-                        </span>
-                      </button>
-                    </div>
-                  ) : (
-                    <div
-                      onClick={() => fileInputRef.current?.click()}
-                      onDragOver={handleDragOver}
-                      onDragLeave={handleDragLeave}
-                      onDrop={handleDrop}
-                      className={`border-2 border-dashed rounded-xl p-8 flex flex-col items-center justify-center gap-3 cursor-pointer transition-colors ${
-                        isDragging
-                          ? "border-primary bg-primary/5"
-                          : "border-slate-300 bg-slate-50 hover:bg-slate-100"
-                      }`}
-                    >
-                      <span
-                        className={`material-symbols-outlined text-4xl transition-colors ${
-                          isDragging ? "text-primary" : "text-slate-400"
-                        }`}
-                      >
-                        cloud_upload
-                      </span>
-                      <p className="text-sm text-slate-500">
-                        <span className="text-primary font-bold">
-                          Clic para subir
-                        </span>{" "}
-                        o arrastra y suelta
-                      </p>
-                      <p className="text-xs text-slate-400 uppercase">
-                        Solo PDF · Máximo 5MB
-                      </p>
-                    </div>
-                  )}
-                </div>
-                {workError && (
-                  <div className="md:col-span-2">
-                    <p className="text-sm text-red-600 font-medium">
-                      {workError}
-                    </p>
-                  </div>
-                )}
-                <div className="md:col-span-2">
-                  <button
-                    className="w-full bg-primary text-white font-bold py-3 rounded-lg hover:shadow-lg hover:shadow-primary/30 transition-all disabled:opacity-60 disabled:cursor-not-allowed"
-                    type="submit"
-                    disabled={workSending}
-                  >
-                    {workSending ? "Enviando..." : "Enviar Solicitud"}
-                  </button>
-                </div>
-              </form>
-            )}
+          <div className="lg:col-span-3 p-10 flex flex-col items-center justify-center text-center gap-6">
+            <span className="material-symbols-outlined text-5xl text-slate-300">
+              person_add
+            </span>
+            <div className="space-y-2">
+              <h3 className="text-xl font-bold text-slate-900">
+                ¿Querés unirte a nuestro equipo?
+              </h3>
+              <p className="text-slate-500 text-sm max-w-sm">
+                Enviá tu CV al correo institucional indicando el área de
+                interés. Nos pondremos en contacto si hay una oportunidad
+                disponible.
+              </p>
+            </div>
+            <a
+              href="mailto:info@ctpdulcenombre.ed.cr?subject=Solicitud%20de%20Empleo"
+              className="px-6 py-2.5 border-2 border-primary text-primary font-bold rounded-xl hover:bg-primary hover:text-white transition-all text-sm"
+            >
+              info@ctpdulcenombre.ed.cr
+            </a>
           </div>
         </div>
       </section>

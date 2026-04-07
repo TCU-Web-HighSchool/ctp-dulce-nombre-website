@@ -2,6 +2,7 @@
 
 @theme {
   --color-primary: #3a6b93;
+  --color-primary-dark: #1e3f5c;
   --color-background-light: #f6f6f8;
   --color-background-dark: #101622;
   --font-sans: "Public Sans", sans-serif;

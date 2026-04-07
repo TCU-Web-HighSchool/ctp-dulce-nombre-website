@@ -142,7 +142,7 @@ export default function Admissions() {
               Formulario de Consulta
             </h2>
             {sent ? (
-              <div className="flex flex-col items-center justify-center bg-green-50 rounded-xl p-12 border border-green-200 text-center gap-4">
+              <div className="flex flex-col items-center justify-center bg-green-50 rounded-xl p-12 border border-green-200 text-center gap-4 h-88">
                 <span className="material-symbols-outlined text-5xl text-green-500">
                   check_circle
                 </span>
@@ -245,7 +245,7 @@ export default function Admissions() {
                 <button
                   type="submit"
                   disabled={sending}
-                  className="w-full py-3 bg-primary text-white font-bold rounded-lg hover:bg-blue-700 transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
+                  className="w-full py-3 bg-primary text-white font-bold rounded-lg hover:bg-primary-dark transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
                 >
                   {sending ? "Enviando..." : "Enviar Consulta"}
                 </button>
@@ -270,13 +270,13 @@ export default function Admissions() {
           <div className="flex flex-col sm:flex-row gap-4">
             <Link
               to="/faq"
-              className="px-8 py-3 border-2 border-primary text-primary font-bold rounded-xl hover:bg-primary hover:text-white transition-all text-center"
+              className="px-8 py-3 border-2 border-primary text-primary font-bold rounded-xl hover:bg-primary-dark hover:border-primary-dark hover:text-white transition-all text-center"
             >
               Ver FAQ
             </Link>
             <Link
               to="/contact"
-              className="px-8 py-3 bg-primary text-white font-bold rounded-xl hover:bg-blue-700 transition-colors text-center"
+              className="px-8 py-3 bg-primary text-white font-bold rounded-xl hover:bg-primary-dark transition-colors text-center"
             >
               Contactar Admisiones
             </Link>

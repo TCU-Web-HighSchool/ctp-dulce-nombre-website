@@ -155,7 +155,7 @@ export default function FAQ() {
           </div>
           <Link
             to="/contact"
-            className="px-8 py-3 bg-primary text-white font-bold rounded-xl hover:bg-blue-700 transition-colors whitespace-nowrap"
+            className="px-8 py-3 bg-primary text-white font-bold rounded-xl hover:bg-primary-dark transition-colors whitespace-nowrap"
           >
             {contactCtaButton}
           </Link>

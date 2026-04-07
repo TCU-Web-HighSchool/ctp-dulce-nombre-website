@@ -62,10 +62,15 @@ export default function Navbar() {
               Contacto
             </Link>
 
-            <button className="flex items-center gap-1.5 px-4 py-2 rounded-lg bg-[#3a6b93] text-white text-sm font-bold hover:bg-[#2e587a] transition-all shadow-lg shadow-[#3a6b93]/20">
+            <a
+              href="https://cloudcampuspro.com/home/index.html?p=2"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1.5 px-4 py-2 rounded-lg bg-[#3a6b93] text-white text-sm font-bold hover:bg-[#2e587a] transition-all shadow-lg shadow-[#3a6b93]/20"
+            >
               <span className="material-symbols-outlined text-lg">login</span>
               Portal
-            </button>
+            </a>
 
             <button
               className="lg:hidden flex items-center justify-center w-9 h-9 rounded-lg border border-slate-200"

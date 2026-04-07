@@ -19,15 +19,7 @@ const fmtDate = (d) => {
   }
 };
 
-const {
-  pageTitle,
-  pageSubtitle,
-  searchPlaceholder,
-  areas,
-  employerCtaTitle,
-  employerCtaDescription,
-  employerCtaButton,
-} = jobData;
+const { pageTitle, pageSubtitle, searchPlaceholder, areas } = jobData;
 
 const typeColors = {
   "Tiempo completo": "bg-green-100 text-green-700",
@@ -172,20 +164,25 @@ export default function JobBoard() {
               </div>
             ))}
 
-            {/* Employer Placeholder Card */}
+            {/* Work With Us Info Card */}
             <div className="border-2 border-dashed border-slate-200 rounded-xl p-6 flex flex-col items-center justify-center text-center min-h-[300px]">
               <span className="material-symbols-outlined text-4xl text-slate-300 mb-4">
-                add_business
+                person_add
               </span>
               <h3 className="font-bold text-slate-700 mb-2">
-                {employerCtaTitle}
+                ¿Querés trabajar con nosotros?
               </h3>
               <p className="text-sm text-slate-500 mb-6">
-                {employerCtaDescription}
+                Enviá tu CV al correo institucional indicando el área de
+                interés. Nos pondremos en contacto si hay una oportunidad
+                disponible.
               </p>
-              <button className="px-6 py-2.5 border-2 border-primary text-primary font-bold rounded-xl hover:bg-primary hover:text-white transition-all text-sm">
-                {employerCtaButton}
-              </button>
+              <a
+                href="mailto:info@ctpdulcenombre.ed.cr?subject=Aplicación%20laboral"
+                className="px-6 py-2.5 border-2 border-primary text-primary font-bold rounded-xl hover:bg-primary hover:text-white transition-all text-sm"
+              >
+                info@ctpdulcenombre.ed.cr
+              </a>
             </div>
           </div>
         )}
