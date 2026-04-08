@@ -1,1 +1,23 @@
-{ "title": "Configuración y Soporte a Redes de Comunicación y Sistemas Operativos", "icon": "router", "summary": "Instalación, configuración y mantenimiento de redes de comunicación, servidores y sistemas operativos en entornos empresariales.", "duration": "Programa de 3 Años", "order": 8, "active": true }
+{
+  "title": "Configuración y Soporte a Redes de Comunicación y Sistemas Operativos",
+  "icon": "router",
+  "summary": "Instalación, configuración y mantenimiento de redes de comunicación, servidores y sistemas operativos en entornos empresariales.",
+  "duration": "Programa de 3 Años",
+  "order": 8,
+  "active": true,
+  "planPdf": "",
+  "curriculumByYear": [
+    {
+      "year": "Décimo Año",
+      "subjects": ["Fundamentos de redes TCP/IP", "Cableado estructurado", "Sistemas operativos Windows/Linux", "Inglés técnico", "Fundamentos de hardware"]
+    },
+    {
+      "year": "Undécimo Año",
+      "subjects": ["Routing y switching (CCNA)", "Redes inalámbricas Wi-Fi", "Administración de servidores Linux", "VoIP y telefonía IP", "Seguridad perimetral"]
+    },
+    {
+      "year": "Duodécimo Año",
+      "subjects": ["Redes WAN y MPLS", "Virtualización (VMware/Hyper-V)", "Proyecto de infraestructura de red", "Preparación certificación CCNA"]
+    }
+  ]
+}

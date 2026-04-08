@@ -1,1 +1,23 @@
-{ "title": "Desarrollo de Aplicaciones Móviles", "icon": "smartphone", "summary": "Diseño y desarrollo de aplicaciones móviles para Android e iOS, con enfoque en experiencia de usuario y tecnologías modernas.", "duration": "Programa de 3 Años", "order": 6, "active": true }
+{
+  "title": "Desarrollo de Aplicaciones Móviles",
+  "icon": "smartphone",
+  "summary": "Diseño y desarrollo de aplicaciones móviles para Android e iOS, con enfoque en experiencia de usuario y tecnologías modernas.",
+  "duration": "Programa de 3 Años",
+  "order": 6,
+  "active": true,
+  "planPdf": "",
+  "curriculumByYear": [
+    {
+      "year": "Décimo Año",
+      "subjects": ["Programación orientada a objetos", "Bases de datos relacionales", "Diseño UX/UI", "Inglés técnico", "Fundamentos web (HTML/CSS/JS)"]
+    },
+    {
+      "year": "Undécimo Año",
+      "subjects": ["Desarrollo Android con Kotlin", "Desarrollo iOS con Swift", "Backend con Node.js", "Control de versiones Git", "APIs REST"]
+    },
+    {
+      "year": "Duodécimo Año",
+      "subjects": ["React Native multiplataforma", "Publicación en Google Play y App Store", "Metodologías ágiles (Scrum)", "Proyecto de aplicación móvil"]
+    }
+  ]
+}

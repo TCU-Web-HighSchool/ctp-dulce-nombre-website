@@ -8,6 +8,7 @@ import News from "./pages/News";
 import JobBoard from "./pages/JobBoard";
 import FAQ from "./pages/FAQ";
 import Contact from "./pages/Contact";
+import Scholarships from "./pages/Scholarships";
 import NotFound from "./pages/NotFound";
 
 const router = createBrowserRouter([
@@ -22,6 +23,7 @@ const router = createBrowserRouter([
       { path: "news", element: <News /> },
       { path: "job-board", element: <JobBoard /> },
       { path: "faq", element: <FAQ /> },
+      { path: "scholarships", element: <Scholarships /> },
       { path: "contact", element: <Contact /> },
       { path: "*", element: <NotFound /> },
     ],

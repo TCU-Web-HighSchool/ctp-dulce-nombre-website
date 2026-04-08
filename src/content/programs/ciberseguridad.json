@@ -1,1 +1,23 @@
-{ "title": "Ciberseguridad", "icon": "security", "summary": "Protección de sistemas, redes y datos. Gestión de vulnerabilidades, criptografía, respuesta a incidentes y buenas prácticas de seguridad informática.", "duration": "Programa de 3 Años", "order": 2, "active": true }
+{
+  "title": "Ciberseguridad",
+  "icon": "security",
+  "summary": "Protección de sistemas, redes y datos. Gestión de vulnerabilidades, criptografía, respuesta a incidentes y buenas prácticas de seguridad informática.",
+  "duration": "Programa de 3 Años",
+  "order": 2,
+  "active": true,
+  "planPdf": "",
+  "curriculumByYear": [
+    {
+      "year": "Décimo Año",
+      "subjects": ["Fundamentos de redes TCP/IP", "Sistemas operativos", "Programación básica", "Inglés técnico", "Ética digital"]
+    },
+    {
+      "year": "Undécimo Año",
+      "subjects": ["Criptografía aplicada", "Seguridad en redes", "Hacking ético", "Gestión de incidentes", "Análisis forense digital"]
+    },
+    {
+      "year": "Duodécimo Año",
+      "subjects": ["Seguridad en la nube", "Cumplimiento y normativa", "Auditoría de sistemas", "Proyecto final de seguridad"]
+    }
+  ]
+}

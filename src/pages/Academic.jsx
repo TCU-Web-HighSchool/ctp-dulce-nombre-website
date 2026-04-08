@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import academicData from "../content/settings/academic.json";
@@ -38,10 +39,12 @@ const {
   sidebarImage,
   sidebarImageCaption,
   eventLegend,
+  diurno,
+  nocturno,
 } = academicData;
 
 export default function Academic() {
-  const [activeTab, setActiveTab] = useState(2);
+  const [activeTab, setActiveTab] = useState(0);
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
@@ -71,7 +74,9 @@ export default function Academic() {
             {tabs.map((tab, index) => (
               <button
                 key={tab}
-                onClick={() => setActiveTab(index)}
+                onClick={() => {
+                  setActiveTab(index);
+                }}
                 className={`py-4 text-sm font-bold whitespace-nowrap transition-all border-b-2 ${
                   activeTab === index
                     ? "border-primary text-primary"
@@ -84,40 +89,158 @@ export default function Academic() {
           </nav>
         </div>
 
-        {/* Specialties Grid */}
-        <section className="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {specialties
-            .filter((s) => s.active)
-            .map((program) => (
-              <div
-                key={program.title}
-                className="bg-white border border-slate-200 rounded-xl p-6 hover:shadow-lg transition-all group"
-              >
-                <div className="size-12 bg-primary/10 rounded-lg flex items-center justify-center text-primary mb-4 group-hover:bg-primary group-hover:text-white transition-colors">
-                  <span className="material-symbols-outlined">
-                    {program.icon}
-                  </span>
-                </div>
-                <h3 className="text-xl font-bold text-slate-900 mb-2">
-                  {program.title}
-                </h3>
-                <p className="text-slate-600 text-sm mb-6 leading-relaxed">
-                  {program.summary}
+        {/* Tab: Colegio Diurno */}
+        {activeTab === 0 && (
+          <section className="mt-8">
+            <div className="grid lg:grid-cols-3 gap-8">
+              <div className="lg:col-span-2 space-y-6">
+                <p className="text-slate-600 leading-relaxed text-base">
+                  {diurno.description}
                 </p>
-                <div className="flex items-center justify-between mt-auto">
+                <div className="flex items-center gap-3 p-4 bg-slate-50 rounded-xl border border-slate-200">
+                  <span className="material-symbols-outlined text-primary text-2xl">
+                    schedule
+                  </span>
+                  <div>
+                    <p className="text-xs font-bold text-slate-500 uppercase tracking-wider">
+                      Horario
+                    </p>
+                    <p className="font-semibold text-slate-900">
+                      {diurno.schedule}
+                    </p>
+                  </div>
+                </div>
+                <div className="space-y-3">
+                  <h3 className="font-bold text-slate-900">
+                    Formación que obtendrás
+                  </h3>
+                  <ul className="space-y-2">
+                    {diurno.competencies.map((c) => (
+                      <li
+                        key={c}
+                        className="flex items-center gap-3 text-sm text-slate-700"
+                      >
+                        <span className="material-symbols-outlined text-primary text-lg shrink-0">
+                          verified
+                        </span>
+                        {c}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+              <div className="bg-primary/5 border border-primary/20 rounded-xl p-6 flex flex-col gap-4 h-fit">
+                <span className="material-symbols-outlined text-primary text-4xl">
+                  wb_sunny
+                </span>
+                <h3 className="font-bold text-slate-900 text-lg">
+                  Modalidad Diurna
+                </h3>
+                <p className="text-sm text-slate-600">
+                  Ideal para estudiantes que ingresan desde primaria y desean
+                  combinar bachillerato académico con una especialidad técnica
+                  reconocida.
+                </p>
+                <Link
+                  to={diurno.ctaLink}
+                  className="mt-2 w-full text-center py-3 bg-primary text-white font-bold rounded-xl text-sm hover:bg-primary-dark transition-colors"
+                >
+                  {diurno.ctaLabel}
+                </Link>
+              </div>
+            </div>
+          </section>
+        )}
+
+        {/* Tab: Colegio Nocturno */}
+        {activeTab === 1 && (
+          <section className="mt-8 space-y-10">
+            <div className="grid lg:grid-cols-3 gap-8">
+              <div className="lg:col-span-2 space-y-6">
+                <p className="text-slate-600 leading-relaxed text-base">
+                  {nocturno.description}
+                </p>
+                <div className="flex items-center gap-3 p-4 bg-slate-50 rounded-xl border border-slate-200">
+                  <span className="material-symbols-outlined text-primary text-2xl">
+                    bedtime
+                  </span>
+                  <div>
+                    <p className="text-xs font-bold text-slate-500 uppercase tracking-wider">
+                      Horario
+                    </p>
+                    <p className="font-semibold text-slate-900">
+                      {nocturno.schedule}
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div className="bg-slate-900 rounded-xl p-6 flex flex-col gap-4 h-fit text-white">
+                <span className="material-symbols-outlined text-yellow-400 text-4xl">
+                  nights_stay
+                </span>
+                <h3 className="font-bold text-lg">Para Adultos Trabajadores</h3>
+                <p className="text-sm text-slate-300">
+                  Horario flexible pensado para quienes trabajan durante el día.
+                  Retomá o continuá tus estudios sin sacrificar tu vida laboral.
+                </p>
+              </div>
+            </div>
+            <div className="space-y-4">
+              <h3 className="font-bold text-slate-900 text-lg">
+                Proceso de Inscripción
+              </h3>
+              <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                {nocturno.enrollmentSteps.map((step, i) => (
+                  <div key={step.title} className="relative text-center group">
+                    <div className="mx-auto size-16 bg-primary/10 rounded-full flex items-center justify-center mb-4 group-hover:bg-primary group-hover:text-white transition-all text-primary">
+                      <span className="material-symbols-outlined text-2xl">
+                        {step.icon}
+                      </span>
+                    </div>
+                    <span className="text-xs font-black text-primary uppercase tracking-widest block mb-1">
+                      Paso {i + 1}
+                    </span>
+                    <h4 className="text-sm font-bold text-slate-900 mb-1">
+                      {step.title}
+                    </h4>
+                    <p className="text-xs text-slate-600 leading-relaxed">
+                      {step.description}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
+
+        {/* Tab: Especialidades Técnicas */}
+        {activeTab === 2 && (
+          <section className="mt-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {specialties.map((program) => (
+                <div
+                  key={program.title}
+                  className="bg-white border border-slate-200 rounded-xl p-6 hover:shadow-lg transition-all group"
+                >
+                  <div className="size-12 rounded-lg bg-primary/10 text-primary group-hover:bg-primary group-hover:text-white flex items-center justify-center mb-4 transition-colors">
+                    <span className="material-symbols-outlined">
+                      {program.icon}
+                    </span>
+                  </div>
+                  <h3 className="text-xl font-bold text-slate-900 mb-2">
+                    {program.title}
+                  </h3>
+                  <p className="text-slate-600 text-sm mb-6 leading-relaxed">
+                    {program.summary}
+                  </p>
                   <span className="text-xs font-bold uppercase tracking-wider text-slate-400">
                     {program.duration}
                   </span>
-                  <button className="text-primary text-sm font-bold flex items-center gap-1 hover:underline">
-                    Ver Plan
-                    <span className="material-symbols-outlined text-[18px]">
-                      arrow_forward
-                    </span>
-                  </button>
                 </div>
-              </div>
-            ))}
-        </section>
+              ))}
+            </div>
+          </section>
+        )}
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">

@@ -1,1 +1,23 @@
-{ "title": "Ejecutivo Comercial y Servicio al Cliente", "icon": "support_agent", "summary": "Técnicas de ventas, atención al cliente, comunicación empresarial y gestión de relaciones comerciales en entornos modernos.", "duration": "Programa de 3 Años", "order": 7, "active": true }
+{
+  "title": "Ejecutivo Comercial y Servicio al Cliente",
+  "icon": "support_agent",
+  "summary": "Técnicas de ventas, atención al cliente, comunicación empresarial y gestión de relaciones comerciales en entornos modernos.",
+  "duration": "Programa de 3 Años",
+  "order": 7,
+  "active": true,
+  "planPdf": "",
+  "curriculumByYear": [
+    {
+      "year": "Décimo Año",
+      "subjects": ["Técnicas de ventas", "Comunicación efectiva", "Matemática financiera", "Ofimática avanzada", "Inglés conversacional"]
+    },
+    {
+      "year": "Undécimo Año",
+      "subjects": ["Marketing digital", "Atención al cliente de calidad", "Negociación comercial", "CRM y gestión de clientes", "Servicio postventa"]
+    },
+    {
+      "year": "Duodécimo Año",
+      "subjects": ["E-commerce y ventas en línea", "Emprendimiento comercial", "Inglés para negocios", "Proyecto comercial empresarial"]
+    }
+  ]
+}

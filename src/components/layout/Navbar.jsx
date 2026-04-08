@@ -8,6 +8,7 @@ const navLinks = [
   { label: "Admisiones", to: "/admissions" },
   { label: "Noticias", to: "/news" },
   { label: "Bolsa de Empleo", to: "/job-board" },
+  { label: "Becas", to: "/scholarships" },
   { label: "Preguntas Frecuentes", to: "/faq" },
 ];
 

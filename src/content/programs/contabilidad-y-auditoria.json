@@ -1,1 +1,23 @@
-{ "title": "Contabilidad", "icon": "calculate", "summary": "Domina los principios financieros, cumplimiento tributario y técnicas modernas de contabilidad con software estándar de la industria.", "duration": "Programa de 3 Años", "order": 1, "active": true }
+{
+  "title": "Contabilidad",
+  "icon": "calculate",
+  "summary": "Domina los principios financieros, cumplimiento tributario y técnicas modernas de contabilidad con software estándar de la industria.",
+  "duration": "Programa de 3 Años",
+  "order": 1,
+  "active": true,
+  "planPdf": "",
+  "curriculumByYear": [
+    {
+      "year": "Décimo Año",
+      "subjects": ["Contabilidad general", "Matemática financiera", "Ofimática avanzada", "Derecho mercantil", "Inglés comercial"]
+    },
+    {
+      "year": "Undécimo Año",
+      "subjects": ["Contabilidad de costos", "Estados financieros", "Tributación costarricense", "Auditoría interna", "Excel financiero avanzado"]
+    },
+    {
+      "year": "Duodécimo Año",
+      "subjects": ["NIIF para PYMES", "Declaraciones tributarias digitales", "Análisis financiero", "Proyecto contable empresarial"]
+    }
+  ]
+}

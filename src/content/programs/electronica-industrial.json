@@ -1,1 +1,23 @@
-{ "title": "Electrónica Industrial", "icon": "electrical_services", "summary": "Circuitos electrónicos, sistemas embebidos, automatización industrial y diagnóstico de equipos tecnológicos y de manufactura.", "duration": "Programa de 3 Años", "order": 3, "active": true }
+{
+  "title": "Electrónica Industrial",
+  "icon": "electrical_services",
+  "summary": "Circuitos electrónicos, sistemas embebidos, automatización industrial y diagnóstico de equipos tecnológicos y de manufactura.",
+  "duration": "Programa de 3 Años",
+  "order": 3,
+  "active": true,
+  "planPdf": "",
+  "curriculumByYear": [
+    {
+      "year": "Décimo Año",
+      "subjects": ["Circuitos eléctricos DC/AC", "Electrónica analógica", "Matemática técnica", "Inglés técnico", "Medición y análisis con instrumentos"]
+    },
+    {
+      "year": "Undécimo Año",
+      "subjects": ["Circuitos digitales", "Microcontroladores (Arduino/PIC)", "PLC básico", "Soldadura y ensamble electrónico", "Automatización industrial"]
+    },
+    {
+      "year": "Duodécimo Año",
+      "subjects": ["Robótica industrial", "PLC avanzado (Allen Bradley)", "Mantenimiento preventivo y correctivo", "Proyecto electrónico final"]
+    }
+  ]
+}

@@ -1,0 +1,220 @@
+{
+  "heroTitle": "Becas y Apoyos Estudiantiles",
+  "heroSubtitle": "En el CTP Dulce Nombre creemos que las dificultades económicas no deben ser un obstáculo para tu educación. Conocé los programas disponibles y cómo aplicar.",
+  "heroBadge": "Apoyos Disponibles",
+  "heroImage": "",
+
+  "scholarshipTypes": [
+    {
+      "id": "avancemos",
+      "icon": "volunteer_activism",
+      "color": "primary",
+      "name": "Becas Avancemos",
+      "entity": "IMAS / MEP",
+      "description": "Transferencia monetaria mensual del Estado para jóvenes de familias de bajos ingresos, con el objetivo de mantenerlos en el sistema educativo.",
+      "amount": "Hasta ₡58.500 mensuales según nivel",
+      "renewable": true
+    },
+    {
+      "id": "beca-rendimiento",
+      "icon": "emoji_events",
+      "color": "orange",
+      "name": "Beca por Rendimiento Académico",
+      "entity": "Colegio / Comité de Becas",
+      "description": "Reconocimiento económico para estudiantes con promedio superior a 90 en el periodo anterior. Cubre materiales, uniformes o transporte.",
+      "amount": "Aporte variable según disponibilidad",
+      "renewable": true
+    },
+    {
+      "id": "comedor",
+      "icon": "restaurant",
+      "color": "green",
+      "name": "Subsidio de Comedor",
+      "entity": "Junta de Educación",
+      "description": "Alimentación diaria gratuita o subsidiada en el comedor estudiantil para hogares con condiciones socioeconómicas limitadas.",
+      "amount": "Servicio de alimentación diaria",
+      "renewable": true
+    },
+    {
+      "id": "transporte",
+      "icon": "directions_bus",
+      "color": "purple",
+      "name": "Subsidio de Transporte",
+      "entity": "MEP / Junta de Educación",
+      "description": "Apoyo económico para cubrir el costo de transporte a estudiantes que residen lejos del centro educativo.",
+      "amount": "Según distancia y ruta",
+      "renewable": true
+    }
+  ],
+
+  "requirementsSectionTitle": "Requisitos por Beca",
+  "requirementsSectionSubtitle": "Revisá los criterios específicos de cada programa antes de aplicar.",
+  "requirements": [
+    {
+      "scholarshipId": "avancemos",
+      "items": [
+        "Estar matriculado en el colegio en el año en curso",
+        "Pertenecer a un hogar con índice de pobreza o pobreza extrema (SIPO)",
+        "No haber abandonado el sistema educativo el año anterior",
+        "Tener entre 12 y 25 años al momento de la solicitud",
+        "Contar con nota de asistencia mínima del 85%"
+      ]
+    },
+    {
+      "scholarshipId": "beca-rendimiento",
+      "items": [
+        "Promedio académico igual o superior a 90 en el periodo anterior",
+        "No tener materias reprobadas en el mismo periodo",
+        "Estar matriculado regularmente en el colegio",
+        "No haber sido sancionado disciplinariamente en el periodo"
+      ]
+    },
+    {
+      "scholarshipId": "comedor",
+      "items": [
+        "Estar matriculado en el colegio",
+        "Presentar constancia de condición socioeconómica (IMAS, EBAIS u otro ente)",
+        "Completar el formulario de perfil socioeconómico del colegio"
+      ]
+    },
+    {
+      "scholarshipId": "transporte",
+      "items": [
+        "Vivir a más de 3 km del colegio",
+        "Estar matriculado en el colegio",
+        "No tener acceso a transporte propio o familiar",
+        "Presentar comprobante de dirección de domicilio"
+      ]
+    }
+  ],
+
+  "processSectionTitle": "Proceso de Solicitud",
+  "processSectionSubtitle": "Seguí estos pasos para presentar tu solicitud de beca.",
+  "steps": [
+    {
+      "icon": "info",
+      "title": "Informarse",
+      "description": "Visitá la oficina de Orientación o la Dirección para conocer los tipos de becas disponibles y cuál aplica a tu situación."
+    },
+    {
+      "icon": "description",
+      "title": "Recoger el Formulario",
+      "description": "Solicitá el formulario de beca en la Dirección del colegio o descargalo en el portal estudiantil."
+    },
+    {
+      "icon": "folder_copy",
+      "title": "Reunir la Documentación",
+      "description": "Recopilá todos los documentos requeridos según el tipo de beca. Ver sección de documentación abajo."
+    },
+    {
+      "icon": "upload_file",
+      "title": "Presentar la Solicitud",
+      "description": "Entregá el formulario completo con todos los documentos en la Dirección dentro del plazo establecido."
+    },
+    {
+      "icon": "fact_check",
+      "title": "Revisión del Comité",
+      "description": "El Comité de Becas estudia la solicitud y notifica la resolución al estudiante y al padre/madre de familia."
+    },
+    {
+      "icon": "check_circle",
+      "title": "Comunicación del Resultado",
+      "description": "Recibirás la respuesta por escrito. Si es aprobada, se indicarán los pasos para activar el beneficio."
+    }
+  ],
+
+  "deadlinesSectionTitle": "Plazos y Fechas Clave",
+  "deadlinesSectionSubtitle": "Es importante presentar la solicitud dentro del período habilitado para cada beca.",
+  "deadlines": [
+    {
+      "scholarship": "Becas Avancemos",
+      "period": "Febrero – Marzo",
+      "notes": "Apertura al inicio del año lectivo. Pueden abrirse ventanas adicionales en julio."
+    },
+    {
+      "scholarship": "Beca por Rendimiento",
+      "period": "Marzo (I periodo) / Agosto (II periodo)",
+      "notes": "Se otorga una vez publicadas las notas del periodo anterior."
+    },
+    {
+      "scholarship": "Subsidio de Comedor",
+      "period": "Enero – Febrero",
+      "notes": "Al inicio del año. Renovación automática si se mantienen condiciones."
+    },
+    {
+      "scholarship": "Subsidio de Transporte",
+      "period": "Febrero",
+      "notes": "Al inicio del año lectivo. Sujeto a disponibilidad presupuestaria."
+    }
+  ],
+
+  "documentsSectionTitle": "Documentación Necesaria",
+  "documentsSectionSubtitle": "Preparate con anticipación reuniendo los documentos indicados según el tipo de beca que vas a solicitar.",
+  "documentGroups": [
+    {
+      "group": "Documentos Generales (todas las becas)",
+      "icon": "person",
+      "items": [
+        "Fotocopia de cédula del estudiante (o pasaporte si aplica)",
+        "Fotocopia de cédula del padre/madre/encargado",
+        "Comprobante de matrícula del año en curso",
+        "Formulario de solicitud de beca firmado"
+      ]
+    },
+    {
+      "group": "Para Becas Avancemos",
+      "icon": "volunteer_activism",
+      "items": [
+        "Certificación del SIPO o resolución del IMAS",
+        "Comprobante de ingresos familiares (constancia laboral o declaración jurada)",
+        "Número de SINIRUBE del jefe de familia"
+      ]
+    },
+    {
+      "group": "Para Beca por Rendimiento",
+      "icon": "emoji_events",
+      "items": [
+        "Fotocopia de boletín de notas del periodo anterior",
+        "Constancia de conducta emitida por el colegio"
+      ]
+    },
+    {
+      "group": "Para Subsidios de Comedor y Transporte",
+      "icon": "receipt_long",
+      "items": [
+        "Constancia socioeconómica (IMAS, EBAIS u ONG)",
+        "Comprobante de dirección de domicilio (recibo de servicios)",
+        "Declaración jurada de condición económica"
+      ]
+    }
+  ],
+
+  "contactSectionTitle": "¿Tenés dudas? Contáctanos",
+  "contactSectionSubtitle": "El equipo de orientación y la Dirección están disponibles para ayudarte con el proceso de solicitud.",
+  "contacts": [
+    {
+      "icon": "school",
+      "title": "Departamento de Orientación",
+      "description": "Primera parada para asesorarte sobre el tipo de beca más adecuado para tu situación.",
+      "detail": "Lunes a viernes, 7:00 a.m. – 3:00 p.m.",
+      "action": "",
+      "actionLabel": ""
+    },
+    {
+      "icon": "admin_panel_settings",
+      "title": "Dirección del Colegio",
+      "description": "Para entregar documentos, solicitar formularios y consultas sobre resoluciones.",
+      "detail": "Lunes a viernes, 7:00 a.m. – 4:00 p.m.",
+      "action": "",
+      "actionLabel": ""
+    },
+    {
+      "icon": "mail",
+      "title": "Correo Electrónico",
+      "description": "Enviá tus consultas por escrito y te responderemos en un plazo de 2 días hábiles.",
+      "detail": "becas@ctpdulcenombre.ed.cr",
+      "action": "mailto:becas@ctpdulcenombre.ed.cr",
+      "actionLabel": "Enviar correo"
+    }
+  ]
+}
