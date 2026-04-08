@@ -121,6 +121,11 @@ collections:
       - { label: "Nombre del programa", name: "title", widget: "string", hint: "Ejemplo: Desarrollo de Software" }
       - { label: "Ícono (Material Symbol)", name: "icon", widget: "string", hint: "Nombre del ícono de Material Symbols, ej: terminal, memory, calculate" }
       - { label: "Descripción corta", name: "summary", widget: "text", hint: "Resumen de 1-2 oraciones del programa" }
+      - label: "Habilidades"
+        name: "habilidades"
+        widget: "list"
+        hint: "Lista de habilidades que se adquirirán durante el programa técnico"
+        field: { label: "Habilidad", name: "habilidad", widget: "string" }
       - { label: "Descripción completa", name: "body", widget: "markdown" }
       - { label: "Duración", name: "duration", widget: "string", default: "Programa de 3 Años" }
       - { label: "Orden de aparición", name: "order", widget: "number", default: 0 }
