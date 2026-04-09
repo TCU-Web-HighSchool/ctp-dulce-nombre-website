@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import newsData from "../content/settings/news.json";
 
 const _newsModules = import.meta.glob("../content/news/*.json", {
@@ -46,6 +47,7 @@ const categoryBadgeColors = {
 };
 
 export default function News() {
+  const navigate = useNavigate();
   const [activeCategory, setActiveCategory] = useState("Todos");
   const [expandedYear, setExpandedYear] = useState(
     dynamicArchive[0]?.year ?? "2026",
@@ -214,15 +216,17 @@ export default function News() {
                     {item.desc}
                   </p>
                   <div className="mt-4 pt-4 border-t border-slate-100 flex justify-between items-center">
-                    <a
-                      href="#"
+                    <button
+                      onClick={() =>
+                        navigate(`/news/${encodeURIComponent(item.title)}`)
+                      }
                       className="text-sm font-bold text-primary flex items-center gap-1 group/btn"
                     >
                       Leer Artículo
                       <span className="material-symbols-outlined text-sm group-hover/btn:translate-x-1 transition-transform">
                         arrow_forward
                       </span>
-                    </a>
+                    </button>
                     <button className="p-2 hover:bg-slate-100 rounded-full transition-colors text-slate-400">
                       <span className="material-symbols-outlined">share</span>
                     </button>

@@ -1,9 +1,21 @@
 {
   "title": "CTP Dulce Nombre recibe charla preventiva del IAFA",
   "desc": "Especialistas del Instituto sobre Alcoholismo y Farmacodependencia (IAFA) visitaron el colegio para impartir una charla educativa sobre prevención de drogas, bienestar estudiantil y toma de decisiones responsable, dirigida a la comunidad estudiantil del CTP Dulce Nombre.",
+  "excerpt": "El Instituto sobre Alcoholismo y Farmacodependencia (IAFA) llevó un mensaje de prevención y conciencia a nuestra comunidad, enfatizando la importancia de tomar decisiones responsables en la adolescencia.",
   "category": "Académico",
   "date": "2026-03-28",
   "img": "/uploads/noticia-IAFA.jpg",
   "isNew": true,
-  "draft": false
+  "draft": false,
+  "author": "Dr. Carlos Rodríguez",
+  "authorRole": "Director Académico",
+  "authorImg": "https://lh3.googleusercontent.com/aida-public/AB6AXuCtwOkk8wjeRoW7kwYjF-1XGQCWbQIBuaKICdukBoOaaBmnd4Vud52gcRIVunTy0V317PRWn3OBb_e-8AM4ayeNI28Nq2x81epEvE9ALrc22Rnxq4p6gNBgDG63kQJXKRCDwphYXriH4KnqfCUBI_jHUX2btbMixkK6i1usZil00XP2SPdFk_PwvxWnjvLG4bnnJLk8HcKANPFkgWY0_o9l_r1GViasMRDK8w_gHkELD5VXvCN3RfRMwLILfpdKNCY9apUT5jv7ywk",
+  "readTime": "5 minutos",
+  "keywords": ["Prevención", "IAFA", "Bienestar", "Educación"],
+  "content": "<h2>Una iniciativa importante para nuestra comunidad</h2><p>El pasado 28 de marzo, el Instituto sobre Alcoholismo y Farmacodependencia (IAFA) realizó una visita especial a nuestras instalaciones. Profesionales capacitados impartieron charlas educativas dirigidas a estudiantes de diferentes niveles, enfocándose en la prevención de drogas y la promoción de hábitos saludables.</p><p>Esta actividad es parte de nuestro compromiso continuo con la formación integral de nuestros estudiantes, no solo en aspectos académicos sino también en su desarrollo personal y bienestar emocional.</p><h3>Contenido de las charlas</h3><p>Los especialistas del IAFA abordaron temas como:</p><ul><li>Identificación de factores de riesgo en adolescentes</li><li>Estrategias de resistencia ante presión de pares</li><li>Importancia de la comunicación familiar</li><li>Recursos disponibles para solicitar ayuda</li></ul><h3>Impacto en nuestra comunidad</h3><p>La retroalimentación de estudiantes y docentes ha sido muy positiva. Muchos estudiantes expresaron que les resultó especialmente útil conocer sobre los recursos disponibles y cómo pueden apoyar a compañeros que pudieran estar en riesgo.</p>",
+  "cta": {
+    "title": "¿Necesitas apoyo?",
+    "description": "Si tú o alguien que conoces necesita ayuda, no dudes en contactar con nuestro departamento de orientación.",
+    "buttonText": "Contactar"
+  }
 }
