@@ -46,6 +46,7 @@ collections:
         hint: "Etiquetas que aparecen como palabras clave en el detalle"
         field:
           label: "Palabra clave"
+          name: "keyword"
           widget: "string"
       - label: "Contenido de la noticia"
         name: "content"
@@ -68,6 +69,7 @@ collections:
             required: false
             field:
               label: "Item"
+              name: "item"
               widget: "string"
       - label: "Llamada a la acción"
         name: "cta"
