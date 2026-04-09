@@ -212,8 +212,8 @@
       "icon": "mail",
       "title": "Correo Electrónico",
       "description": "Enviá tus consultas por escrito y te responderemos en un plazo de 2 días hábiles.",
-      "detail": "becas@ctpdulcenombre.ed.cr",
-      "action": "mailto:becas@ctpdulcenombre.ed.cr",
+      "detail": "ctp.dulcenombre@mep.go.cr",
+      "action": "mailto:ctp.dulcenombre@mep.go.cr",
       "actionLabel": "Enviar correo"
     }
   ]

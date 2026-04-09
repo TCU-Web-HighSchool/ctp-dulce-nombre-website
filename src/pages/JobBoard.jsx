@@ -178,10 +178,10 @@ export default function JobBoard() {
                 disponible.
               </p>
               <a
-                href="mailto:info@ctpdulcenombre.ed.cr?subject=Aplicación%20laboral"
+                href="mailto:ctp.dulcenombre@mep.go.cr?subject=Aplicación%20laboral"
                 className="px-6 py-2.5 border-2 border-primary text-primary font-bold rounded-xl hover:bg-primary hover:text-white transition-all text-sm"
               >
-                info@ctpdulcenombre.ed.cr
+                ctp.dulcenombre@mep.go.cr
               </a>
             </div>
           </div>
