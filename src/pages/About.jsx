@@ -163,64 +163,6 @@ export default function About() {
           ))}
         </div>
       </section>
-
-      {/* Work With Us */}
-      <section className="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm">
-        <div className="grid lg:grid-cols-5">
-          <div className="lg:col-span-2 bg-slate-50 p-10 space-y-6">
-            <h2 className="text-3xl font-bold">Trabaje con Nosotros</h2>
-            <p className="text-slate-600">
-              Únase a nuestra comunidad de profesionales educativos y ayude a
-              formar la próxima generación de expertos técnicos.
-            </p>
-            <div className="space-y-4">
-              <div className="flex items-start gap-4">
-                <span className="material-symbols-outlined text-primary">
-                  verified
-                </span>
-                <div>
-                  <h5 className="font-bold">Oportunidades de Crecimiento</h5>
-                  <p className="text-sm text-slate-500">
-                    Capacitación continua en métodos pedagógicos modernos.
-                  </p>
-                </div>
-              </div>
-              <div className="flex items-start gap-4">
-                <span className="material-symbols-outlined text-primary">
-                  groups
-                </span>
-                <div>
-                  <h5 className="font-bold">Cultura Colaborativa</h5>
-                  <p className="text-sm text-slate-500">
-                    Trabaje junto a expertos en diversos campos técnicos.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="lg:col-span-3 p-10 flex flex-col items-center justify-center text-center gap-6">
-            <span className="material-symbols-outlined text-5xl text-slate-300">
-              person_add
-            </span>
-            <div className="space-y-2">
-              <h3 className="text-xl font-bold text-slate-900">
-                ¿Querés unirte a nuestro equipo?
-              </h3>
-              <p className="text-slate-500 text-sm max-w-sm">
-                Enviá tu CV al correo institucional indicando el área de
-                interés. Nos pondremos en contacto si hay una oportunidad
-                disponible.
-              </p>
-            </div>
-            <a
-              href="mailto:info@ctpdulcenombre.ed.cr?subject=Solicitud%20de%20Empleo"
-              className="px-6 py-2.5 border-2 border-primary text-primary font-bold rounded-xl hover:bg-primary hover:text-white transition-all text-sm"
-            >
-              info@ctpdulcenombre.ed.cr
-            </a>
-          </div>
-        </div>
-      </section>
     </div>
   );
 }
