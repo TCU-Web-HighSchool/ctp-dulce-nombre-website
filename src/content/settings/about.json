@@ -2,16 +2,16 @@
   "heroImage": "https://lh3.googleusercontent.com/aida-public/AB6AXuCJQ-0WpNvguUOmn9DLWt4VSM-S1Fdv40X3qfpmh4R0B4vLOgV3KYJ7oW6RLpC2etxdlECZs3JHWKwTRP9CQURQ0kUDBzgLgpxp3ZdbdVdQ8MkLGuCt3CCetn632lhuuouCnO2UmNYqAIdEBL-_dTDtgQISyiJ-XzGDJmB7m47p2BXavoN_cLzWvKVv7SA7Xw_FEAUikkQBbBv6DjZblxUzivRANzwNWELaR8P0_cQV4JAOvCqmPr_-yxUveXpc0iZGDRlEMj4l5g",
   "heroTitle": "Historia y Excelencia en Educación Técnica",
   "heroSubtitle": "Pioneros del crecimiento técnico y formando el futuro de profesionales industriales en Dulce Nombre.",
-  "heroBadge": "Desde 1974",
+  "heroBadge": "Desde 2005",
   "timeline": [
     {
-      "year": "1974",
+      "year": "2005",
       "title": "Era Fundacional",
       "description": "Establecido con tres especialidades técnicas para atender las crecientes necesidades industriales de la región. El campus inicial contaba con solo dos talleres.",
       "isHighlighted": true
     },
     {
-      "year": "1990s",
+      "year": "2010",
       "title": "Expansión y Modernización",
       "description": "Los años 90 vieron la construcción de nuestro complejo deportivo principal y la integración de los primeros laboratorios de cómputo, avanzando hacia un currículo digital.",
       "isHighlighted": false
@@ -26,12 +26,12 @@
   "mission": {
     "icon": "flag",
     "title": "Nuestra Misión",
-    "description": "Brindar educación técnica y académica integral y de alta calidad, fomentando valores éticos, innovación y liderazgo en nuestros estudiantes para empoderarlos como ciudadanos competitivos en el mercado global y agentes de cambio social."
+    "description": "Promover la calidad en el desarrollo de habilidades, competencias y valores que permitan a los docentes del Colegio Técnico Profesional de Dulce Nombre de Cartago, Incorporarse exitosamente a la sociedad y al mercado laboral."
   },
   "vision": {
     "icon": "visibility",
     "title": "Nuestra Visión",
-    "description": "Ser la institución líder en educación técnica en Costa Rica, reconocida por nuestra excelencia académica, instalaciones de vanguardia y el desarrollo humano integral de nuestros graduados, adaptándonos constantemente a la evolución tecnológica."
+    "description": "Ser la mejor opción educativa en la provincia de Cartago, donde se ofrece excelencia académica, técnica y de calidad, a partir del desarrollo de las potencialidades de los estudiantes con miras a las demandas laborales de la sociedad costarricense."
   },
   "facilities": [
     {
@@ -74,12 +74,52 @@
   ],
   "anthemTitle": "Himno de Nuestra Institución",
   "anthemVerses": [
-    "Coro\n¡Oh colegio, de luz y esperanza,\nque en tus aulas forjas el saber!\nCon orgullo y noble pujanza,\nal futuro queremos vencer.",
-    "I\nEn el valle de Dulce Nombre,\nse levanta un templo de honor,\ndonde crece la técnica y el hombre,\ncon trabajo, estudio y valor.",
-    "II\nLas herramientas son manos amigas,\nel ingenio es nuestra gran fe,\ncosechando por fin las espigas,\nde un mañana que brilla de pie."
+    "Camino erguido\nla frente en alto\npues tengo motivos\nen mi corazón.",
+
+    "Y veo al futuro\nsonriendo seguro\nporque yo aqui aprendo\npara ser mejor.",
+
+    "Tu sombra me abriga\n!Oh buen Cristo negro!\nTú eres la guía\nque requiero yo.",
+
+    "Contigo y mi esfuerzo\nflorece la tierra,\ncultivo mi mente\nsoy un vencedor.",
+
+    "I\nDulce Nombre, mi colegio\npor las cosas que me das.\nTe prometo llevar siempre\ntu nombre con gran Dignidad.",
+
+    "No importa qué pase,\nyo estaré presente,\npara hacerte grande,\npalabra de honor.",
+
+    "¡No hay gozo más grande\nque ser estudiante,\nde esta tan noble\ny gran institución!",
+
+    "II\nDulce Nombre, mi colegio\npor las cosas que me das.\nTe prometo llevar siempre\ntu nombre con gran Dignidad."
   ],
   "historyImages": [
     "https://lh3.googleusercontent.com/aida-public/AB6AXuBOaGqINw5ThnlsX1sprx7dw2OZexeArsHEzh4KHLogyCWYzGurQh3Lk1ZY6LeZdYaFDOA0hD6LVLMvN-Jr2YZhFIg3mvVtcLQ3bOoMxLaWlhqloo3xSKsExRilEvu2QfJYqoQxq83fgOH7pze9MT_qjngu9rXIG5LmppDBwnsrkulRzoyzgrp5-WgdRzxPB_r1OBKrccVN7-LHwHvYpuI2JnhyaDfpuUigleKueQUNbSwKC5dTgHZy4aISoCGoku_hlin62z6hvg",
     "https://lh3.googleusercontent.com/aida-public/AB6AXuDhoEB1I4wgfdpuHCYuLWNDiQUZZ72xjhuicAw8Ru6u0RalfL55jAqPWIxeZ1s6LfJ_5JF63vuilaEIXNddiS9mnnaKK1kjuul3gtT_1Opq8WxIFN8v1mjGuqeuPZ7VWnlaoY4daPMVzBSlK637la-dzPh-BpHQ5I-GUbrahxg6cSyVml0sg2kXR2tvGuww8QEgXbMLLHB4QtoxWsD1-HhpPRN3hR9gWCrO5nMKxNgmN-0g1tmTWyZEBeir5FyLIbw2MNnwhI5j-g"
+  ],
+  "staffSectionTitle": "Personal Administrativo",
+  "staffSectionSubtitle": "Conozca al equipo de liderazgo que dirige nuestra institución con dedicación y compromiso.",
+  "staff": [
+    {
+      "name": "María González Rodríguez",
+      "role": "Directora",
+      "description": "Responsable de la gestión académica y administrativa de la institución. Vela por el cumplimiento de los objetivos institucionales y el bienestar de la comunidad estudiantil.",
+      "photo": ""
+    },
+    {
+      "name": "Carlos Mora Hidalgo",
+      "role": "Coordinador Académico",
+      "description": "Coordina los programas académicos y técnicos, asegurando la calidad educativa en todas las especialidades ofrecidas por el colegio.",
+      "photo": ""
+    },
+    {
+      "name": "Laura Jiménez Solano",
+      "role": "Jefa de Departamento de Informática",
+      "description": "Lidera el departamento de tecnologías de información, supervisando los programas de ciberseguridad, redes y desarrollo de aplicaciones.",
+      "photo": ""
+    },
+    {
+      "name": "Andrés Vargas Núñez",
+      "role": "Jefe de Departamento de Electrónica",
+      "description": "Supervisa los talleres de electrónica industrial y las prácticas técnicas del área, garantizando la formación de alto nivel de los estudiantes.",
+      "photo": ""
+    }
   ]
 }

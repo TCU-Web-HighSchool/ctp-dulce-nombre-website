@@ -8,6 +8,7 @@ const navLinks = [
   { label: "Admisiones", to: "/admissions" },
   { label: "Noticias", to: "/news" },
   { label: "Bolsa de Empleo", to: "/job-board" },
+  { label: "Becas", to: "/scholarships" },
   { label: "Preguntas Frecuentes", to: "/faq" },
 ];
 
@@ -19,9 +20,11 @@ export default function Navbar() {
       <div className="max-w-340 mx-auto px-2 sm:px-4 lg:px-6">
         <div className="flex justify-between items-center h-16">
           <Link to="/" className="flex items-center gap-2">
-            <div className="bg-primary text-white p-1.5 rounded-lg">
-              <span className="material-symbols-outlined text-2xl">school</span>
-            </div>
+            <img
+              src="/Logo del  Colegio.jpeg"
+              alt="Logo CTP Dulce Nombre"
+              className="h-10 w-auto"
+            />
             <div>
               <p className="text-xl font-bold tracking-tight text-slate-900 leading-none">
                 CTP Dulce Nombre
@@ -41,8 +44,8 @@ export default function Navbar() {
                 className={({ isActive }) =>
                   `text-sm font-semibold transition-colors ${
                     isActive
-                      ? "text-primary"
-                      : "text-slate-600 hover:text-primary"
+                      ? "text-[#3a6b93]"
+                      : "text-slate-600 hover:text-[#3a6b93]"
                   }`
                 }
               >
@@ -60,10 +63,15 @@ export default function Navbar() {
               Contacto
             </Link>
 
-            <button className="flex items-center gap-1.5 px-4 py-2 rounded-lg bg-primary text-white text-sm font-bold hover:bg-blue-700 transition-all shadow-lg shadow-primary/20">
+            <a
+              href="https://cloudcampuspro.com/home/index.html?p=2"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1.5 px-4 py-2 rounded-lg bg-[#3a6b93] text-white text-sm font-bold hover:bg-[#2e587a] transition-all shadow-lg shadow-[#3a6b93]/20"
+            >
               <span className="material-symbols-outlined text-lg">login</span>
               Portal
-            </button>
+            </a>
 
             <button
               className="lg:hidden flex items-center justify-center w-9 h-9 rounded-lg border border-slate-200"
@@ -89,7 +97,7 @@ export default function Navbar() {
               className={({ isActive }) =>
                 `block px-3 py-2 rounded-lg text-sm font-semibold transition-colors ${
                   isActive
-                    ? "bg-primary/10 text-primary"
+                    ? "bg-[#3a6b93]/10 text-[#3a6b93]"
                     : "text-slate-600 hover:bg-slate-100"
                 }`
               }

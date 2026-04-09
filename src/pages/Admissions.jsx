@@ -5,35 +5,62 @@ import { sendEmail } from "../lib/sendEmail";
 import { admissionsEmailHtml } from "../emails/templates";
 
 export default function Admissions() {
-  const { steps, documents, specialtyOptions } = admissionsData;
+  const {
+    steps,
+    documents,
+    specialtyOptions,
+    programDiurno,
+    visitFormTitle,
+    visitFormSubtitle,
+  } = admissionsData;
   const [form, setForm] = useState({
     name: "",
     email: "",
     phone: "",
+    visitDate: "",
     specialty: "",
     message: "",
   });
+  const [errors, setErrors] = useState({});
   const [sent, setSent] = useState(false);
   const [sending, setSending] = useState(false);
   const [error, setError] = useState("");
 
-  const handleChange = (e) =>
-    setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setForm((prev) => ({ ...prev, [name]: value }));
+    if (errors[name]) setErrors((prev) => ({ ...prev, [name]: "" }));
+  };
+
+  const validate = () => {
+    const errs = {};
+    if (!form.name.trim()) errs.name = "El nombre es obligatorio.";
+    if (!form.email.trim()) errs.email = "El correo es obligatorio.";
+    if (!form.phone.trim()) errs.phone = "El teléfono es obligatorio.";
+    if (!form.visitDate) errs.visitDate = "La fecha preferida es obligatoria.";
+    return errs;
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const errs = validate();
+    if (Object.keys(errs).length > 0) {
+      setErrors(errs);
+      return;
+    }
+    setErrors({});
     setSending(true);
     setError("");
     try {
       await sendEmail({
         html: admissionsEmailHtml(form),
-        subject: `Consulta de Admisiones — ${form.name}`,
+        subject: `Solicitud de Visita — ${form.name}`,
         replyTo: form.email,
         fromName: form.name,
       });
       setSent(true);
     } catch {
-      setError("No se pudo enviar la consulta. Por favor intentá de nuevo.");
+      setError("No se pudo enviar la solicitud. Por favor intentá de nuevo.");
     } finally {
       setSending(false);
     }
@@ -59,6 +86,77 @@ export default function Admissions() {
           <p className="text-lg text-slate-300 max-w-2xl mx-auto">
             {admissionsData.heroSubtitle}
           </p>
+        </div>
+      </section>
+
+      {/* Program Description */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-4">
+        <div className="grid lg:grid-cols-5 gap-12">
+          <div className="lg:col-span-3 space-y-8">
+            <div className="space-y-3">
+              <h2 className="text-3xl font-black text-slate-900 tracking-tight">
+                {programDiurno.sectionTitle}
+              </h2>
+              <p className="text-slate-600 leading-relaxed">
+                {programDiurno.description}
+              </p>
+            </div>
+            <div className="space-y-3">
+              <h3 className="text-lg font-bold text-slate-900 flex items-center gap-2">
+                <span className="material-symbols-outlined text-primary text-[22px]">
+                  auto_stories
+                </span>
+                Metodología
+              </h3>
+              <p className="text-slate-600 leading-relaxed">
+                {programDiurno.methodology}
+              </p>
+            </div>
+            <div className="space-y-3">
+              <h3 className="text-lg font-bold text-slate-900 flex items-center gap-2">
+                <span className="material-symbols-outlined text-primary text-[22px]">
+                  emoji_events
+                </span>
+                Competencias que desarrollarás
+              </h3>
+              <ul className="space-y-2">
+                {programDiurno.competencies.map((c) => (
+                  <li
+                    key={c}
+                    className="flex items-start gap-3 text-sm text-slate-700"
+                  >
+                    <span className="material-symbols-outlined text-primary text-[18px] mt-0.5">
+                      check_circle
+                    </span>
+                    {c}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+          <div className="lg:col-span-2">
+            <div className="bg-primary/5 border border-primary/20 rounded-xl p-6 space-y-4 sticky top-24">
+              <h3 className="font-bold text-slate-900 flex items-center gap-2">
+                <span className="material-symbols-outlined text-primary text-[22px]">
+                  checklist
+                </span>
+                Requisitos de Admisión
+              </h3>
+              <ul className="space-y-3">
+                {programDiurno.requirements.map((r) => (
+                  <li
+                    key={r}
+                    className="flex items-start gap-3 text-sm text-slate-700"
+                  >
+                    <span className="material-symbols-outlined text-emerald-500 text-[18px] mt-0.5">
+                      check_circle
+                    </span>
+                    {r}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -136,21 +234,22 @@ export default function Admissions() {
             </div>
           </div>
 
-          {/* Inquiry Form */}
+          {/* Visit Form */}
           <div>
-            <h2 className="text-2xl font-bold text-slate-900 mb-8">
-              Formulario de Consulta
+            <h2 className="text-2xl font-bold text-slate-900 mb-2">
+              {visitFormTitle}
             </h2>
+            <p className="text-slate-500 text-sm mb-8">{visitFormSubtitle}</p>
             {sent ? (
-              <div className="flex flex-col items-center justify-center bg-green-50 rounded-xl p-12 border border-green-200 text-center gap-4">
+              <div className="flex flex-col items-center justify-center bg-green-50 rounded-xl p-12 border border-green-200 text-center gap-4 h-88">
                 <span className="material-symbols-outlined text-5xl text-green-500">
                   check_circle
                 </span>
                 <p className="text-xl font-bold text-slate-900">
-                  ¡Consulta enviada!
+                  ¡Visita agendada!
                 </p>
                 <p className="text-slate-500 text-sm">
-                  Nos pondremos en contacto pronto.
+                  Nos pondremos en contacto para confirmar tu cita.
                 </p>
               </div>
             ) : (
@@ -158,12 +257,12 @@ export default function Admissions() {
                 onSubmit={handleSubmit}
                 className="bg-white border border-slate-200 rounded-xl p-6 space-y-5"
                 data-netlify="true"
-                name="admissions-inquiry"
+                name="admissions-visit"
               >
                 <input
                   type="hidden"
                   name="form-name"
-                  value="admissions-inquiry"
+                  value="admissions-visit"
                 />
                 <div>
                   <label className="block text-sm font-semibold text-slate-700 mb-2">
@@ -172,12 +271,16 @@ export default function Admissions() {
                   <input
                     type="text"
                     name="name"
-                    required
                     value={form.name}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 rounded-lg border border-slate-200 bg-white text-slate-900 focus:outline-none focus:ring-2 focus:ring-primary/50"
+                    className={`w-full px-4 py-3 rounded-lg border ${
+                      errors.name ? "border-red-400" : "border-slate-200"
+                    } bg-white text-slate-900 focus:outline-none focus:ring-2 focus:ring-primary/50`}
                     placeholder="Tu nombre"
                   />
+                  {errors.name && (
+                    <p className="text-xs text-red-500 mt-1">{errors.name}</p>
+                  )}
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
@@ -187,12 +290,18 @@ export default function Admissions() {
                     <input
                       type="email"
                       name="email"
-                      required
                       value={form.email}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 rounded-lg border border-slate-200 bg-white text-slate-900 focus:outline-none focus:ring-2 focus:ring-primary/50"
+                      className={`w-full px-4 py-3 rounded-lg border ${
+                        errors.email ? "border-red-400" : "border-slate-200"
+                      } bg-white text-slate-900 focus:outline-none focus:ring-2 focus:ring-primary/50`}
                       placeholder="correo@ejemplo.com"
                     />
+                    {errors.email && (
+                      <p className="text-xs text-red-500 mt-1">
+                        {errors.email}
+                      </p>
+                    )}
                   </div>
                   <div>
                     <label className="block text-sm font-semibold text-slate-700 mb-2">
@@ -203,32 +312,61 @@ export default function Admissions() {
                       name="phone"
                       value={form.phone}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 rounded-lg border border-slate-200 bg-white text-slate-900 focus:outline-none focus:ring-2 focus:ring-primary/50"
+                      className={`w-full px-4 py-3 rounded-lg border ${
+                        errors.phone ? "border-red-400" : "border-slate-200"
+                      } bg-white text-slate-900 focus:outline-none focus:ring-2 focus:ring-primary/50`}
                       placeholder="+506 0000-0000"
                     />
+                    {errors.phone && (
+                      <p className="text-xs text-red-500 mt-1">
+                        {errors.phone}
+                      </p>
+                    )}
+                  </div>
+                </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-sm font-semibold text-slate-700 mb-2">
+                      Fecha Preferida de Visita
+                    </label>
+                    <input
+                      type="date"
+                      name="visitDate"
+                      value={form.visitDate}
+                      onChange={handleChange}
+                      min={new Date().toISOString().split("T")[0]}
+                      className={`w-full px-4 py-3 rounded-lg border ${
+                        errors.visitDate ? "border-red-400" : "border-slate-200"
+                      } bg-white text-slate-900 focus:outline-none focus:ring-2 focus:ring-primary/50`}
+                    />
+                    {errors.visitDate && (
+                      <p className="text-xs text-red-500 mt-1">
+                        {errors.visitDate}
+                      </p>
+                    )}
+                  </div>
+                  <div>
+                    <label className="block text-sm font-semibold text-slate-700 mb-2">
+                      Especialidad de Interés
+                    </label>
+                    <select
+                      name="specialty"
+                      value={form.specialty}
+                      onChange={handleChange}
+                      className="w-full px-4 py-3 rounded-lg border border-slate-200 bg-white text-slate-900 focus:outline-none focus:ring-2 focus:ring-primary/50"
+                    >
+                      <option value="">Seleccionar...</option>
+                      {specialtyOptions.map((opt) => (
+                        <option key={opt} value={opt}>
+                          {opt}
+                        </option>
+                      ))}
+                    </select>
                   </div>
                 </div>
                 <div>
                   <label className="block text-sm font-semibold text-slate-700 mb-2">
-                    Especialidad de Interés
-                  </label>
-                  <select
-                    name="specialty"
-                    value={form.specialty}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 rounded-lg border border-slate-200 bg-white text-slate-900 focus:outline-none focus:ring-2 focus:ring-primary/50"
-                  >
-                    <option value="">Seleccionar especialidad...</option>
-                    {specialtyOptions.map((opt) => (
-                      <option key={opt} value={opt}>
-                        {opt}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-                <div>
-                  <label className="block text-sm font-semibold text-slate-700 mb-2">
-                    Mensaje
+                    Mensaje (opcional)
                   </label>
                   <textarea
                     name="message"
@@ -236,7 +374,7 @@ export default function Admissions() {
                     value={form.message}
                     onChange={handleChange}
                     className="w-full px-4 py-3 rounded-lg border border-slate-200 bg-white text-slate-900 focus:outline-none focus:ring-2 focus:ring-primary/50 resize-none"
-                    placeholder="¿En qué podemos ayudarte?"
+                    placeholder="¿Hay algo específico que quieras saber?"
                   />
                 </div>
                 {error && (
@@ -245,9 +383,9 @@ export default function Admissions() {
                 <button
                   type="submit"
                   disabled={sending}
-                  className="w-full py-3 bg-primary text-white font-bold rounded-lg hover:bg-blue-700 transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
+                  className="w-full py-3 bg-primary text-white font-bold rounded-lg hover:bg-primary-dark transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
                 >
-                  {sending ? "Enviando..." : "Enviar Consulta"}
+                  {sending ? "Enviando..." : "Agendar Visita"}
                 </button>
               </form>
             )}
@@ -270,13 +408,13 @@ export default function Admissions() {
           <div className="flex flex-col sm:flex-row gap-4">
             <Link
               to="/faq"
-              className="px-8 py-3 border-2 border-primary text-primary font-bold rounded-xl hover:bg-primary hover:text-white transition-all text-center"
+              className="px-8 py-3 border-2 border-primary text-primary font-bold rounded-xl hover:bg-primary-dark hover:border-primary-dark hover:text-white transition-all text-center"
             >
               Ver FAQ
             </Link>
             <Link
               to="/contact"
-              className="px-8 py-3 bg-primary text-white font-bold rounded-xl hover:bg-blue-700 transition-colors text-center"
+              className="px-8 py-3 bg-primary text-white font-bold rounded-xl hover:bg-primary-dark transition-colors text-center"
             >
               Contactar Admisiones
             </Link>

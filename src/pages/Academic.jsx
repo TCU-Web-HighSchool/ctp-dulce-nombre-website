@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import academicData from "../content/settings/academic.json";
@@ -12,7 +13,7 @@ const specialties = Object.values(_progModules)
   .filter((p) => p.active !== false);
 
 const COLOR_MAP = {
-  primary: "#135bec",
+  primary: "#3a6b93",
   orange: "#f97316",
   red: "#ef4444",
   green: "#22c55e",
@@ -38,10 +39,138 @@ const {
   sidebarImage,
   sidebarImageCaption,
   eventLegend,
+  diurno,
+  nocturno,
 } = academicData;
+
+// Modal Component
+const ModalProgram = ({ program, onClose }) => {
+  if (!program) return null;
+
+  return (
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/40 backdrop-blur-sm" onClick={onClose}>
+      <div className="bg-white w-full max-w-4xl max-h-[90vh] overflow-y-auto rounded-xl shadow-2xl relative flex flex-col md:flex-row" onClick={(e) => e.stopPropagation()}>
+        {/* Close Button */}
+        <button
+          onClick={onClose}
+          className="absolute top-4 right-4 z-10 bg-slate-100 hover:bg-slate-200 text-slate-700 p-2 rounded-full transition-all active:scale-95"
+        >
+          <span className="material-symbols-outlined">close</span>
+        </button>
+
+        {/* Sidebar */}
+        <aside className="w-full md:w-1/3 bg-slate-50 p-8 flex flex-col">
+          <div className="mb-8">
+            <div className="w-16 h-16 bg-primary rounded-xl flex items-center justify-center mb-6 shadow-lg">
+              <span className="material-symbols-outlined text-white text-4xl">{program.icon}</span>
+            </div>
+            <span className="text-xs uppercase tracking-wider text-slate-500 font-bold mb-2 block">Técnico</span>
+            <h2 className="text-3xl font-extrabold text-slate-900 leading-tight">{program.title}</h2>
+          </div>
+          <div className="mt-auto space-y-4">
+            <div className="flex items-center gap-3 text-slate-600">
+              <span className="material-symbols-outlined text-primary">schedule</span>
+              <span className="text-sm font-medium">{program.duration}</span>
+            </div>
+            <div className="flex items-center gap-3 text-slate-600">
+              <span className="material-symbols-outlined text-primary">verified</span>
+              <span className="text-sm font-medium">Certificación Nacional</span>
+            </div>
+          </div>
+        </aside>
+
+        {/* Main Content */}
+        <div className="w-full md:w-2/3 p-8 md:p-12 overflow-y-auto">
+          <section className="mb-10">
+            <h3 className="text-sm uppercase tracking-wider text-orange-600 font-bold mb-4">Resumen del Programa</h3>
+            <p className="text-slate-700 text-lg leading-relaxed">
+              {program.description || program.summary}
+            </p>
+          </section>
+
+          {/* Competencias */}
+          {program.competencias && program.competencias.length > 0 && (
+            <section className="mb-8">
+              <h3 className="text-sm uppercase tracking-wider text-primary font-bold mb-6">Competencias</h3>
+              <ul className="space-y-3">
+                {program.competencias.map((comp, idx) => (
+                  <li key={idx} className="flex items-start gap-3">
+                    <span className="material-symbols-outlined text-primary text-sm mt-0.5">check_circle</span>
+                    <span className="text-slate-700">{comp}</span>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          )}
+
+          {/* Campo Laboral */}
+          {program.campoLaboral && (
+            <section className="mb-8">
+              <h3 className="text-sm uppercase tracking-wider text-primary font-bold mb-4">Campo Laboral</h3>
+              <p className="text-slate-700 leading-relaxed">{program.campoLaboral}</p>
+            </section>
+          )}
+
+          {/* Requisitos */}
+          {program.requisitos && program.requisitos.length > 0 && (
+            <section className="mb-12">
+              <h3 className="text-sm uppercase tracking-wider text-primary font-bold mb-6">Requisitos Específicos</h3>
+              <ul className="space-y-3">
+                {program.requisitos.map((req, idx) => (
+                  <li key={idx} className="flex items-start gap-3">
+                    <span className="material-symbols-outlined text-primary text-sm mt-0.5">arrow_right</span>
+                    <span className="text-slate-700">{req}</span>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          )}
+
+          {/* Habilidades */}
+          {program.habilidades && program.habilidades.length > 0 && (
+            <section className="mb-12">
+              <h3 className="text-sm uppercase tracking-wider text-primary font-bold mb-6">Habilidades a Conseguir</h3>
+              <ul className="space-y-3">
+                {program.habilidades.map((hab, idx) => (
+                  <li key={idx} className="flex items-start gap-3">
+                    <span className="material-symbols-outlined text-primary text-sm mt-0.5">lightbulb</span>
+                    <span className="text-slate-700">{hab}</span>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          )}
+
+          {/* Botón Solicitar Más Información */}
+          <div className="flex justify-end">
+            <a
+              href="/contact"
+              className="bg-primary text-white py-3 px-6 rounded-lg font-bold hover:bg-primary-dark transition-all flex items-center gap-2"
+            >
+              Solicitar Más Información
+              <span className="material-symbols-outlined text-sm">contact_support</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
 
 export default function Academic() {
   const [activeTab, setActiveTab] = useState(2);
+  const [selectedProgram, setSelectedProgram] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModal = (program) => {
+    setSelectedProgram(program);
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setSelectedProgram(null);
+  };
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
@@ -71,7 +200,9 @@ export default function Academic() {
             {tabs.map((tab, index) => (
               <button
                 key={tab}
-                onClick={() => setActiveTab(index)}
+                onClick={() => {
+                  setActiveTab(index);
+                }}
                 className={`py-4 text-sm font-bold whitespace-nowrap transition-all border-b-2 ${
                   activeTab === index
                     ? "border-primary text-primary"
@@ -84,40 +215,167 @@ export default function Academic() {
           </nav>
         </div>
 
-        {/* Specialties Grid */}
-        <section className="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {specialties
-            .filter((s) => s.active)
-            .map((program) => (
-              <div
-                key={program.title}
-                className="bg-white border border-slate-200 rounded-xl p-6 hover:shadow-lg transition-all group"
-              >
-                <div className="size-12 bg-primary/10 rounded-lg flex items-center justify-center text-primary mb-4 group-hover:bg-primary group-hover:text-white transition-colors">
-                  <span className="material-symbols-outlined">
-                    {program.icon}
-                  </span>
-                </div>
-                <h3 className="text-xl font-bold text-slate-900 mb-2">
-                  {program.title}
-                </h3>
-                <p className="text-slate-600 text-sm mb-6 leading-relaxed">
-                  {program.summary}
+        {/* Tab: Colegio Diurno */}
+        {activeTab === 0 && (
+          <section className="mt-8">
+            <div className="grid lg:grid-cols-3 gap-8">
+              <div className="lg:col-span-2 space-y-6">
+                <p className="text-slate-600 leading-relaxed text-base">
+                  {diurno.description}
                 </p>
-                <div className="flex items-center justify-between mt-auto">
+                <div className="flex items-center gap-3 p-4 bg-slate-50 rounded-xl border border-slate-200">
+                  <span className="material-symbols-outlined text-primary text-2xl">
+                    schedule
+                  </span>
+                  <div>
+                    <p className="text-xs font-bold text-slate-500 uppercase tracking-wider">
+                      Horario
+                    </p>
+                    <p className="font-semibold text-slate-900">
+                      {diurno.schedule}
+                    </p>
+                  </div>
+                </div>
+                <div className="space-y-3">
+                  <h3 className="font-bold text-slate-900">
+                    Formación que obtendrás
+                  </h3>
+                  <ul className="space-y-2">
+                    {diurno.competencies.map((c) => (
+                      <li
+                        key={c}
+                        className="flex items-center gap-3 text-sm text-slate-700"
+                      >
+                        <span className="material-symbols-outlined text-primary text-lg shrink-0">
+                          verified
+                        </span>
+                        {c}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+              <div className="bg-primary/5 border border-primary/20 rounded-xl p-6 flex flex-col gap-4 h-fit">
+                <span className="material-symbols-outlined text-primary text-4xl">
+                  wb_sunny
+                </span>
+                <h3 className="font-bold text-slate-900 text-lg">
+                  Modalidad Diurna
+                </h3>
+                <p className="text-sm text-slate-600">
+                  Ideal para estudiantes que ingresan desde primaria y desean
+                  combinar bachillerato académico con una especialidad técnica
+                  reconocida.
+                </p>
+                <Link
+                  to={diurno.ctaLink}
+                  className="mt-2 w-full text-center py-3 bg-primary text-white font-bold rounded-xl text-sm hover:bg-primary-dark transition-colors"
+                >
+                  {diurno.ctaLabel}
+                </Link>
+              </div>
+            </div>
+          </section>
+        )}
+
+        {/* Tab: Colegio Nocturno */}
+        {activeTab === 1 && (
+          <section className="mt-8 space-y-10">
+            <div className="grid lg:grid-cols-3 gap-8">
+              <div className="lg:col-span-2 space-y-6">
+                <p className="text-slate-600 leading-relaxed text-base">
+                  {nocturno.description}
+                </p>
+                <div className="flex items-center gap-3 p-4 bg-slate-50 rounded-xl border border-slate-200">
+                  <span className="material-symbols-outlined text-primary text-2xl">
+                    bedtime
+                  </span>
+                  <div>
+                    <p className="text-xs font-bold text-slate-500 uppercase tracking-wider">
+                      Horario
+                    </p>
+                    <p className="font-semibold text-slate-900">
+                      {nocturno.schedule}
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div className="bg-slate-900 rounded-xl p-6 flex flex-col gap-4 h-fit text-white">
+                <span className="material-symbols-outlined text-yellow-400 text-4xl">
+                  nights_stay
+                </span>
+                <h3 className="font-bold text-lg">Para Adultos Trabajadores</h3>
+                <p className="text-sm text-slate-300">
+                  Horario flexible pensado para quienes trabajan durante el día.
+                  Retomá o continuá tus estudios sin sacrificar tu vida laboral.
+                </p>
+              </div>
+            </div>
+            <div className="space-y-4">
+              <h3 className="font-bold text-slate-900 text-lg">
+                Proceso de Inscripción
+              </h3>
+              <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                {nocturno.enrollmentSteps.map((step, i) => (
+                  <div key={step.title} className="relative text-center group">
+                    <div className="mx-auto size-16 bg-primary/10 rounded-full flex items-center justify-center mb-4 group-hover:bg-primary group-hover:text-white transition-all text-primary">
+                      <span className="material-symbols-outlined text-2xl">
+                        {step.icon}
+                      </span>
+                    </div>
+                    <span className="text-xs font-black text-primary uppercase tracking-widest block mb-1">
+                      Paso {i + 1}
+                    </span>
+                    <h4 className="text-sm font-bold text-slate-900 mb-1">
+                      {step.title}
+                    </h4>
+                    <p className="text-xs text-slate-600 leading-relaxed">
+                      {step.description}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
+
+        {/* Tab: Especialidades Técnicas */}
+        {activeTab === 2 && (
+          <section className="mt-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {specialties.map((program) => (
+                <div
+                  key={program.title}
+                  className="bg-white border border-slate-200 rounded-xl p-6 hover:shadow-lg transition-all group"
+                >
+                  <div className="size-12 rounded-lg bg-primary/10 text-primary group-hover:bg-primary group-hover:text-white flex items-center justify-center mb-4 transition-colors">
+                    <span className="material-symbols-outlined">
+                      {program.icon}
+                    </span>
+                  </div>
+                  <h3 className="text-xl font-bold text-slate-900 mb-2">
+                    {program.title}
+                  </h3>
+                  <p className="text-slate-600 text-sm mb-6 leading-relaxed">
+                    {program.summary}
+                  </p>
                   <span className="text-xs font-bold uppercase tracking-wider text-slate-400">
                     {program.duration}
                   </span>
-                  <button className="text-primary text-sm font-bold flex items-center gap-1 hover:underline">
+                  <button
+                    onClick={() => openModal(program)}
+                    className="text-primary text-sm font-bold flex items-center gap-1 hover:underline"
+                  >
                     Ver Plan
                     <span className="material-symbols-outlined text-[18px]">
                       arrow_forward
                     </span>
                   </button>
                 </div>
-              </div>
-            ))}
-        </section>
+              ))}
+            </div>
+          </section>
+        )}
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
@@ -188,7 +446,7 @@ export default function Academic() {
                 </li>
               ))}
             </ul>
-            <button className="w-full bg-primary text-white py-3 rounded-lg text-sm font-bold hover:bg-primary/90 transition-all">
+            <button className="w-full bg-primary text-white py-3 rounded-lg text-sm font-bold hover:bg-primary-dark transition-all">
               Solicitar Ayuda
             </button>
           </div>
@@ -227,6 +485,9 @@ export default function Academic() {
           </div>
         </div>
       </div>
+
+      {/* Modal */}
+      {isModalOpen && <ModalProgram program={selectedProgram} onClose={closeModal} />}
     </div>
   );
 }

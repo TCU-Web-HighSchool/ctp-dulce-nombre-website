@@ -5,9 +5,11 @@ import About from "../pages/About";
 import Academic from "../pages/Academic";
 import Admissions from "../pages/Admissions";
 import News from "../pages/News";
+import NewsDetail from "../pages/NewsDetail";
 import JobBoard from "../pages/JobBoard";
 import FAQ from "../pages/FAQ";
 import Contact from "../pages/Contact";
+import Scholarships from "../pages/Scholarships";
 import NotFound from "../pages/NotFound";
 
 export const router = createBrowserRouter([
@@ -20,8 +22,10 @@ export const router = createBrowserRouter([
       { path: "academic", element: <Academic /> },
       { path: "admissions", element: <Admissions /> },
       { path: "news", element: <News /> },
+      { path: "news/:newsId", element: <NewsDetail /> },
       { path: "job-board", element: <JobBoard /> },
       { path: "faq", element: <FAQ /> },
+      { path: "scholarships", element: <Scholarships /> },
       { path: "contact", element: <Contact /> },
       { path: "*", element: <NotFound /> },
     ],

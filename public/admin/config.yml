@@ -34,6 +34,51 @@ collections:
           - { label: "General", value: "General" }
       - { label: "Imagen destacada", name: "img", widget: "image", required: false, hint: "Imagen principal que aparece en la tarjeta de la noticia" }
       - { label: "Resumen", name: "desc", widget: "text", hint: "Texto corto que aparece bajo el título (2-3 líneas)" }
+      - { label: "Introducción destacada", name: "excerpt", widget: "text", required: false, hint: "Texto breve que se muestra en la parte superior del detalle" }
+      - { label: "Autor", name: "author", widget: "string", required: false, hint: "Nombre del autor o responsable de la noticia" }
+      - { label: "Cargo del autor", name: "authorRole", widget: "string", required: false }
+      - { label: "Foto del autor", name: "authorImg", widget: "image", required: false }
+      - { label: "Tiempo de lectura", name: "readTime", widget: "string", required: false, hint: "Ejemplo: 5 minutos" }
+      - label: "Palabras clave"
+        name: "keywords"
+        widget: "list"
+        required: false
+        hint: "Etiquetas que aparecen como palabras clave en el detalle"
+        field:
+          label: "Palabra clave"
+          name: "keyword"
+          widget: "string"
+      - label: "Contenido de la noticia"
+        name: "content"
+        widget: "list"
+        required: false
+        hint: "Agrega bloques para crear la noticia: títulos, párrafos, listas o citas"
+        fields:
+          - label: "Tipo de bloque"
+            name: "type"
+            widget: "select"
+            options:
+              - { label: "Título H2", value: "heading" }
+              - { label: "Párrafo", value: "paragraph" }
+              - { label: "Lista con viñetas", value: "list" }
+              - { label: "Cita", value: "blockquote" }
+          - { label: "Texto", name: "text", widget: "text", required: false, hint: "Texto para títulos, párrafos o citas" }
+          - label: "Items de lista"
+            name: "items"
+            widget: "list"
+            required: false
+            field:
+              label: "Item"
+              name: "item"
+              widget: "string"
+      - label: "Llamada a la acción"
+        name: "cta"
+        widget: "object"
+        required: false
+        fields:
+          - { label: "Título", name: "title", widget: "string", required: false }
+          - { label: "Descripción", name: "description", widget: "text", required: false }
+          - { label: "Texto del botón", name: "buttonText", widget: "string", required: false }
       - { label: "Marcar como nuevo", name: "isNew", widget: "boolean", default: true, hint: "Muestra la etiqueta 'Nuevo' en la tarjeta" }
       - { label: "Es aviso importante", name: "isImportant", widget: "boolean", default: false, hint: "Aviso destacado con borde punteado (sin imagen)" }
       - { label: "Borrador", name: "draft", widget: "boolean", default: false, hint: "No se muestra en el sitio hasta desmarcar" }
@@ -121,10 +166,34 @@ collections:
       - { label: "Nombre del programa", name: "title", widget: "string", hint: "Ejemplo: Desarrollo de Software" }
       - { label: "Ícono (Material Symbol)", name: "icon", widget: "string", hint: "Nombre del ícono de Material Symbols, ej: terminal, memory, calculate" }
       - { label: "Descripción corta", name: "summary", widget: "text", hint: "Resumen de 1-2 oraciones del programa" }
+      - label: "Habilidades"
+        name: "habilidades"
+        widget: "list"
+        hint: "Lista de habilidades que se adquirirán durante el programa técnico"
+        field: { label: "Habilidad", name: "habilidad", widget: "string" }
       - { label: "Descripción completa", name: "body", widget: "markdown" }
       - { label: "Duración", name: "duration", widget: "string", default: "Programa de 3 Años" }
       - { label: "Orden de aparición", name: "order", widget: "number", default: 0 }
       - { label: "Activo", name: "active", widget: "boolean", default: true }
+      - label: "PDF del Plan de Estudios"
+        name: "planPdf"
+        widget: "file"
+        required: false
+        hint: "Sube el PDF del plan de estudios completo. Si no hay PDF, el botón de descarga no se muestra."
+        media_library:
+          config:
+            multiple: false
+      - label: "Plan de Estudios por Año"
+        name: "curriculumByYear"
+        widget: "list"
+        hint: "Organiza las materias por año (Décimo, Undécimo, Duodécimo)"
+        fields:
+          - { label: "Año / Nivel", name: "year", widget: "string", hint: "Ej: Décimo Año" }
+          - label: "Materias"
+            name: "subjects"
+            widget: "list"
+            hint: "Lista de materias impartidas en este año"
+            field: { label: "Materia", name: "subject", widget: "string" }
 
   # --- Configuración del Sitio ---
   - name: "configuracion"
@@ -247,6 +316,17 @@ collections:
             widget: "list"
             hint: "Fotos antiguas o históricas del colegio"
             field: { label: "Imagen", name: "image", widget: "image" }
+          - { label: "Título de Personal Administrativo", name: "staffSectionTitle", widget: "string", default: "Personal Administrativo" }
+          - { label: "Subtítulo de Personal Administrativo", name: "staffSectionSubtitle", widget: "text", hint: "Descripción breve que aparece bajo el título de la sección" }
+          - label: "Personal Administrativo"
+            name: "staff"
+            widget: "list"
+            hint: "Director/a, coordinadores y jefes de departamento"
+            fields:
+              - { label: "Nombre completo", name: "name", widget: "string", hint: "Ejemplo: María González Rodríguez" }
+              - { label: "Cargo / Rol", name: "role", widget: "string", hint: "Ejemplo: Directora, Coordinador Académico, Jefa de Departamento" }
+              - { label: "Descripción del rol", name: "description", widget: "text", hint: "Breve descripción de las responsabilidades del cargo" }
+              - { label: "Fotografía", name: "photo", widget: "image", required: false, hint: "Si no se carga una foto, se muestra una imagen de placeholder" }
 
       # Página Académico
       - label: "Página Académico"
@@ -301,6 +381,35 @@ collections:
                   - { label: "Rojo (Feriados)", value: "red" }
                   - { label: "Verde (Matrícula)", value: "green" }
               - { label: "Descripción", name: "label", widget: "string" }
+          - label: "Colegio Diurno"
+            name: "diurno"
+            widget: "object"
+            fields:
+              - { label: "Descripción", name: "description", widget: "text" }
+              - { label: "Horario", name: "schedule", widget: "string", hint: "Ej: Lunes a viernes, 7:00 a.m. – 4:00 p.m." }
+              - label: "Títulos / Certificaciones"
+                name: "competencies"
+                widget: "list"
+                field: { label: "Título", name: "titulo", widget: "string" }
+              - { label: "Texto del botón CTA", name: "ctaLabel", widget: "string" }
+              - { label: "Enlace del botón CTA", name: "ctaLink", widget: "string", hint: "Ruta interna, ej: /admissions" }
+          - label: "Colegio Nocturno"
+            name: "nocturno"
+            widget: "object"
+            fields:
+              - { label: "Descripción", name: "description", widget: "text" }
+              - { label: "Horario", name: "schedule", widget: "string", hint: "Ej: Lunes a viernes, 6:00 p.m. – 9:30 p.m." }
+              - label: "Especialidades disponibles"
+                name: "specialties"
+                widget: "list"
+                field: { label: "Especialidad", name: "especialidad", widget: "string" }
+              - label: "Pasos de inscripción"
+                name: "enrollmentSteps"
+                widget: "list"
+                fields:
+                  - { label: "Ícono (Material Symbol)", name: "icon", widget: "string" }
+                  - { label: "Título del paso", name: "title", widget: "string" }
+                  - { label: "Descripción", name: "description", widget: "text" }
 
       # Página de Admisiones
       - label: "Página de Admisiones"
@@ -337,6 +446,108 @@ collections:
             widget: "list"
             hint: "Especialidades disponibles en el formulario de consulta"
             field: { label: "Especialidad", name: "specialty", widget: "string" }
+          - { label: "Título del formulario de visita", name: "visitFormTitle", widget: "string", default: "Agendar una Visita" }
+          - { label: "Subtítulo del formulario de visita", name: "visitFormSubtitle", widget: "text" }
+          - label: "Información del Programa Diurno"
+            name: "programDiurno"
+            widget: "object"
+            fields:
+              - { label: "Título de la sección", name: "sectionTitle", widget: "string" }
+              - { label: "Descripción del programa", name: "description", widget: "text" }
+              - { label: "Metodología", name: "methodology", widget: "text" }
+              - label: "Competencias"
+                name: "competencies"
+                widget: "list"
+                field: { label: "Competencia", name: "competencia", widget: "string" }
+              - label: "Requisitos de Admisión"
+                name: "requirements"
+                widget: "list"
+                field: { label: "Requisito", name: "requisito", widget: "string" }
+
+      # Página de Becas
+      - label: "Página de Becas"
+        name: "scholarships"
+        file: "src/content/settings/scholarships.json"
+        description: "Tipos de becas, requisitos, proceso, plazos, documentación y contacto"
+        fields:
+          - { label: "Imagen del hero", name: "heroImage", widget: "image", required: false, hint: "Si se deja vacío se muestra un fondo degradado" }
+          - { label: "Título del hero", name: "heroTitle", widget: "string" }
+          - { label: "Subtítulo del hero", name: "heroSubtitle", widget: "text" }
+          - { label: "Badge del hero", name: "heroBadge", widget: "string", hint: "Ejemplo: Apoyos Disponibles" }
+          - label: "Tipos de Becas"
+            name: "scholarshipTypes"
+            widget: "list"
+            hint: "Cada tarjeta de beca en la parte superior de la página"
+            fields:
+              - { label: "ID único (sin espacios)", name: "id", widget: "string", hint: "Identificador interno. Ej: avancemos, beca-rendimiento" }
+              - { label: "Ícono (Material Symbol)", name: "icon", widget: "string", hint: "Ej: volunteer_activism, emoji_events, restaurant" }
+              - label: "Color de la tarjeta"
+                name: "color"
+                widget: "select"
+                options:
+                  - { label: "Azul (primario)", value: "primary" }
+                  - { label: "Naranja", value: "orange" }
+                  - { label: "Verde", value: "green" }
+                  - { label: "Morado", value: "purple" }
+              - { label: "Nombre de la beca", name: "name", widget: "string" }
+              - { label: "Entidad responsable", name: "entity", widget: "string", hint: "Ej: IMAS / MEP" }
+              - { label: "Descripción", name: "description", widget: "text" }
+              - { label: "Monto / Beneficio", name: "amount", widget: "string", hint: "Ej: Hasta ₡58.500 mensuales" }
+              - { label: "Renovable", name: "renewable", widget: "boolean", default: true }
+          - { label: "Título — Requisitos", name: "requirementsSectionTitle", widget: "string", default: "Requisitos por Beca" }
+          - { label: "Subtítulo — Requisitos", name: "requirementsSectionSubtitle", widget: "text" }
+          - label: "Requisitos por Beca"
+            name: "requirements"
+            widget: "list"
+            hint: "Cada entrada corresponde al ID de una beca declarada arriba"
+            fields:
+              - { label: "ID de la beca", name: "scholarshipId", widget: "string", hint: "Debe coincidir exactamente con el ID de la beca" }
+              - label: "Requisitos"
+                name: "items"
+                widget: "list"
+                field: { label: "Requisito", name: "requisito", widget: "string" }
+          - { label: "Título — Proceso", name: "processSectionTitle", widget: "string", default: "Proceso de Solicitud" }
+          - { label: "Subtítulo — Proceso", name: "processSectionSubtitle", widget: "text" }
+          - label: "Pasos del proceso"
+            name: "steps"
+            widget: "list"
+            fields:
+              - { label: "Ícono (Material Symbol)", name: "icon", widget: "string" }
+              - { label: "Título del paso", name: "title", widget: "string" }
+              - { label: "Descripción", name: "description", widget: "text" }
+          - { label: "Título — Plazos", name: "deadlinesSectionTitle", widget: "string", default: "Plazos y Fechas Clave" }
+          - { label: "Subtítulo — Plazos", name: "deadlinesSectionSubtitle", widget: "text" }
+          - label: "Plazos de solicitud"
+            name: "deadlines"
+            widget: "list"
+            fields:
+              - { label: "Nombre de la beca", name: "scholarship", widget: "string" }
+              - { label: "Período", name: "period", widget: "string", hint: "Ej: Febrero – Marzo" }
+              - { label: "Observaciones", name: "notes", widget: "text" }
+          - { label: "Título — Documentación", name: "documentsSectionTitle", widget: "string", default: "Documentación Necesaria" }
+          - { label: "Subtítulo — Documentación", name: "documentsSectionSubtitle", widget: "text" }
+          - label: "Grupos de documentos"
+            name: "documentGroups"
+            widget: "list"
+            fields:
+              - { label: "Nombre del grupo", name: "group", widget: "string", hint: "Ej: Documentos Generales" }
+              - { label: "Ícono (Material Symbol)", name: "icon", widget: "string", hint: "Ej: person, receipt_long" }
+              - label: "Documentos requeridos"
+                name: "items"
+                widget: "list"
+                field: { label: "Documento", name: "documento", widget: "string" }
+          - { label: "Título — Contacto", name: "contactSectionTitle", widget: "string", default: "¿Tenés dudas? Contáctanos" }
+          - { label: "Subtítulo — Contacto", name: "contactSectionSubtitle", widget: "text" }
+          - label: "Tarjetas de contacto"
+            name: "contacts"
+            widget: "list"
+            fields:
+              - { label: "Ícono (Material Symbol)", name: "icon", widget: "string" }
+              - { label: "Título", name: "title", widget: "string" }
+              - { label: "Descripción", name: "description", widget: "text" }
+              - { label: "Detalle (horario, correo, etc.)", name: "detail", widget: "string" }
+              - { label: "Enlace de acción (href)", name: "action", widget: "string", required: false, hint: "Ej: mailto:becas@colegio.ed.cr" }
+              - { label: "Texto del botón de acción", name: "actionLabel", widget: "string", required: false }
 
       # Página de Noticias
       - label: "Página de Noticias (Config)"

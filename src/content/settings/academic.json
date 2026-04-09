@@ -79,5 +79,46 @@
       "color": "green",
       "label": "Períodos de Matrícula"
     }
-  ]
+  ],
+  "diurno": {
+    "description": "El Colegio Diurno ofrece el Ciclo Diversificado académico y técnico (décimo a duodécimo año) en horario matutino/vespertino. Los estudiantes combinan la formación en bachillerato con especialidades técnicas reconocidas por el INA y el MEP, graduándose con dos títulos.",
+    "schedule": "Lunes a viernes, 7:00 a.m. – 4:00 p.m.",
+    "competencies": [
+      "Bachillerato en Educación Media (MEP)",
+      "Técnico Medio en especialidad elegida",
+      "Inglés técnico y comunicación digital"
+    ],
+    "ctaLabel": "Proceso de Admisión",
+    "ctaLink": "/admissions"
+  },
+  "nocturno": {
+    "description": "El Colegio Nocturno está diseñado especialmente para adultos trabajadores que desean retomar o continuar sus estudios secundarios. Ofrecemos el mismo nivel académico en un horario accesible, con atención personalizada y un ambiente de respeto hacia la experiencia de vida de cada estudiante.",
+    "schedule": "Lunes a viernes, 6:00 p.m. – 9:30 p.m.",
+    "specialties": [
+      "Ejecutivo Comercial y Servicio al Cliente",
+      "Contabilidad y Auditoría"
+    ],
+    "enrollmentSteps": [
+      {
+        "icon": "person_add",
+        "title": "Solicitud de Ingreso",
+        "description": "Presentarse a la oficina administrativa con documentos de identidad y último año cursado."
+      },
+      {
+        "icon": "edit_note",
+        "title": "Entrevista de Ubicación",
+        "description": "Una entrevista breve para determinar el nivel y especialidad más adecuada."
+      },
+      {
+        "icon": "assignment_turned_in",
+        "title": "Matrícula",
+        "description": "Completar el formulario de matrícula y entregar los documentos requeridos."
+      },
+      {
+        "icon": "school",
+        "title": "Inicio de Clases",
+        "description": "Incorporarse al grupo asignado al inicio del período lectivo correspondiente."
+      }
+    ]
+  }
 }
