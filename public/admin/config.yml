@@ -34,6 +34,49 @@ collections:
           - { label: "General", value: "General" }
       - { label: "Imagen destacada", name: "img", widget: "image", required: false, hint: "Imagen principal que aparece en la tarjeta de la noticia" }
       - { label: "Resumen", name: "desc", widget: "text", hint: "Texto corto que aparece bajo el título (2-3 líneas)" }
+      - { label: "Introducción destacada", name: "excerpt", widget: "text", required: false, hint: "Texto breve que se muestra en la parte superior del detalle" }
+      - { label: "Autor", name: "author", widget: "string", required: false, hint: "Nombre del autor o responsable de la noticia" }
+      - { label: "Cargo del autor", name: "authorRole", widget: "string", required: false }
+      - { label: "Foto del autor", name: "authorImg", widget: "image", required: false }
+      - { label: "Tiempo de lectura", name: "readTime", widget: "string", required: false, hint: "Ejemplo: 5 minutos" }
+      - label: "Palabras clave"
+        name: "keywords"
+        widget: "list"
+        required: false
+        hint: "Etiquetas que aparecen como palabras clave en el detalle"
+        field:
+          label: "Palabra clave"
+          widget: "string"
+      - label: "Contenido de la noticia"
+        name: "content"
+        widget: "list"
+        required: false
+        hint: "Agrega bloques para crear la noticia: títulos, párrafos, listas o citas"
+        fields:
+          - label: "Tipo de bloque"
+            name: "type"
+            widget: "select"
+            options:
+              - { label: "Título H2", value: "heading" }
+              - { label: "Párrafo", value: "paragraph" }
+              - { label: "Lista con viñetas", value: "list" }
+              - { label: "Cita", value: "blockquote" }
+          - { label: "Texto", name: "text", widget: "text", required: false, hint: "Texto para títulos, párrafos o citas" }
+          - label: "Items de lista"
+            name: "items"
+            widget: "list"
+            required: false
+            field:
+              label: "Item"
+              widget: "string"
+      - label: "Llamada a la acción"
+        name: "cta"
+        widget: "object"
+        required: false
+        fields:
+          - { label: "Título", name: "title", widget: "string", required: false }
+          - { label: "Descripción", name: "description", widget: "text", required: false }
+          - { label: "Texto del botón", name: "buttonText", widget: "string", required: false }
       - { label: "Marcar como nuevo", name: "isNew", widget: "boolean", default: true, hint: "Muestra la etiqueta 'Nuevo' en la tarjeta" }
       - { label: "Es aviso importante", name: "isImportant", widget: "boolean", default: false, hint: "Aviso destacado con borde punteado (sin imagen)" }
       - { label: "Borrador", name: "draft", widget: "boolean", default: false, hint: "No se muestra en el sitio hasta desmarcar" }
