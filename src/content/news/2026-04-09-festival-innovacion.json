@@ -1,0 +1,21 @@
+{
+  "title": "Festival de Innovación Tecnológica 2026",
+  "desc": "Estudiantes de especialidades técnicas presentarán proyectos innovadores que combinan hardware y software para resolver problemas reales de la comunidad.",
+  "excerpt": "El Festival de Innovación Tecnológica es el evento más esperado del año, donde nuestros mejores estudiantes muestran proyectos revolucionarios svilupados a lo largo del semestre.",
+  "category": "Académico",
+  "date": "2026-04-09",
+  "img": "https://lh3.googleusercontent.com/aida-public/AB6AXuCYj8eIb8zijY_k6dwB-I5pSTkD7xPjaeM4rGfj3E8bqvPd4eyQk8velQgIt-eNoZK5rwVyH9UotUzf5whk0xVPUEqJBjjPy5cK1_Mn_NmS0AkKUSqCMm22aeng2yRJqMRzDm_09dyFuUdaD081SJFhZ8kZAmFoL2shKm1w5fK05c-tf_-c-b4OiUkzd1yX8UrybkPmLlt_NUbZesn4tGxHnuhzlbjfXuoXiVfbU5ge_KRsh_GvW8enNx0ZTbuXnNv50Ac437C4ZFw",
+  "isNew": true,
+  "draft": false,
+  "author": "Ing. María González",
+  "authorRole": "Coordinadora de Innovación",
+  "authorImg": "https://lh3.googleusercontent.com/aida-public/AB6AXuCtwOkk8wjeRoW7kwYjF-1XGQCWbQIBuaKICdukBoOaaBmnd4Vud52gcRIVunTy0V317PRWn3OBb_e-8AM4ayeNI28Nq2x81epEvE9ALrc22Rnxq4p6gNBgDG63kQJXKRCDwphYXriH4KnqfCUBI_jHUX2btbMixkK6i1usZil00XP2SPdFk_PwvxWnjvLG4bnnJLk8HcKANPFkgWY0_o9l_r1GViasMRDK8w_gHkELD5VXvCN3RfRMwLILfpdKNCY9apUT5jv7ywk",
+  "readTime": "7 minutos",
+  "keywords": ["Innovación", "Tecnología", "Proyectos", "Estudiantes"],
+  "content": "<h2>Un Evento que Celebra la Excelencia</h2><p>El Festival de Innovación Tecnológica es el culmen de meses de trabajo dedicado, investigación y creatividad. Este año, nuestros estudiantes han superado todas las expectativas con proyectos que trascienden el aula y buscan impactar positivamente en la comunidad costarricense.</p><h3>Proyectos Destacados</h3><p>Entre los proyectos que serán presentados encontramos:</p><ul><li><strong>Sistema de Riego Automático:</strong> Un dispositivo IoT que optimiza el consumo de agua en agricultura utilizando sensores inteligentes.</li><li><strong>App de Educación Inclusiva:</strong> Aplicación móvil diseñada para facilitar el aprendizaje de estudiantes con discapacidades visuales.</li><li><strong>Generador Solar Compacto:</strong> Prototipo de energía renovable escalable para zonas rurales.</li><li><strong>Plataforma de Telesalud:</strong> Sistema que conecta pacientes rurales con médicos especializados.</li></ul><h3>Importancia del Evento</h3><p>Este festival no es solo una exhibición de habilidades técnicas. Representa el compromiso de CTP Dulce Nombre con la formación de profesionales que no solo dominan la tecnología, sino que la utilizan como una herramienta para resolver problemas reales y mejorar la calidad de vida de las personas.</p><p>Empresas tecnológicas líderes del país participarán como jueces y mentores, brindando retroalimentación valiosa a nuestros estudiantes. Además, habrá conversaciones sobre oportunidades de pasantías y empleo para los estudiantes más destacados.</p><h3>Detalles del Evento</h3><p><strong>Fecha:</strong> 15 de abril de 2026<br><strong>Hora:</strong> 9:00 AM - 5:00 PM<br><strong>Lugar:</strong> Auditorio Central y Talleres de CTP Dulce Nombre<br><strong>Entrada:</strong> Gratuita para la comunidad educativa</p><p>Te invitamos a acompañarnos en esta celebración de la innovación y el talento estudiantil. ¡Será un evento que no te puedes perder!</p>",
+  "cta": {
+    "title": "¿Interesado en participar como juez o mentor?",
+    "description": "Si representas una empresa o institución y te gustaría participar en nuestro festival, contacta al departamento de Vinculación con la Industria.",
+    "buttonText": "Más Información"
+  }
+}

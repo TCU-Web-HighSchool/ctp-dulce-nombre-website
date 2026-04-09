@@ -43,8 +43,134 @@ const {
   nocturno,
 } = academicData;
 
+// Modal Component
+const ModalProgram = ({ program, onClose }) => {
+  if (!program) return null;
+
+  return (
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/40 backdrop-blur-sm" onClick={onClose}>
+      <div className="bg-white w-full max-w-4xl max-h-[90vh] overflow-y-auto rounded-xl shadow-2xl relative flex flex-col md:flex-row" onClick={(e) => e.stopPropagation()}>
+        {/* Close Button */}
+        <button
+          onClick={onClose}
+          className="absolute top-4 right-4 z-10 bg-slate-100 hover:bg-slate-200 text-slate-700 p-2 rounded-full transition-all active:scale-95"
+        >
+          <span className="material-symbols-outlined">close</span>
+        </button>
+
+        {/* Sidebar */}
+        <aside className="w-full md:w-1/3 bg-slate-50 p-8 flex flex-col">
+          <div className="mb-8">
+            <div className="w-16 h-16 bg-primary rounded-xl flex items-center justify-center mb-6 shadow-lg">
+              <span className="material-symbols-outlined text-white text-4xl">{program.icon}</span>
+            </div>
+            <span className="text-xs uppercase tracking-wider text-slate-500 font-bold mb-2 block">Técnico</span>
+            <h2 className="text-3xl font-extrabold text-slate-900 leading-tight">{program.title}</h2>
+          </div>
+          <div className="mt-auto space-y-4">
+            <div className="flex items-center gap-3 text-slate-600">
+              <span className="material-symbols-outlined text-primary">schedule</span>
+              <span className="text-sm font-medium">{program.duration}</span>
+            </div>
+            <div className="flex items-center gap-3 text-slate-600">
+              <span className="material-symbols-outlined text-primary">verified</span>
+              <span className="text-sm font-medium">Certificación Nacional</span>
+            </div>
+          </div>
+        </aside>
+
+        {/* Main Content */}
+        <div className="w-full md:w-2/3 p-8 md:p-12 overflow-y-auto">
+          <section className="mb-10">
+            <h3 className="text-sm uppercase tracking-wider text-orange-600 font-bold mb-4">Resumen del Programa</h3>
+            <p className="text-slate-700 text-lg leading-relaxed">
+              {program.description || program.summary}
+            </p>
+          </section>
+
+          {/* Competencias */}
+          {program.competencias && program.competencias.length > 0 && (
+            <section className="mb-8">
+              <h3 className="text-sm uppercase tracking-wider text-primary font-bold mb-6">Competencias</h3>
+              <ul className="space-y-3">
+                {program.competencias.map((comp, idx) => (
+                  <li key={idx} className="flex items-start gap-3">
+                    <span className="material-symbols-outlined text-primary text-sm mt-0.5">check_circle</span>
+                    <span className="text-slate-700">{comp}</span>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          )}
+
+          {/* Campo Laboral */}
+          {program.campoLaboral && (
+            <section className="mb-8">
+              <h3 className="text-sm uppercase tracking-wider text-primary font-bold mb-4">Campo Laboral</h3>
+              <p className="text-slate-700 leading-relaxed">{program.campoLaboral}</p>
+            </section>
+          )}
+
+          {/* Requisitos */}
+          {program.requisitos && program.requisitos.length > 0 && (
+            <section className="mb-12">
+              <h3 className="text-sm uppercase tracking-wider text-primary font-bold mb-6">Requisitos Específicos</h3>
+              <ul className="space-y-3">
+                {program.requisitos.map((req, idx) => (
+                  <li key={idx} className="flex items-start gap-3">
+                    <span className="material-symbols-outlined text-primary text-sm mt-0.5">arrow_right</span>
+                    <span className="text-slate-700">{req}</span>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          )}
+
+          {/* Habilidades */}
+          {program.habilidades && program.habilidades.length > 0 && (
+            <section className="mb-12">
+              <h3 className="text-sm uppercase tracking-wider text-primary font-bold mb-6">Habilidades a Conseguir</h3>
+              <ul className="space-y-3">
+                {program.habilidades.map((hab, idx) => (
+                  <li key={idx} className="flex items-start gap-3">
+                    <span className="material-symbols-outlined text-primary text-sm mt-0.5">lightbulb</span>
+                    <span className="text-slate-700">{hab}</span>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          )}
+
+          {/* Botón Solicitar Más Información */}
+          <div className="flex justify-end">
+            <a
+              href="/contact"
+              className="bg-primary text-white py-3 px-6 rounded-lg font-bold hover:bg-primary-dark transition-all flex items-center gap-2"
+            >
+              Solicitar Más Información
+              <span className="material-symbols-outlined text-sm">contact_support</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
 export default function Academic() {
-  const [activeTab, setActiveTab] = useState(0);
+  const [activeTab, setActiveTab] = useState(2);
+  const [selectedProgram, setSelectedProgram] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModal = (program) => {
+    setSelectedProgram(program);
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setSelectedProgram(null);
+  };
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
@@ -236,6 +362,15 @@ export default function Academic() {
                   <span className="text-xs font-bold uppercase tracking-wider text-slate-400">
                     {program.duration}
                   </span>
+                  <button
+                    onClick={() => openModal(program)}
+                    className="text-primary text-sm font-bold flex items-center gap-1 hover:underline"
+                  >
+                    Ver Plan
+                    <span className="material-symbols-outlined text-[18px]">
+                      arrow_forward
+                    </span>
+                  </button>
                 </div>
               ))}
             </div>
@@ -350,6 +485,9 @@ export default function Academic() {
           </div>
         </div>
       </div>
+
+      {/* Modal */}
+      {isModalOpen && <ModalProgram program={selectedProgram} onClose={closeModal} />}
     </div>
   );
 }
