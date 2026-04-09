@@ -126,6 +126,7 @@ export function admissionsEmailHtml({
   name,
   email,
   phone,
+  visitDate,
   specialty,
   message,
 }) {
@@ -136,6 +137,17 @@ export function admissionsEmailHtml({
         </td>
         <td style="padding-bottom:20px;vertical-align:top;">
           <p style="margin:0;font-size:14px;font-weight:700;color:#181c1e;">${escHtml(phone)}</p>
+        </td>
+      </tr>`
+    : "";
+
+  const visitDateRow = visitDate
+    ? `<tr>
+        <td width="35%" style="padding-bottom:20px;vertical-align:top;">
+          <p style="margin:0;font-size:10px;font-weight:700;color:#43474e;text-transform:uppercase;letter-spacing:0.1em;padding-top:2px;">Fecha preferida de visita</p>
+        </td>
+        <td style="padding-bottom:20px;vertical-align:top;">
+          <p style="margin:0;font-size:14px;font-weight:700;color:#181c1e;">${escHtml(visitDate)}</p>
         </td>
       </tr>`
     : "";
@@ -225,6 +237,7 @@ export function admissionsEmailHtml({
                 </tr>
 
                 ${phoneRow}
+                ${visitDateRow}
                 ${specialtyRow}
                 ${messageRow}
 

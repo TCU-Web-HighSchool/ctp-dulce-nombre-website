@@ -93,5 +93,33 @@
   "historyImages": [
     "https://lh3.googleusercontent.com/aida-public/AB6AXuBOaGqINw5ThnlsX1sprx7dw2OZexeArsHEzh4KHLogyCWYzGurQh3Lk1ZY6LeZdYaFDOA0hD6LVLMvN-Jr2YZhFIg3mvVtcLQ3bOoMxLaWlhqloo3xSKsExRilEvu2QfJYqoQxq83fgOH7pze9MT_qjngu9rXIG5LmppDBwnsrkulRzoyzgrp5-WgdRzxPB_r1OBKrccVN7-LHwHvYpuI2JnhyaDfpuUigleKueQUNbSwKC5dTgHZy4aISoCGoku_hlin62z6hvg",
     "https://lh3.googleusercontent.com/aida-public/AB6AXuDhoEB1I4wgfdpuHCYuLWNDiQUZZ72xjhuicAw8Ru6u0RalfL55jAqPWIxeZ1s6LfJ_5JF63vuilaEIXNddiS9mnnaKK1kjuul3gtT_1Opq8WxIFN8v1mjGuqeuPZ7VWnlaoY4daPMVzBSlK637la-dzPh-BpHQ5I-GUbrahxg6cSyVml0sg2kXR2tvGuww8QEgXbMLLHB4QtoxWsD1-HhpPRN3hR9gWCrO5nMKxNgmN-0g1tmTWyZEBeir5FyLIbw2MNnwhI5j-g"
+  ],
+  "staffSectionTitle": "Personal Administrativo",
+  "staffSectionSubtitle": "Conozca al equipo de liderazgo que dirige nuestra institución con dedicación y compromiso.",
+  "staff": [
+    {
+      "name": "María González Rodríguez",
+      "role": "Directora",
+      "description": "Responsable de la gestión académica y administrativa de la institución. Vela por el cumplimiento de los objetivos institucionales y el bienestar de la comunidad estudiantil.",
+      "photo": ""
+    },
+    {
+      "name": "Carlos Mora Hidalgo",
+      "role": "Coordinador Académico",
+      "description": "Coordina los programas académicos y técnicos, asegurando la calidad educativa en todas las especialidades ofrecidas por el colegio.",
+      "photo": ""
+    },
+    {
+      "name": "Laura Jiménez Solano",
+      "role": "Jefa de Departamento de Informática",
+      "description": "Lidera el departamento de tecnologías de información, supervisando los programas de ciberseguridad, redes y desarrollo de aplicaciones.",
+      "photo": ""
+    },
+    {
+      "name": "Andrés Vargas Núñez",
+      "role": "Jefe de Departamento de Electrónica",
+      "description": "Supervisa los talleres de electrónica industrial y las prácticas técnicas del área, garantizando la formación de alto nivel de los estudiantes.",
+      "photo": ""
+    }
   ]
 }

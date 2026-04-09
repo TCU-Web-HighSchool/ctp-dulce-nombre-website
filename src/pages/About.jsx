@@ -11,6 +11,9 @@ export default function About() {
     vision,
     facilities,
     services,
+    staffSectionTitle,
+    staffSectionSubtitle,
+    staff,
     anthemTitle,
     anthemVerses,
     historyImages,
@@ -147,6 +150,49 @@ export default function About() {
             </ul>
           </div>
         ))}
+      </section>
+
+      {/* Administrative Staff */}
+      <section className="space-y-10">
+        <div className="text-center space-y-2">
+          <h2 className="text-3xl font-bold">{staffSectionTitle}</h2>
+          <p className="text-slate-500 max-w-xl mx-auto">
+            {staffSectionSubtitle}
+          </p>
+        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {staff.map((person) => (
+            <div
+              key={person.name}
+              className="bg-white border border-slate-200 rounded-xl p-6 flex flex-col items-center text-center space-y-4 hover:shadow-lg transition-shadow"
+            >
+              {person.photo ? (
+                <img
+                  src={person.photo}
+                  alt={person.name}
+                  className="w-24 h-24 rounded-full object-cover ring-4 ring-slate-100"
+                />
+              ) : (
+                <div className="w-24 h-24 rounded-full bg-slate-100 ring-4 ring-slate-100 flex items-center justify-center">
+                  <span className="material-symbols-outlined text-4xl text-slate-400">
+                    person
+                  </span>
+                </div>
+              )}
+              <div className="space-y-1">
+                <h3 className="font-bold text-base text-slate-900">
+                  {person.name}
+                </h3>
+                <span className="inline-block bg-primary/10 text-primary text-xs font-bold px-3 py-1 rounded-full">
+                  {person.role}
+                </span>
+              </div>
+              <p className="text-slate-600 text-sm leading-relaxed">
+                {person.description}
+              </p>
+            </div>
+          ))}
+        </div>
       </section>
 
       {/* School Anthem */}
