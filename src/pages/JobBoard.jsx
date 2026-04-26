@@ -164,26 +164,7 @@ export default function JobBoard() {
               </div>
             ))}
 
-            {/* Work With Us Info Card */}
-            <div className="border-2 border-dashed border-slate-200 rounded-xl p-6 flex flex-col items-center justify-center text-center min-h-[300px]">
-              <span className="material-symbols-outlined text-4xl text-slate-300 mb-4">
-                person_add
-              </span>
-              <h3 className="font-bold text-slate-700 mb-2">
-                ¿Querés trabajar con nosotros?
-              </h3>
-              <p className="text-sm text-slate-500 mb-6">
-                Enviá tu CV al correo institucional indicando el área de
-                interés. Nos pondremos en contacto si hay una oportunidad
-                disponible.
-              </p>
-              <a
-                href="mailto:ctp.dulcenombre@mep.go.cr?subject=Aplicación%20laboral"
-                className="px-6 py-2.5 border-2 border-primary text-primary font-bold rounded-xl hover:bg-primary hover:text-white transition-all text-sm"
-              >
-                ctp.dulcenombre@mep.go.cr
-              </a>
-            </div>
+
           </div>
         )}
       </section>

@@ -10,6 +10,7 @@ export default function Admissions() {
     documents,
     specialtyOptions,
     programDiurno,
+    programNocturno,
     visitFormTitle,
     visitFormSubtitle,
   } = admissionsData;
@@ -89,73 +90,52 @@ export default function Admissions() {
         </div>
       </section>
 
-      {/* Program Description */}
+      {/* Program Types */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-4">
-        <div className="grid lg:grid-cols-5 gap-12">
-          <div className="lg:col-span-3 space-y-8">
-            <div className="space-y-3">
-              <h2 className="text-3xl font-black text-slate-900 tracking-tight">
-                {programDiurno.sectionTitle}
-              </h2>
-              <p className="text-slate-600 leading-relaxed">
-                {programDiurno.description}
-              </p>
-            </div>
-            <div className="space-y-3">
-              <h3 className="text-lg font-bold text-slate-900 flex items-center gap-2">
-                <span className="material-symbols-outlined text-primary text-[22px]">
-                  auto_stories
-                </span>
-                Metodología
-              </h3>
-              <p className="text-slate-600 leading-relaxed">
-                {programDiurno.methodology}
-              </p>
-            </div>
-            <div className="space-y-3">
-              <h3 className="text-lg font-bold text-slate-900 flex items-center gap-2">
-                <span className="material-symbols-outlined text-primary text-[22px]">
-                  emoji_events
-                </span>
-                Competencias que desarrollarás
-              </h3>
-              <ul className="space-y-2">
-                {programDiurno.competencies.map((c) => (
-                  <li
-                    key={c}
-                    className="flex items-start gap-3 text-sm text-slate-700"
-                  >
-                    <span className="material-symbols-outlined text-primary text-[18px] mt-0.5">
-                      check_circle
-                    </span>
-                    {c}
-                  </li>
-                ))}
-              </ul>
-            </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {/* Diurna */}
+          <div className="bg-primary/5 border border-primary/20 rounded-xl p-6 space-y-4">
+            <h2 className="text-2xl font-black text-slate-900 tracking-tight flex items-center gap-2">
+              <span className="material-symbols-outlined text-primary text-[26px]">
+                wb_sunny
+              </span>
+              {programDiurno.sectionTitle}
+            </h2>
+            <ul className="space-y-3">
+              {programDiurno.requirements.map((r) => (
+                <li
+                  key={r}
+                  className="flex items-start gap-3 text-sm text-slate-700"
+                >
+                  <span className="material-symbols-outlined text-emerald-500 text-[18px] mt-0.5">
+                    check_circle
+                  </span>
+                  {r}
+                </li>
+              ))}
+            </ul>
           </div>
-          <div className="lg:col-span-2">
-            <div className="bg-primary/5 border border-primary/20 rounded-xl p-6 space-y-4 sticky top-24">
-              <h3 className="font-bold text-slate-900 flex items-center gap-2">
-                <span className="material-symbols-outlined text-primary text-[22px]">
-                  checklist
-                </span>
-                Requisitos de Admisión
-              </h3>
-              <ul className="space-y-3">
-                {programDiurno.requirements.map((r) => (
-                  <li
-                    key={r}
-                    className="flex items-start gap-3 text-sm text-slate-700"
-                  >
-                    <span className="material-symbols-outlined text-emerald-500 text-[18px] mt-0.5">
-                      check_circle
-                    </span>
-                    {r}
-                  </li>
-                ))}
-              </ul>
-            </div>
+          {/* Nocturna */}
+          <div className="bg-slate-50 border border-slate-200 rounded-xl p-6 space-y-4">
+            <h2 className="text-2xl font-black text-slate-900 tracking-tight flex items-center gap-2">
+              <span className="material-symbols-outlined text-slate-500 text-[26px]">
+                nights_stay
+              </span>
+              {programNocturno.sectionTitle}
+            </h2>
+            <ul className="space-y-3">
+              {programNocturno.requirements.map((r) => (
+                <li
+                  key={r}
+                  className="flex items-start gap-3 text-sm text-slate-700"
+                >
+                  <span className="material-symbols-outlined text-emerald-500 text-[18px] mt-0.5">
+                    check_circle
+                  </span>
+                  {r}
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </section>

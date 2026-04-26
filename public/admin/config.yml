@@ -398,7 +398,7 @@ collections:
             widget: "object"
             fields:
               - { label: "Descripción", name: "description", widget: "text" }
-              - { label: "Horario", name: "schedule", widget: "string", hint: "Ej: Lunes a viernes, 6:00 p.m. – 9:30 p.m." }
+              - { label: "Horario", name: "schedule", widget: "string", hint: "Ej: Lunes a viernes, 6:00 p.m. – 9:00 p.m." }
               - label: "Especialidades disponibles"
                 name: "specialties"
                 widget: "list"
@@ -448,17 +448,20 @@ collections:
             field: { label: "Especialidad", name: "specialty", widget: "string" }
           - { label: "Título del formulario de visita", name: "visitFormTitle", widget: "string", default: "Agendar una Visita" }
           - { label: "Subtítulo del formulario de visita", name: "visitFormSubtitle", widget: "text" }
-          - label: "Información del Programa Diurno"
+          - label: "Secundaria Diurna"
             name: "programDiurno"
             widget: "object"
             fields:
               - { label: "Título de la sección", name: "sectionTitle", widget: "string" }
-              - { label: "Descripción del programa", name: "description", widget: "text" }
-              - { label: "Metodología", name: "methodology", widget: "text" }
-              - label: "Competencias"
-                name: "competencies"
+              - label: "Requisitos de Admisión"
+                name: "requirements"
                 widget: "list"
-                field: { label: "Competencia", name: "competencia", widget: "string" }
+                field: { label: "Requisito", name: "requisito", widget: "string" }
+          - label: "Secundaria Nocturna"
+            name: "programNocturno"
+            widget: "object"
+            fields:
+              - { label: "Título de la sección", name: "sectionTitle", widget: "string" }
               - label: "Requisitos de Admisión"
                 name: "requirements"
                 widget: "list"

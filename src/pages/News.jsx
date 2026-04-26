@@ -37,8 +37,7 @@ const fmtDate = (d) => {
   }
 };
 
-const { pageTitle, filterCategories, subscribeTitle, subscribeDescription } =
-  newsData;
+const { pageTitle, filterCategories } = newsData;
 
 const categoryBadgeColors = {
   Académico: "bg-primary text-white",
@@ -52,7 +51,6 @@ export default function News() {
   const [expandedYear, setExpandedYear] = useState(
     dynamicArchive[0]?.year ?? "2026",
   );
-  const [email, setEmail] = useState("");
 
   const filtered =
     activeCategory === "Todos"
@@ -124,26 +122,6 @@ export default function News() {
               </a>
             </div>
           </div>
-
-          {/* Subscribe */}
-          <div className="bg-primary/5 rounded-xl border border-primary/20 p-5">
-            <h3 className="font-bold text-sm text-primary mb-2 uppercase tracking-wider">
-              {subscribeTitle}
-            </h3>
-            <p className="text-xs text-slate-600 mb-4">
-              {subscribeDescription}
-            </p>
-            <input
-              type="email"
-              placeholder="Correo electrónico"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              className="w-full bg-white border border-slate-200 rounded-lg text-sm px-3 py-2 mb-2 focus:outline-none focus:ring-1 focus:ring-primary"
-            />
-            <button className="w-full py-2 bg-primary text-white rounded-lg text-sm font-bold hover:bg-primary-dark transition-colors">
-              Notificarme
-            </button>
-          </div>
         </aside>
 
         {/* Main Content */}
@@ -184,7 +162,7 @@ export default function News() {
                   <img
                     src={item.img}
                     alt={item.title}
-                    className="w-full h-full object-cover object-top grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500"
+                    className="w-full h-full object-cover object-top group-hover:scale-105 transition-all duration-500"
                   />
                   <div className="absolute top-3 left-3 flex gap-2">
                     <span

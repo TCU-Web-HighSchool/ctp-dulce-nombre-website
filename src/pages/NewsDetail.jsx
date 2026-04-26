@@ -1,5 +1,5 @@
 import { useParams, useNavigate } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useMemo, useEffect } from "react";
 
 const _newsModules = import.meta.glob("../content/news/*.json", {
   eager: true,
@@ -46,7 +46,10 @@ const renderContentBlock = (block, index) => {
   switch (block.type) {
     case "heading":
       return (
-        <h2 key={index} className="text-3xl font-bold text-slate-900 mt-10 mb-4">
+        <h2
+          key={index}
+          className="text-3xl font-bold text-slate-900 mt-10 mb-4"
+        >
           {block.text}
         </h2>
       );
@@ -58,7 +61,10 @@ const renderContentBlock = (block, index) => {
       );
     case "list":
       return (
-        <ul key={index} className="list-disc list-inside space-y-3 text-slate-700 mb-6">
+        <ul
+          key={index}
+          className="list-disc list-inside space-y-3 text-slate-700 mb-6"
+        >
           {Array.isArray(block.items)
             ? block.items.map((item, itemIndex) => (
                 <li key={itemIndex}>{item}</li>
@@ -83,23 +89,27 @@ const renderContentBlock = (block, index) => {
 export default function NewsDetail() {
   const { newsId } = useParams();
   const navigate = useNavigate();
-  const [news, setNews] = useState(null);
-  const [relatedNews, setRelatedNews] = useState([]);
+
+  const news = useMemo(
+    () => allNews.find((n) => n.title === decodeURIComponent(newsId)) ?? null,
+    [newsId],
+  );
+
+  const relatedNews = useMemo(
+    () =>
+      news
+        ? allNews
+            .filter(
+              (n) => n.category === news.category && n.title !== news.title,
+            )
+            .slice(0, 3)
+        : [],
+    [news],
+  );
 
   useEffect(() => {
-    // Find the news by title (slug)
-    const foundNews = allNews.find((n) => n.title === decodeURIComponent(newsId));
-    if (foundNews) {
-      setNews(foundNews);
-      // Get related news (same category, excluding current)
-      const related = allNews
-        .filter((n) => n.category === foundNews.category && n.title !== foundNews.title)
-        .slice(0, 3);
-      setRelatedNews(related);
-    } else {
-      navigate("/news");
-    }
-  }, [newsId, navigate]);
+    if (!news) navigate("/news");
+  }, [news, navigate]);
 
   if (!news) {
     return (
@@ -114,11 +124,19 @@ export default function NewsDetail() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <header className="relative w-full h-[500px] md:h-[600px] flex items-end overflow-hidden">
+      <header className="relative w-full h-[500px] md:h-[600px] flex items-end overflow-hidden bg-slate-900">
+        {/* Blurred background to fill empty space */}
+        <img
+          src={news.img}
+          alt=""
+          aria-hidden="true"
+          className="absolute inset-0 w-full h-full object-cover scale-110 blur-lg opacity-80"
+        />
+        {/* Sharp image centered */}
         <img
           src={news.img}
           alt={news.title}
-          className="absolute inset-0 w-full h-full object-cover"
+          className="absolute inset-0 w-full h-full object-contain"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent"></div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12 w-full">
@@ -126,7 +144,8 @@ export default function NewsDetail() {
             <div className="flex items-center gap-3">
               <span
                 className={`${
-                  categoryBadgeColors[news.category] || "bg-slate-800 text-white"
+                  categoryBadgeColors[news.category] ||
+                  "bg-slate-800 text-white"
                 } px-3 py-1 rounded-sm text-xs font-bold uppercase tracking-widest`}
               >
                 {news.category}
@@ -169,13 +188,19 @@ export default function NewsDetail() {
               </h4>
               <div className="flex gap-2">
                 <button className="w-10 h-10 flex items-center justify-center rounded-lg bg-slate-100 text-slate-600 hover:bg-primary hover:text-white transition-all">
-                  <span className="material-symbols-outlined text-xl">share</span>
+                  <span className="material-symbols-outlined text-xl">
+                    share
+                  </span>
                 </button>
                 <button className="w-10 h-10 flex items-center justify-center rounded-lg bg-slate-100 text-slate-600 hover:bg-primary hover:text-white transition-all">
-                  <span className="material-symbols-outlined text-xl">link</span>
+                  <span className="material-symbols-outlined text-xl">
+                    link
+                  </span>
                 </button>
                 <button className="w-10 h-10 flex items-center justify-center rounded-lg bg-slate-100 text-slate-600 hover:bg-primary hover:text-white transition-all">
-                  <span className="material-symbols-outlined text-xl">mail</span>
+                  <span className="material-symbols-outlined text-xl">
+                    mail
+                  </span>
                 </button>
               </div>
             </div>
@@ -188,7 +213,9 @@ export default function NewsDetail() {
                     <p className="text-xs font-bold uppercase tracking-widest text-slate-600 mb-1">
                       Tiempo de lectura
                     </p>
-                    <p className="text-slate-900 font-semibold">{news.readTime}</p>
+                    <p className="text-slate-900 font-semibold">
+                      {news.readTime}
+                    </p>
                   </div>
                 )}
                 {news.keywords && news.keywords.length > 0 && (
@@ -234,7 +261,9 @@ export default function NewsDetail() {
               )
             ) : (
               // Fallback to description if no content provided
-              <p className="text-base text-slate-700 mb-6 prose leading-relaxed">{news.desc}</p>
+              <p className="text-base text-slate-700 mb-6 prose leading-relaxed">
+                {news.desc}
+              </p>
             )}
           </div>
 
@@ -272,7 +301,8 @@ export default function NewsDetail() {
                 href="/news"
                 className="text-primary font-bold flex items-center gap-2 hover:gap-3 transition-all"
               >
-                Ver todas <span className="material-symbols-outlined">arrow_forward</span>
+                Ver todas{" "}
+                <span className="material-symbols-outlined">arrow_forward</span>
               </a>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
@@ -288,7 +318,7 @@ export default function NewsDetail() {
                     <img
                       src={item.img}
                       alt={item.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 grayscale group-hover:grayscale-0"
+                      className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
                     />
                   </div>
                   <div className="p-6">

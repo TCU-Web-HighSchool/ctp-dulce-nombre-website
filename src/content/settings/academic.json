@@ -55,9 +55,9 @@
     }
   ],
   "scholarshipTitle": "Becas y Ayudas",
-  "scholarshipDescription": "Programas de asistencia financiera incluyendo \"Becas Avancemos\", subsidios de comedor y transporte estudiantil.",
+  "scholarshipDescription": "Programas de asistencia financiera incluyendo subsidios de comedor y transporte estudiantil.",
   "scholarshipBenefits": [
-    "Becas por mérito académico",
+    "Subsidio de comedor estudiantil",
     "Apoyo socioeconómico"
   ],
   "sidebarImage": "https://lh3.googleusercontent.com/aida-public/AB6AXuDr_j1b2dydqZBPULGSKjUWYy9z-fJd2p8WZCiOiUXzs3KkDOqtU2pjerjBG6HR4kxFWl0mNnIS6z8TidyalXIt7GelOJj5a3GKBU5MIeKhydr8ZZ12SigCYxXPsId8em_kXklv4Ww6I4B5WdcLwx77_luIC0YtE-eILvEcdGDaBJ11C04bdBlgbfWXAlfk3Hb5_cYi7DEF99Cab7PSaPF9ZV2VW8YynfLE4-dayn7rgKlJtOKPgq8iQBm7WU1xZF69mryj3DvFPQ",
@@ -93,7 +93,7 @@
   },
   "nocturno": {
     "description": "El Colegio Nocturno está diseñado especialmente para adultos trabajadores que desean retomar o continuar sus estudios secundarios. Ofrecemos el mismo nivel académico en un horario accesible, con atención personalizada y un ambiente de respeto hacia la experiencia de vida de cada estudiante.",
-    "schedule": "Lunes a viernes, 6:00 p.m. – 9:30 p.m.",
+    "schedule": "Lunes a viernes, 6:00 p.m. – 9:00 p.m.",
     "specialties": [
       "Ejecutivo Comercial y Servicio al Cliente",
       "Contabilidad y Auditoría"
