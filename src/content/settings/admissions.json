@@ -52,22 +52,23 @@
   "visitFormTitle": "Agendar una Visita",
   "visitFormSubtitle": "Completá el formulario y nos pondremos en contacto para confirmar tu cita.",
   "programDiurno": {
-    "sectionTitle": "Programa de Secundaria Diurna",
-    "description": "El CTP Dulce Nombre ofrece el Ciclo Diversificado en la modalidad diurna (décimo, undécimo y duodécimo año), combinando el bachillerato académico con formación técnica especializada. Nuestros egresados obtienen el Título de Bachiller en Educación Media y la credencial de Técnico Medio en su especialidad elegida.",
-    "methodology": "Aplicamos una metodología activa y práctica: clases teóricas combinadas con talleres hands-on, proyectos colaborativos y pasantías con empresas del sector. Los estudiantes desarrollan pensamiento crítico, habilidades digitales y competencias laborales desde el primer año.",
-    "competencies": [
-      "Pensamiento lógico y resolución de problemas",
-      "Trabajo en equipo y comunicación efectiva",
-      "Manejo de herramientas digitales especializadas",
-      "Emprendimiento e innovación técnica",
-      "Ética profesional y responsabilidad social"
-    ],
+    "sectionTitle": "Secundaria Diurna",
     "requirements": [
       "Haber completado el VI grado de educación primaria",
       "Certificado de conclusión de primaria",
       "Copia de la cédula de identidad (TIM)",
       "Dos fotografías tamaño pasaporte",
       "Certificado de buena conducta del centro educativo anterior"
+    ]
+  },
+  "programNocturno": {
+    "sectionTitle": "Secundaria Nocturna",
+    "requirements": [
+      "Tener 15 años o más al momento de la matrícula",
+      "Haber completado el VI grado de educación primaria o ciclo básico",
+      "Copia de la cédula de identidad",
+      "Dos fotografías tamaño pasaporte",
+      "Certificado de calificaciones del último año cursado"
     ]
   }
 }

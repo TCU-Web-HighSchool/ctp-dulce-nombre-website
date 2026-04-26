@@ -1,8 +1,8 @@
 {
   "heroImage": "/uploads/colegio-foto-principal.png",
-  "heroDescription": "Excelencia en educación técnica por más de 25 años. Brindamos a nuestros estudiantes las herramientas, habilidades y certificaciones necesarias para triunfar en la economía global moderna.",
+  "heroDescription": "Excelencia en educación técnica por más de 20 años. Brindamos a nuestros estudiantes las herramientas, habilidades y certificaciones necesarias para triunfar en la economía global moderna.",
   "quickAccessTitle": "Acceso Rápido",
-  "heroBadgeValue": "25+",
+  "heroBadgeValue": "20+",
   "heroBadge": "Admisiones Abiertas 2025-2026",
   "heroBadgeLabel": "Años de Excelencia",
   "heroCtaLink": "/academic",
@@ -32,7 +32,7 @@
       "title": "Servicios Estudiantiles",
       "desc": "Desde becas y comedor estudiantil hasta orientación psicológica y apoyo académico, estamos aquí para ti.",
       "link": "Centro de Apoyo",
-      "to": "/about"
+      "to": "/scholarships"
     }
   ],
   "heroCtaLabel": "Explorar Programas",

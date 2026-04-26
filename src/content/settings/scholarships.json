@@ -6,26 +6,6 @@
 
   "scholarshipTypes": [
     {
-      "id": "avancemos",
-      "icon": "volunteer_activism",
-      "color": "primary",
-      "name": "Becas Avancemos",
-      "entity": "IMAS / MEP",
-      "description": "Transferencia monetaria mensual del Estado para jóvenes de familias de bajos ingresos, con el objetivo de mantenerlos en el sistema educativo.",
-      "amount": "Hasta ₡58.500 mensuales según nivel",
-      "renewable": true
-    },
-    {
-      "id": "beca-rendimiento",
-      "icon": "emoji_events",
-      "color": "orange",
-      "name": "Beca por Rendimiento Académico",
-      "entity": "Colegio / Comité de Becas",
-      "description": "Reconocimiento económico para estudiantes con promedio superior a 90 en el periodo anterior. Cubre materiales, uniformes o transporte.",
-      "amount": "Aporte variable según disponibilidad",
-      "renewable": true
-    },
-    {
       "id": "comedor",
       "icon": "restaurant",
       "color": "green",
@@ -50,25 +30,6 @@
   "requirementsSectionTitle": "Requisitos por Beca",
   "requirementsSectionSubtitle": "Revisá los criterios específicos de cada programa antes de aplicar.",
   "requirements": [
-    {
-      "scholarshipId": "avancemos",
-      "items": [
-        "Estar matriculado en el colegio en el año en curso",
-        "Pertenecer a un hogar con índice de pobreza o pobreza extrema (SIPO)",
-        "No haber abandonado el sistema educativo el año anterior",
-        "Tener entre 12 y 25 años al momento de la solicitud",
-        "Contar con nota de asistencia mínima del 85%"
-      ]
-    },
-    {
-      "scholarshipId": "beca-rendimiento",
-      "items": [
-        "Promedio académico igual o superior a 90 en el periodo anterior",
-        "No tener materias reprobadas en el mismo periodo",
-        "Estar matriculado regularmente en el colegio",
-        "No haber sido sancionado disciplinariamente en el periodo"
-      ]
-    },
     {
       "scholarshipId": "comedor",
       "items": [
@@ -127,16 +88,6 @@
   "deadlinesSectionSubtitle": "Es importante presentar la solicitud dentro del período habilitado para cada beca.",
   "deadlines": [
     {
-      "scholarship": "Becas Avancemos",
-      "period": "Febrero – Marzo",
-      "notes": "Apertura al inicio del año lectivo. Pueden abrirse ventanas adicionales en julio."
-    },
-    {
-      "scholarship": "Beca por Rendimiento",
-      "period": "Marzo (I periodo) / Agosto (II periodo)",
-      "notes": "Se otorga una vez publicadas las notas del periodo anterior."
-    },
-    {
       "scholarship": "Subsidio de Comedor",
       "period": "Enero – Febrero",
       "notes": "Al inicio del año. Renovación automática si se mantienen condiciones."
@@ -159,23 +110,6 @@
         "Fotocopia de cédula del padre/madre/encargado",
         "Comprobante de matrícula del año en curso",
         "Formulario de solicitud de beca firmado"
-      ]
-    },
-    {
-      "group": "Para Becas Avancemos",
-      "icon": "volunteer_activism",
-      "items": [
-        "Certificación del SIPO o resolución del IMAS",
-        "Comprobante de ingresos familiares (constancia laboral o declaración jurada)",
-        "Número de SINIRUBE del jefe de familia"
-      ]
-    },
-    {
-      "group": "Para Beca por Rendimiento",
-      "icon": "emoji_events",
-      "items": [
-        "Fotocopia de boletín de notas del periodo anterior",
-        "Constancia de conducta emitida por el colegio"
       ]
     },
     {
@@ -212,8 +146,8 @@
       "icon": "mail",
       "title": "Correo Electrónico",
       "description": "Enviá tus consultas por escrito y te responderemos en un plazo de 2 días hábiles.",
-      "detail": "becas@ctpdulcenombre.ed.cr",
-      "action": "mailto:becas@ctpdulcenombre.ed.cr",
+      "detail": "ctp.dulcenombre@mep.go.cr",
+      "action": "mailto:ctp.dulcenombre@mep.go.cr",
       "actionLabel": "Enviar correo"
     }
   ]

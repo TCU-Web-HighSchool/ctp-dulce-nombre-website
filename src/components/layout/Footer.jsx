@@ -11,7 +11,7 @@ const quickLinks = [
   { label: "Preguntas Frecuentes", to: "/faq" },
 ];
 
-const facebookHref = "#";
+const facebookHref = "https://www.facebook.com/ctpdulcenombrecartago/";
 
 export default function Footer() {
   return (
@@ -92,7 +92,7 @@ export default function Footer() {
                   mail
                 </span>
                 <span className="text-slate-500 text-sm">
-                  info@ctpdulcenombre.ed.cr
+                  ctp.dulcenombre@mep.go.cr
                 </span>
               </li>
             </ul>

@@ -48,8 +48,14 @@ const ModalProgram = ({ program, onClose }) => {
   if (!program) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/40 backdrop-blur-sm" onClick={onClose}>
-      <div className="bg-white w-full max-w-4xl max-h-[90vh] overflow-y-auto rounded-xl shadow-2xl relative flex flex-col md:flex-row" onClick={(e) => e.stopPropagation()}>
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/40 backdrop-blur-sm"
+      onClick={onClose}
+    >
+      <div
+        className="bg-white w-full max-w-4xl max-h-[90vh] overflow-y-auto rounded-xl shadow-2xl relative flex flex-col md:flex-row"
+        onClick={(e) => e.stopPropagation()}
+      >
         {/* Close Button */}
         <button
           onClick={onClose}
@@ -62,19 +68,31 @@ const ModalProgram = ({ program, onClose }) => {
         <aside className="w-full md:w-1/3 bg-slate-50 p-8 flex flex-col">
           <div className="mb-8">
             <div className="w-16 h-16 bg-primary rounded-xl flex items-center justify-center mb-6 shadow-lg">
-              <span className="material-symbols-outlined text-white text-4xl">{program.icon}</span>
+              <span className="material-symbols-outlined text-white text-4xl">
+                {program.icon}
+              </span>
             </div>
-            <span className="text-xs uppercase tracking-wider text-slate-500 font-bold mb-2 block">Técnico</span>
-            <h2 className="text-3xl font-extrabold text-slate-900 leading-tight">{program.title}</h2>
+            <span className="text-xs uppercase tracking-wider text-slate-500 font-bold mb-2 block">
+              Técnico
+            </span>
+            <h2 className="text-3xl font-extrabold text-slate-900 leading-tight">
+              {program.title}
+            </h2>
           </div>
           <div className="mt-auto space-y-4">
             <div className="flex items-center gap-3 text-slate-600">
-              <span className="material-symbols-outlined text-primary">schedule</span>
+              <span className="material-symbols-outlined text-primary">
+                schedule
+              </span>
               <span className="text-sm font-medium">{program.duration}</span>
             </div>
             <div className="flex items-center gap-3 text-slate-600">
-              <span className="material-symbols-outlined text-primary">verified</span>
-              <span className="text-sm font-medium">Certificación Nacional</span>
+              <span className="material-symbols-outlined text-primary">
+                verified
+              </span>
+              <span className="text-sm font-medium">
+                Certificación Nacional
+              </span>
             </div>
           </div>
         </aside>
@@ -82,7 +100,9 @@ const ModalProgram = ({ program, onClose }) => {
         {/* Main Content */}
         <div className="w-full md:w-2/3 p-8 md:p-12 overflow-y-auto">
           <section className="mb-10">
-            <h3 className="text-sm uppercase tracking-wider text-orange-600 font-bold mb-4">Resumen del Programa</h3>
+            <h3 className="text-sm uppercase tracking-wider text-orange-600 font-bold mb-4">
+              Resumen del Programa
+            </h3>
             <p className="text-slate-700 text-lg leading-relaxed">
               {program.description || program.summary}
             </p>
@@ -91,11 +111,15 @@ const ModalProgram = ({ program, onClose }) => {
           {/* Competencias */}
           {program.competencias && program.competencias.length > 0 && (
             <section className="mb-8">
-              <h3 className="text-sm uppercase tracking-wider text-primary font-bold mb-6">Competencias</h3>
+              <h3 className="text-sm uppercase tracking-wider text-primary font-bold mb-6">
+                Competencias
+              </h3>
               <ul className="space-y-3">
                 {program.competencias.map((comp, idx) => (
                   <li key={idx} className="flex items-start gap-3">
-                    <span className="material-symbols-outlined text-primary text-sm mt-0.5">check_circle</span>
+                    <span className="material-symbols-outlined text-primary text-sm mt-0.5">
+                      check_circle
+                    </span>
                     <span className="text-slate-700">{comp}</span>
                   </li>
                 ))}
@@ -106,19 +130,27 @@ const ModalProgram = ({ program, onClose }) => {
           {/* Campo Laboral */}
           {program.campoLaboral && (
             <section className="mb-8">
-              <h3 className="text-sm uppercase tracking-wider text-primary font-bold mb-4">Campo Laboral</h3>
-              <p className="text-slate-700 leading-relaxed">{program.campoLaboral}</p>
+              <h3 className="text-sm uppercase tracking-wider text-primary font-bold mb-4">
+                Campo Laboral
+              </h3>
+              <p className="text-slate-700 leading-relaxed">
+                {program.campoLaboral}
+              </p>
             </section>
           )}
 
           {/* Requisitos */}
           {program.requisitos && program.requisitos.length > 0 && (
             <section className="mb-12">
-              <h3 className="text-sm uppercase tracking-wider text-primary font-bold mb-6">Requisitos Específicos</h3>
+              <h3 className="text-sm uppercase tracking-wider text-primary font-bold mb-6">
+                Requisitos Específicos
+              </h3>
               <ul className="space-y-3">
                 {program.requisitos.map((req, idx) => (
                   <li key={idx} className="flex items-start gap-3">
-                    <span className="material-symbols-outlined text-primary text-sm mt-0.5">arrow_right</span>
+                    <span className="material-symbols-outlined text-primary text-sm mt-0.5">
+                      arrow_right
+                    </span>
                     <span className="text-slate-700">{req}</span>
                   </li>
                 ))}
@@ -129,11 +161,15 @@ const ModalProgram = ({ program, onClose }) => {
           {/* Habilidades */}
           {program.habilidades && program.habilidades.length > 0 && (
             <section className="mb-12">
-              <h3 className="text-sm uppercase tracking-wider text-primary font-bold mb-6">Habilidades a Conseguir</h3>
+              <h3 className="text-sm uppercase tracking-wider text-primary font-bold mb-6">
+                Habilidades a Conseguir
+              </h3>
               <ul className="space-y-3">
                 {program.habilidades.map((hab, idx) => (
                   <li key={idx} className="flex items-start gap-3">
-                    <span className="material-symbols-outlined text-primary text-sm mt-0.5">lightbulb</span>
+                    <span className="material-symbols-outlined text-primary text-sm mt-0.5">
+                      lightbulb
+                    </span>
                     <span className="text-slate-700">{hab}</span>
                   </li>
                 ))}
@@ -148,7 +184,9 @@ const ModalProgram = ({ program, onClose }) => {
               className="bg-primary text-white py-3 px-6 rounded-lg font-bold hover:bg-primary-dark transition-all flex items-center gap-2"
             >
               Solicitar Más Información
-              <span className="material-symbols-outlined text-sm">contact_support</span>
+              <span className="material-symbols-outlined text-sm">
+                contact_support
+              </span>
             </a>
           </div>
         </div>
@@ -311,31 +349,6 @@ export default function Academic() {
                 </p>
               </div>
             </div>
-            <div className="space-y-4">
-              <h3 className="font-bold text-slate-900 text-lg">
-                Proceso de Inscripción
-              </h3>
-              <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                {nocturno.enrollmentSteps.map((step, i) => (
-                  <div key={step.title} className="relative text-center group">
-                    <div className="mx-auto size-16 bg-primary/10 rounded-full flex items-center justify-center mb-4 group-hover:bg-primary group-hover:text-white transition-all text-primary">
-                      <span className="material-symbols-outlined text-2xl">
-                        {step.icon}
-                      </span>
-                    </div>
-                    <span className="text-xs font-black text-primary uppercase tracking-widest block mb-1">
-                      Paso {i + 1}
-                    </span>
-                    <h4 className="text-sm font-bold text-slate-900 mb-1">
-                      {step.title}
-                    </h4>
-                    <p className="text-xs text-slate-600 leading-relaxed">
-                      {step.description}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </div>
           </section>
         )}
 
@@ -487,7 +500,9 @@ export default function Academic() {
       </div>
 
       {/* Modal */}
-      {isModalOpen && <ModalProgram program={selectedProgram} onClose={closeModal} />}
+      {isModalOpen && (
+        <ModalProgram program={selectedProgram} onClose={closeModal} />
+      )}
     </div>
   );
 }
